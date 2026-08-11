@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buat Undangan Yuk!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #FFF8F0;
+      --card: #FFFFFF;
+      --fg: #3D2C2E;
+      --muted: #A0897A;
+      --accent: #E8735A;
+      --accent-light: #FDEAE6;
+      --sage: #8CB39F;
+      --sage-light: #E8F3ED;
+      --peach: #FFDAB9;
+      --border: #F0E4D8;
+      --shadow: rgba(61, 44, 46, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* === Dekorasi mengambang === */
+    .floating-decor {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+    .decor-1 {
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, var(--peach) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -40px; right: -40px;
+      animation: floatA 8s ease-in-out infinite;
+    }
+    .decor-2 {
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: 10%; left: -30px;
+      animation: floatB 10s ease-in-out infinite;
+    }
+    .decor-3 {
+      width: 90px; height: 90px;
+      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      border-radius: 50%;
+      top: 50%; right: 5%;
+      animation: floatA 12s ease-in-out infinite reverse;
+    }
+    .decor-4 {
+      width: 60px; height: 60px;
+      background: radial-gradient(circle, #FFF3CD 0%, transparent 70%);
+      border-radius: 50%;
+      top: 20%; left: 10%;
+      animation: floatB 7s ease-in-out infinite;
+    }
+
+    @keyframes floatA {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-15px, 20px) scale(1.1); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(12px, -18px) scale(1.05); }
+    }
+
+    /* === Bintang kecil === */
+    .tiny-star {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      color: var(--accent);
+      opacity: 0;
+      animation: twinkle 4s ease-in-out infinite;
+    }
+    .tiny-star:nth-child(1) { top: 12%; left: 18%; font-size: 10px; animation-delay: 0s; }
+    .tiny-star:nth-child(2) { top: 30%; right: 15%; font-size: 8px; animation-delay: 1.2s; color: var(--sage); }
+    .tiny-star:nth-child(3) { bottom: 25%; left: 22%; font-size: 12px; animation-delay: 2.5s; }
+    .tiny-star:nth-child(4) { top: 65%; right: 25%; font-size: 9px; animation-delay: 0.8s; color: var(--sage); }
+    .tiny-star:nth-child(5) { bottom: 15%; right: 10%; font-size: 11px; animation-delay: 3.1s; }
+    .tiny-star:nth-child(6) { top: 45%; left: 5%; font-size: 7px; animation-delay: 1.8s; color: var(--accent); }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 0.5; transform: scale(1) rotate(180deg); }
+    }
+
+    /* === Konten utama === */
+    .main-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* === Header === */
+    .page-header {
+      text-align: center;
+      margin-bottom: 36px;
+      animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--accent), #F4A261);
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(232, 115, 90, 0.3);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+    }
+    .header-icon:hover { transform: rotate(3deg) scale(1.05); }
+    .header-icon i { font-size: 26px; color: #fff; }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+    .page-header p {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* === Kartu Form === */
+    .form-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 30px var(--shadow), 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* === Grup form === */
+    .form-group {
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .form-group:last-of-type { margin-bottom: 0; }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+    }
+    .form-label .label-icon {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .label-icon.peach { background: var(--accent-light); color: var(--accent); }
+    .label-icon.sage { background: var(--sage-light); color: var(--sage); }
+    .label-icon.cream { background: #FFF3CD; color: #D4A017; }
+    .label-icon.pink { background: #FDE2E8; color: #D6336C; }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fg);
+      background: var(--bg);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: #C4B5A8;
+      font-weight: 400;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(232, 115, 90, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* Baris dua kolom */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* === Pemisah === */
+    .form-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 26px 0;
+    }
+
+    /* === Tombol === */
+    .btn-generate {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 16px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #F4A261);
+      cursor: pointer;
+      margin-top: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(232, 115, 90, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-generate::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn-generate:hover::before { left: 100%; }
+    .btn-generate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(232, 115, 90, 0.45);
+    }
+    .btn-generate:active { transform: translateY(0) scale(0.98); }
+
+    /* === Hasil Link === */
+    .result-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 4px 30px var(--shadow), 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      display: none;
+      animation: popIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .result-card.show { display: block; }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.92) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .result-check {
+      width: 40px; height: 40px;
+      background: var(--sage-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .result-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .result-header p {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .link-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: 4px 4px 4px 16px;
+      margin-bottom: 16px;
+    }
+    .link-box .link-text {
+      flex: 1;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 500;
+    }
+    .btn-copy {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 11px;
+      background: var(--sage);
+      color: #fff;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .btn-copy:hover { background: #7AA08D; transform: scale(1.03); }
+    .btn-copy.copied { background: var(--accent); }
+
+    /* Tombol aksi bawah */
+    .result-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-action {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-action:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .btn-action i { font-size: 14px; }
+
+    /* === Preview Modal === */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(61, 44, 46, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-overlay.show { display: flex; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--card);
+      border-radius: 28px;
+      width: 100%;
+      max-width: 420px;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+      animation: modalPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .preview-top {
+      background: linear-gradient(135deg, var(--accent), #F4A261);
+      padding: 40px 28px 36px;
+      text-align: center;
+      position: relative;
+      border-radius: 28px 28px 0 0;
+      overflow: hidden;
+    }
+    .preview-top::before {
+      content: '';
+      position: absolute;
+      width: 140px; height: 140px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      top: -40px; right: -30px;
+    }
+    .preview-top::after {
+      content: '';
+      position: absolute;
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      bottom: -20px; left: 20px;
+    }
+    .preview-top .envelope {
+      font-size: 40px;
+      color: #fff;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+      animation: envelopeBounce 2s ease-in-out infinite;
+    }
+    @keyframes envelopeBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .preview-top h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .preview-top .sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .preview-body { padding: 28px; }
+
+    .preview-to {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .preview-to .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .preview-to .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+
+    .preview-detail {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+    }
+    .detail-item + .detail-item {
+      border-top: 1px solid var(--border);
+    }
+    .detail-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .detail-icon.di-date { background: var(--accent-light); color: var(--accent); }
+    .detail-icon.di-loc { background: var(--sage-light); color: var(--sage); }
+    .detail-icon.di-batch { background: #FFF3CD; color: #D4A017; }
+    .detail-text .dt-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .detail-text .dt-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-top: 2px;
+    }
+
+    .preview-footer-msg {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .modal-close {
+      display: block;
+      margin: 0 28px 28px;
+      padding: 13px;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .modal-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* === Toast === */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--fg);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 200;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* === Error === */
+    .field-error {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 5px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+    .field-error.show { display: flex; }
+    .form-input.error, .form-textarea.error { border-color: var(--accent); }
+
+    /* === Footer === */
+    .page-footer {
+      text-align: center;
+      margin-top: 36px;
+      animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    }
+    .page-footer p {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .page-footer .heart { color: var(--accent); }
+
+    /* === Responsif === */
+    @media (max-width: 480px) {
+      .main-wrapper { padding: 28px 16px 48px; }
+      .form-card { padding: 24px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 24px; }
+      .result-actions { flex-direction: column; }
+    }
+
+    /* === Prefers reduced motion === */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dekorasi mengambang -->
+  <div class="floating-decor decor-1"></div>
+  <div class="floating-decor decor-2"></div>
+  <div class="floating-decor decor-3"></div>
+  <div class="floating-decor decor-4"></div>
+
+  <!-- Bintang kecil -->
+  <i class="fa-solid fa-sparkle tiny-star"></i>
+  <i class="fa-solid fa-star tiny-star"></i>
+  <i class="fa-solid fa-sparkle tiny-star"></i>
+  <i class="fa-solid fa-star tiny-star"></i>
+  <i class="fa-solid fa-sparkle tiny-star"></i>
+  <i class="fa-solid fa-star tiny-star"></i>
+
+  <main class="main-wrapper">
+
+    <!-- Header -->
+    <header class="page-header">
+      <div class="header-icon" aria-hidden="true">
+        <i class="fa-solid fa-paper-plane"></i>
+      </div>
+      <h1>Buat Undangan</h1>
+      <p>Isi detail di bawah, langsung dapat link-nya</p>
+    </header>
+
+    <!-- Form -->
+    <section class="form-card" aria-label="Form undangan">
+      <form id="invitationForm" novalidate>
+
+        <!-- Nama -->
+        <div class="form-group">
+          <label class="form-label" for="guestName">
+            <span class="label-icon peach"><i class="fa-solid fa-user"></i></span>
+            Nama Orang yang Terhormat
+          </label>
+          <input type="text" id="guestName" class="form-input" placeholder="cth: Bapak Ahmad Sudrajat" autocomplete="off">
+          <div class="field-error" id="errName"><i class="fa-solid fa-circle-exclamation"></i> Nama tamu belum diisi</div>
+        </div>
+
+        <!-- Angkatan -->
+        <div class="form-group">
+          <label class="form-label" for="batchYear">
+            <span class="label-icon cream"><i class="fa-solid fa-graduation-cap"></i></span>
+            Angkatan
+          </label>
+          <input type="text" id="batchYear" class="form-input" placeholder="cth: 2010" autocomplete="off">
+          <div class="field-error" id="errBatch"><i class="fa-solid fa-circle-exclamation"></i> Angkatan belum diisi</div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Tanggal & Waktu -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="eventDate">
+              <span class="label-icon sage"><i class="fa-solid fa-calendar-days"></i></span>
+              Tanggal
+            </label>
+            <input type="date" id="eventDate" class="form-input">
+            <div class="field-error" id="errDate"><i class="fa-solid fa-circle-exclamation"></i> Tanggal belum dipilih</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="eventTime">
+              <span class="label-icon pink"><i class="fa-solid fa-clock"></i></span>
+              Waktu
+            </label>
+            <input type="time" id="eventTime" class="form-input">
+            <div class="field-error" id="errTime"><i class="fa-solid fa-circle-exclamation"></i> Waktu belum diisi</div>
+          </div>
+        </div>
+
+        <!-- Hari -->
+        <div class="form-group" style="margin-top: -4px;">
+          <label class="form-label" for="eventDay">
+            <span class="label-icon sage"><i class="fa-solid fa-sun"></i></span>
+            Hari
+          </label>
+          <select id="eventDay" class="form-input">
+            <option value="">Pilih hari...</option>
+            <option value="Senin">Senin</option>
+            <option value="Selasa">Selasa</option>
+            <option value="Rabu">Rabu</option>
+            <option value="Kamis">Kamis</option>
+            <option value="Jumat">Jumat</option>
+            <option value="Sabtu">Sabtu</option>
+            <option value="Minggu">Minggu</option>
+          </select>
+          <div class="field-error" id="errDay"><i class="fa-solid fa-circle-exclamation"></i> Hari belum dipilih</div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Lokasi -->
+        <div class="form-group">
+          <label class="form-label" for="eventLocation">
+            <span class="label-icon peach"><i class="fa-solid fa-location-dot"></i></span>
+            Lokasi / Alamat
+          </label>
+          <textarea id="eventLocation" class="form-textarea" placeholder="cth: Gedung Serba Guna Jl. Merdeka No. 45, Jakarta Selatan" rows="3"></textarea>
+          <div class="field-error" id="errLoc"><i class="fa-solid fa-circle-exclamation"></i> Lokasi belum diisi</div>
+        </div>
+
+        <!-- Tombol -->
+        <button type="submit" class="btn-generate" id="btnGenerate">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Buat Link Undangan
+        </button>
+      </form>
+    </section>
+
+    <!-- Hasil Link -->
+    <section class="result-card" id="resultCard" aria-label="Hasil link undangan">
+      <div class="result-header">
+        <div class="result-check"><i class="fa-solid fa-check"></i></div>
+        <div>
+          <h3>Link Undangan Siap</h3>
+          <p>Salin dan bagikan ke tamu undangan</p>
+        </div>
+      </div>
+      <div class="link-box">
+        <span class="link-text" id="linkText"></span>
+        <button class="btn-copy" id="btnCopy" aria-label="Salin link">
+          <i class="fa-regular fa-copy"></i>
+          <span>Salin</span>
+        </button>
+      </div>
+      <div class="result-actions">
+        <button class="btn-action" id="btnPreview">
+          <i class="fa-solid fa-eye"></i>
+          Lihat Preview
+        </button>
+        <button class="btn-action" id="btnShareWA">
+          <i class="fa-brands fa-whatsapp"></i>
+          Share WhatsApp
+        </button>
+        <button class="btn-action" id="btnReset">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+          Buat Baru
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>Dibuat dengan <span class="heart"><i class="fa-solid fa-heart"></i></span> untuk undangan spesialmu</p>
+    </footer>
+  </main>
+
+  <!-- Modal Preview -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Preview undangan">
+    <div class="modal-content">
+      <div class="preview-top">
+        <div class="envelope"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <h2>Undangan Khusus</h2>
+        <p class="sub">Angkatan <span id="pvBatch"></span></p>
+      </div>
+      <div class="preview-body">
+        <div class="preview-to">
+          <div class="label">Kepada Yth.</div>
+          <div class="name" id="pvName"></div>
+        </div>
+        <div class="preview-detail">
+          <div class="detail-item">
+            <div class="detail-icon di-date"><i class="fa-solid fa-calendar-days"></i></div>
+            <div class="detail-text">
+              <div class="dt-label">Waktu</div>
+              <div class="dt-value" id="pvDateTime"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon di-loc"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="detail-text">
+              <div class="dt-label">Lokasi</div>
+              <div class="dt-value" id="pvLocation"></div>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon di-batch"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="detail-text">
+              <div class="dt-label">Angkatan</div>
+              <div class="dt-value" id="pvBatchDetail"></div>
+            </div>
+          </div>
+        </div>
+        <p class="preview-footer-msg">Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+      </div>
+      <button class="modal-close" id="modalClose">Tutup Preview</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Berhasil disalin!</span>
+  </div>
+
+  <script>
+    // === Elemen DOM ===
+    const form = document.getElementById('invitationForm');
+    const resultCard = document.getElementById('resultCard');
+    const linkText = document.getElementById('linkText');
+    const btnCopy = document.getElementById('btnCopy');
+    const btnPreview = document.getElementById('btnPreview');
+    const btnShareWA = document.getElementById('btnShareWA');
+    const btnReset = document.getElementById('btnReset');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+
+    // Input fields
+    const fields = {
+      name: document.getElementById('guestName'),
+      batch: document.getElementById('batchYear'),
+      date: document.getElementById('eventDate'),
+      time: document.getElementById('eventTime'),
+      day: document.getElementById('eventDay'),
+      location: document.getElementById('eventLocation')
+    };
+
+    // Error elements
+    const errors = {
+      name: document.getElementById('errName'),
+      batch: document.getElementById('errBatch'),
+      date: document.getElementById('errDate'),
+      time: document.getElementById('errTime'),
+      day: document.getElementById('errDay'),
+      location: document.getElementById('errLoc')
+    };
+
+    // Data undangan terakhir
+    let lastInvitationData = null;
+
+    // === Validasi & Submit ===
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Reset semua error
+      Object.values(errors).forEach(el => el.classList.remove('show'));
+      Object.values(fields).forEach(el => el.classList.remove('error'));
+
+      let hasError = false;
+
+      // Cek tiap field
+      if (!fields.name.value.trim()) { showErr('name'); hasError = true; }
+      if (!fields.batch.value.trim()) { showErr('batch'); hasError = true; }
+      if (!fields.date.value) { showErr('date'); hasError = true; }
+      if (!fields.time.value) { showErr('time'); hasError = true; }
+      if (!fields.day.value) { showErr('day'); hasError = true; }
+      if (!fields.location.value.trim()) { showErr('location'); hasError = true; }
+
+      if (hasError) {
+        // Scroll ke field error pertama
+        const firstErr = document.querySelector('.field-error.show');
+        if (firstErr) {
+          firstErr.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      // Siapkan data
+      const data = {
+        nama: fields.name.value.trim(),
+        angkatan: fields.batch.value.trim(),
+        tanggal: fields.date.value,
+        waktu: fields.time.value,
+        hari: fields.day.value,
+        lokasi: fields.location.value.trim()
+      };
+
+      lastInvitationData = data;
+
+      // Buat link (encode ke base64 dan simpan di hash URL)
+      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+      const baseUrl = window.location.origin + window.location.pathname;
+      const generatedLink = baseUrl + '#inv=' + encoded;
+
+      // Tampilkan hasil
+      linkText.textContent = generatedLink;
+      resultCard.classList.remove('show');
+      // Trigger reflow untuk animasi ulang
+      void resultCard.offsetWidth;
+      resultCard.classList.add('show');
+
+      // Reset tombol copy
+      btnCopy.classList.remove('copied');
+      btnCopy.querySelector('span').textContent = 'Salin';
+      btnCopy.querySelector('i').className = 'fa-regular fa-copy';
+
+      // Scroll ke hasil
+      setTimeout(() => {
+        resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+
+      showToast('Link undangan berhasil dibuat!', 'fa-solid fa-party-horn');
+    });
+
+    function showErr(key) {
+      errors[key].classList.add('show');
+      fields[key].classList.add('error');
+    }
+
+    // Hapus error saat user mulai mengetik
+    Object.keys(fields).forEach(key => {
+      const eventType = fields[key].tagName === 'SELECT' ? 'change' : 'input';
+      fields[key].addEventListener(eventType, () => {
+        errors[key].classList.remove('show');
+        fields[key].classList.remove('error');
+      });
+    });
+
+    // === Salin Link ===
+    btnCopy.addEventListener('click', async function() {
+      const link = linkText.textContent;
+      try {
+        await navigator.clipboard.writeText(link);
+        btnCopy.classList.add('copied');
+        btnCopy.querySelector('span').textContent = 'Tersalin';
+        btnCopy.querySelector('i').className = 'fa-solid fa-check';
+        showToast('Link berhasil disalin!', 'fa-solid fa-circle-check');
+      } catch {
+        // Fallback jika clipboard API tidak tersedia
+        const ta = document.createElement('textarea');
+        ta.value = link;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btnCopy.classList.add('copied');
+        btnCopy.querySelector('span').textContent = 'Tersalin';
+        btnCopy.querySelector('i').className = 'fa-solid fa-check';
+        showToast('Link berhasil disalin!', 'fa-solid fa-circle-check');
+      }
+    });
+
+    // === Preview ===
+    btnPreview.addEventListener('click', function() {
+      if (!lastInvitationData) return;
+      const d = lastInvitationData;
+
+      document.getElementById('pvName').textContent = d.nama;
+      document.getElementById('pvBatch').textContent = d.angkatan;
+      document.getElementById('pvBatchDetail').textContent = 'Angkatan ' + d.angkatan;
+
+      // Format tanggal ke Bahasa Indonesia
+      const dateObj = new Date(d.tanggal + 'T00:00:00');
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const tanggalFormatted = dateObj.toLocaleDateString('id-ID', options);
+      document.getElementById('pvDateTime').textContent = d.hari + ', ' + tanggalFormatted + ' pukul ' + formatTime(d.waktu);
+
+      document.getElementById('pvLocation').textContent = d.lokasi;
+
+      modalOverlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function formatTime(timeStr) {
+      const [h, m] = timeStr.split(':').map(Number);
+      const period = h >= 12 ? 'WIB' : 'WIB';
+      const h12 = h.toString().padStart(2, '0');
+      return h12 + ':' + m.toString().padStart(2, '0') + ' ' + period;
+    }
+
+    // Tutup modal
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('show')) closeModal();
+    });
+
+    function closeModal() {
+      modalOverlay.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    // === Share WhatsApp ===
+    btnShareWA.addEventListener('click', function() {
+      if (!lastInvitationData) return;
+      const d = lastInvitationData;
+      const dateObj = new Date(d.tanggal + 'T00:00:00');
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const tanggalFormatted = dateObj.toLocaleDateString('id-ID', options);
+
+      const message = `Assalamualaikum Wr. Wb.\n\nYth. ${d.nama}\n\nDengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara reunian Angkatan ${d.angkatan} yang akan dilaksanakan pada:\n\nHari/Tanggal: ${d.hari}, ${tanggalFormatted}\nWaktu: ${formatTime(d.waktu)}\nTempat: ${d.lokasi}\n\nDetail undangan dapat dilihat melalui link berikut:\n${linkText.textContent}\n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\nWassalamualaikum Wr. Wb.`;
+
+      const waUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
+      window.open(waUrl, '_blank');
+    });
+
+    // === Reset ===
+    btnReset.addEventListener('click', function() {
+      resultCard.classList.remove('show');
+      form.reset();
+      lastInvitationData = null;
+      Object.values(errors).forEach(el => el.classList.remove('show'));
+      Object.values(fields).forEach(el => el.classList.remove('error'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // === Toast ===
+    let toastTimer = null;
+    function showToast(msg, icon) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastMsg.textContent = msg;
+      toast.querySelector('i').className = icon || 'fa-solid fa-circle-check';
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+
+    // === Cek hash URL untuk langsung buka preview ===
+    function checkHashInvitation() {
+      const hash = window.location.hash;
+      if (hash.startsWith('#inv=')) {
+        try {
+          const encoded = hash.substring(5);
+          const json = decodeURIComponent(escape(atob(encoded)));
+          const data = JSON.parse(json);
+
+          // Tampilkan preview langsung
+          document.getElementById('pvName').textContent = data.nama;
+          document.getElementById('pvBatch').textContent = data.angkatan;
+          document.getElementById('pvBatchDetail').textContent = 'Angkatan ' + data.angkatan;
+
+          const dateObj = new Date(data.tanggal + 'T00:00:00');
+          const options = { day: 'numeric', month: 'long', year: 'numeric' };
+          const tanggalFormatted = dateObj.toLocaleDateString('id-ID', options);
+          document.getElementById('pvDateTime').textContent = data.hari + ', ' + tanggalFormatted + ' pukul ' + formatTime(data.waktu);
+
+          document.getElementById('pvLocation').textContent = data.lokasi;
+
+          // Sembunyikan form, tampilkan modal
+          document.querySelector('.form-card').style.display = 'none';
+          document.querySelector('.page-header h1').textContent = 'Undangan Untukmu';
+          document.querySelector('.page-header p').textContent = 'Kamu diundang di acara spesial ini';
+
+          modalOverlay.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        } catch(e) {
+          // Jika data tidak valid, abaikan
+        }
+      }
+    }
+    checkHashInvitation();
+  </script>
+</body>
+</html>
