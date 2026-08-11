@@ -23,6 +23,8 @@
             --success-dim: rgba(74, 222, 128, 0.15);
             --border: #2A2A2A;
             --border-accent: rgba(212, 168, 83, 0.3);
+            --wa-green: #25D366;
+            --wa-dark: #128C7E;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,12 +37,8 @@
             overflow-x: hidden;
         }
 
-        /* Latar belakang animasi */
         .bg-pattern {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
             background:
                 radial-gradient(ellipse 80% 60% at 20% 10%, rgba(212, 168, 83, 0.06) 0%, transparent 60%),
                 radial-gradient(ellipse 60% 50% at 80% 90%, rgba(212, 168, 83, 0.04) 0%, transparent 60%),
@@ -48,10 +46,7 @@
         }
 
         .bg-grid {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
             background-image:
                 linear-gradient(rgba(212, 168, 83, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(212, 168, 83, 0.03) 1px, transparent 1px);
@@ -59,34 +54,13 @@
         }
 
         .floating-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
+            position: fixed; border-radius: 50%; filter: blur(80px);
+            pointer-events: none; z-index: 0;
             animation: floatOrb 20s ease-in-out infinite;
         }
-
-        .orb-1 {
-            width: 300px; height: 300px;
-            background: rgba(212, 168, 83, 0.07);
-            top: -100px; left: -50px;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 250px; height: 250px;
-            background: rgba(212, 168, 83, 0.05);
-            bottom: -80px; right: -60px;
-            animation-delay: -7s;
-        }
-
-        .orb-3 {
-            width: 200px; height: 200px;
-            background: rgba(212, 168, 83, 0.04);
-            top: 40%; right: 10%;
-            animation-delay: -14s;
-        }
+        .orb-1 { width: 300px; height: 300px; background: rgba(212, 168, 83, 0.07); top: -100px; left: -50px; }
+        .orb-2 { width: 250px; height: 250px; background: rgba(212, 168, 83, 0.05); bottom: -80px; right: -60px; animation-delay: -7s; }
+        .orb-3 { width: 200px; height: 200px; background: rgba(212, 168, 83, 0.04); top: 40%; right: 10%; animation-delay: -14s; }
 
         @keyframes floatOrb {
             0%, 100% { transform: translate(0, 0) scale(1); }
@@ -95,501 +69,241 @@
             75% { transform: translate(15px, 15px) scale(1.05); }
         }
 
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Heading font */
+        .content-wrapper { position: relative; z-index: 1; }
         .font-display { font-family: 'Playfair Display', serif; }
 
-        /* Kartu */
         .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .card:hover { border-color: var(--border-accent); box-shadow: 0 0 40px rgba(212, 168, 83, 0.05); }
 
-        .card:hover {
-            border-color: var(--border-accent);
-            box-shadow: 0 0 40px rgba(212, 168, 83, 0.05);
-        }
-
-        /* Input */
         .input-field {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 12px 16px;
-            color: var(--fg);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            width: 100%;
-            transition: all 0.25s ease;
-            outline: none;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+            border-radius: 10px; padding: 12px 16px; color: var(--fg);
+            font-family: 'DM Sans', sans-serif; font-size: 14px; width: 100%;
+            transition: all 0.25s ease; outline: none;
         }
-
-        .input-field:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-dim);
-            background: rgba(255,255,255,0.06);
-        }
-
+        .input-field:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); background: rgba(255,255,255,0.06); }
         .input-field::placeholder { color: var(--fg-muted); }
+        textarea.input-field { resize: vertical; min-height: 160px; line-height: 1.7; }
 
-        textarea.input-field {
-            resize: vertical;
-            min-height: 160px;
-            line-height: 1.7;
-        }
-
-        /* Label */
         .label {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--fg-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 8px;
-            display: block;
+            font-size: 13px; font-weight: 600; color: var(--fg-muted);
+            text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; display: block;
         }
 
-        /* Tombol */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 24px; border-radius: 10px;
+            font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+            border: none; cursor: pointer;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            white-space: nowrap;
+            text-decoration: none; white-space: nowrap;
         }
-
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #C49A3E);
-            color: #0F0F0F;
+            background: linear-gradient(135deg, var(--accent), #C49A3E); color: #0F0F0F;
             box-shadow: 0 4px 20px rgba(212, 168, 83, 0.25);
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.35);
-        }
-
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212, 168, 83, 0.35); }
         .btn-primary:active { transform: translateY(0); }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.06);
-            color: var(--fg);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--fg-muted);
-        }
-
-        .btn-danger {
-            background: var(--danger-dim);
-            color: var(--danger);
-            border: 1px solid rgba(224, 82, 82, 0.2);
-        }
-
-        .btn-danger:hover {
-            background: rgba(224, 82, 82, 0.25);
-        }
+        .btn-secondary { background: rgba(255,255,255,0.06); color: var(--fg); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--fg-muted); }
+        .btn-danger { background: var(--danger-dim); color: var(--danger); border: 1px solid rgba(224, 82, 82, 0.2); }
+        .btn-danger:hover { background: rgba(224, 82, 82, 0.25); }
 
         .btn-wa {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: #fff;
+            background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
         }
+        .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35); }
 
-        .btn-wa:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+        .btn-wa-sm {
+            background: rgba(37, 211, 102, 0.12); color: #25D366;
+            border: 1px solid rgba(37, 211, 102, 0.25);
+            width: 36px; height: 36px; padding: 0;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 8px; cursor: pointer; font-size: 14px;
+            transition: all 0.25s ease; flex-shrink: 0;
         }
+        .btn-wa-sm:hover { background: rgba(37, 211, 102, 0.25); transform: scale(1.08); box-shadow: 0 0 16px rgba(37, 211, 102, 0.2); }
+        .btn-wa-sm:active { transform: scale(0.95); }
 
-        .btn-sm {
-            padding: 8px 14px;
-            font-size: 13px;
-            border-radius: 8px;
-        }
-
+        .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 8px; }
         .btn-icon {
-            width: 36px; height: 36px;
-            padding: 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
+            width: 36px; height: 36px; padding: 0;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 8px; flex-shrink: 0;
         }
 
-        /* Badge */
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
         }
+        .badge-gold { background: var(--accent-dim); color: var(--accent); }
+        .badge-green { background: var(--success-dim); color: var(--success); }
 
-        .badge-gold {
-            background: var(--accent-dim);
-            color: var(--accent);
-        }
-
-        .badge-green {
-            background: var(--success-dim);
-            color: var(--success);
-        }
-
-        /* Tabel tamu */
-        .guest-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-
+        .guest-table { width: 100%; border-collapse: separate; border-spacing: 0; }
         .guest-table thead th {
-            background: rgba(255,255,255,0.03);
-            padding: 12px 16px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--fg-muted);
-            text-align: left;
+            background: rgba(255,255,255,0.03); padding: 12px 14px;
+            font-size: 12px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--fg-muted); text-align: left;
             border-bottom: 1px solid var(--border);
         }
-
         .guest-table thead th:first-child { border-radius: 10px 0 0 0; }
         .guest-table thead th:last-child { border-radius: 0 10px 0 0; }
-
-        .guest-table tbody tr {
-            transition: background 0.2s ease;
-        }
-
-        .guest-table tbody tr:hover {
-            background: rgba(255,255,255,0.02);
-        }
-
+        .guest-table tbody tr { transition: background 0.2s ease; }
+        .guest-table tbody tr:hover { background: rgba(255,255,255,0.02); }
         .guest-table tbody td {
-            padding: 14px 16px;
-            font-size: 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            vertical-align: middle;
+            padding: 12px 14px; font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle;
         }
 
         .guest-avatar {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--accent-dim);
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
+            width: 36px; height: 36px; border-radius: 10px;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 14px; flex-shrink: 0;
         }
 
-        /* Thumbnail upload */
         .thumb-upload {
-            width: 100%;
-            max-width: 320px;
-            aspect-ratio: 16/9;
-            border: 2px dashed var(--border);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            position: relative;
-            background: rgba(255,255,255,0.02);
+            width: 100%; max-width: 320px; aspect-ratio: 16/9;
+            border: 2px dashed var(--border); border-radius: 12px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s ease; overflow: hidden;
+            position: relative; background: rgba(255,255,255,0.02);
         }
-
-        .thumb-upload:hover {
-            border-color: var(--accent);
-            background: var(--accent-dim);
-        }
-
-        .thumb-upload img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            inset: 0;
-        }
-
+        .thumb-upload:hover { border-color: var(--accent); background: var(--accent-dim); }
+        .thumb-upload img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
         .thumb-upload .overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            position: absolute; inset: 0; background: rgba(0,0,0,0.6);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
         }
-
         .thumb-upload:hover .overlay { opacity: 1; }
 
-        /* Toast */
-        .toast-container {
-            position: fixed;
-            top: 24px;
-            right: 24px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
+        .toast-container { position: fixed; top: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
         .toast {
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding: 14px 20px; border-radius: 12px; font-size: 14px; font-weight: 500;
+            display: flex; align-items: center; gap: 10px;
             animation: toastIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            max-width: 380px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4); max-width: 420px;
         }
+        .toast-success { background: #1a2e1a; border: 1px solid rgba(74, 222, 128, 0.3); color: var(--success); }
+        .toast-error { background: #2e1a1a; border: 1px solid rgba(224, 82, 82, 0.3); color: var(--danger); }
+        .toast-info { background: #1a1a2e; border: 1px solid rgba(212, 168, 83, 0.3); color: var(--accent); }
+        @keyframes toastIn { from { opacity: 0; transform: translateX(40px) scale(0.95); } to { opacity: 1; transform: translateX(0) scale(1); } }
+        .toast-exit { animation: toastOut 0.3s ease forwards; }
+        @keyframes toastOut { to { opacity: 0; transform: translateX(40px) scale(0.95); } }
 
-        .toast-success {
-            background: #1a2e1a;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            color: var(--success);
-        }
-
-        .toast-error {
-            background: #2e1a1a;
-            border: 1px solid rgba(224, 82, 82, 0.3);
-            color: var(--danger);
-        }
-
-        .toast-info {
-            background: #1a1a2e;
-            border: 1px solid rgba(212, 168, 83, 0.3);
-            color: var(--accent);
-        }
-
-        @keyframes toastIn {
-            from { opacity: 0; transform: translateX(40px) scale(0.95); }
-            to { opacity: 1; transform: translateX(0) scale(1); }
-        }
-
-        .toast-exit {
-            animation: toastOut 0.3s ease forwards;
-        }
-
-        @keyframes toastOut {
-            to { opacity: 0; transform: translateX(40px) scale(0.95); }
-        }
-
-        /* Modal */
         .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px); z-index: 1000;
+            display: flex; align-items: center; justify-content: center; padding: 24px;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
-
-        .modal-backdrop.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
+        .modal-backdrop.active { opacity: 1; pointer-events: all; }
         .modal {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 32px;
-            width: 100%;
-            max-width: 480px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; padding: 32px; width: 100%; max-width: 480px;
             transform: scale(0.9) translateY(20px);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .modal-backdrop.active .modal { transform: scale(1) translateY(0); }
 
-        .modal-backdrop.active .modal {
-            transform: scale(1) translateY(0);
-        }
-
-        /* Preview pesan */
         .preview-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            font-size: 14px;
-            line-height: 1.8;
-            white-space: pre-wrap;
-            word-break: break-word;
-            max-height: 400px;
-            overflow-y: auto;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; font-size: 14px; line-height: 1.8;
+            white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;
         }
-
         .preview-box::-webkit-scrollbar { width: 6px; }
         .preview-box::-webkit-scrollbar-track { background: transparent; }
-        .preview-box::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 3px;
-        }
+        .preview-box::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-        /* Stat card */
         .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px 24px;
-            transition: all 0.3s ease;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 20px 24px; transition: all 0.3s ease;
         }
+        .stat-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
 
-        .stat-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-2px);
-        }
-
-        /* Section divider */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border), transparent);
-            margin: 8px 0;
-        }
-
-        /* Checkbox custom */
         .custom-check {
-            appearance: none;
-            width: 18px; height: 18px;
-            border: 2px solid var(--border);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            flex-shrink: 0;
+            appearance: none; width: 18px; height: 18px;
+            border: 2px solid var(--border); border-radius: 5px;
+            cursor: pointer; transition: all 0.2s ease; position: relative; flex-shrink: 0;
         }
-
-        .custom-check:checked {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
-
+        .custom-check:checked { background: var(--accent); border-color: var(--accent); }
         .custom-check:checked::after {
-            content: '✓';
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            color: #0F0F0F;
+            content: '✓'; position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 700; color: #0F0F0F;
         }
 
-        /* Scrollbar global */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 4px;
-        }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--fg-muted); }
 
-        /* Animasi masuk */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(24px);
-            animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
 
-        /* Nama highlight di preview */
-        .highlight-name {
-            color: var(--accent);
-            font-weight: 600;
-        }
+        .highlight-name { color: var(--accent); font-weight: 600; }
 
-        /* Kosong state */
-        .empty-state {
-            text-align: center;
-            padding: 60px 24px;
-            color: var(--fg-muted);
-        }
+        .empty-state { text-align: center; padding: 60px 24px; color: var(--fg-muted); }
+        .empty-state i { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
+        .guest-table tbody tr.selected { background: var(--accent-dim); }
 
-        .empty-state i {
-            font-size: 48px;
-            margin-bottom: 16px;
-            opacity: 0.3;
-        }
-
-        /* Selected row */
-        .guest-table tbody tr.selected {
-            background: var(--accent-dim);
-        }
-
-        @media (max-width: 768px) {
-            .guest-table { font-size: 13px; }
-            .guest-table thead th,
-            .guest-table tbody td { padding: 10px 12px; }
-            .guest-avatar { width: 30px; height: 30px; font-size: 12px; }
-        }
-
-        /* Partikel shimmer di header */
         .shimmer {
             background: linear-gradient(90deg, var(--accent) 0%, #F5E6C8 50%, var(--accent) 100%);
             background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: shimmer 3s ease-in-out infinite;
         }
+        @keyframes shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        /* Tooltip untuk tombol WA per baris */
+        .wa-tooltip {
+            position: relative;
+        }
+        .wa-tooltip::after {
+            content: attr(data-tip);
+            position: absolute; bottom: calc(100% + 8px); left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #1a1a1a; color: var(--fg); border: 1px solid var(--border);
+            padding: 6px 10px; border-radius: 8px; font-size: 11px;
+            white-space: nowrap; pointer-events: none;
+            opacity: 0; transition: all 0.2s ease; z-index: 10;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        }
+        .wa-tooltip:hover::after { opacity: 1; transform: translateX(-50%) scale(1); }
+
+        /* Animasi pulse pada tombol WA saat hover */
+        @keyframes waPulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .btn-wa-sm:hover { animation: waPulse 1.2s ease infinite; }
+
+        @media (max-width: 768px) {
+            .guest-table { font-size: 13px; }
+            .guest-table thead th, .guest-table tbody td { padding: 10px 10px; }
+            .guest-avatar { width: 30px; height: 30px; font-size: 12px; }
+            .btn-icon, .btn-wa-sm { width: 32px; height: 32px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Latar belakang -->
 <div class="bg-pattern"></div>
 <div class="bg-grid"></div>
 <div class="floating-orb orb-1"></div>
 <div class="floating-orb orb-2"></div>
 <div class="floating-orb orb-3"></div>
 
-<!-- Toast container -->
 <div class="toast-container" id="toastContainer"></div>
 
 <!-- Modal edit tamu -->
@@ -609,6 +323,7 @@
             <div>
                 <label class="label">Nomor WhatsApp (opsional)</label>
                 <input type="text" class="input-field" id="modalGuestPhone" placeholder="Contoh: 6281234567890">
+                <p class="text-xs text-[#8A8480] mt-1">Format: kode negara tanpa + atau 0 di depan. Contoh: 6281234567890</p>
             </div>
         </div>
         <div class="flex gap-3 mt-8">
@@ -620,7 +335,6 @@
     </div>
 </div>
 
-<!-- Konten utama -->
 <div class="content-wrapper">
     <!-- Header -->
     <header class="border-b border-[#2A2A2A] backdrop-blur-md bg-[#0F0F0F]/80 sticky top-0 z-50">
@@ -634,9 +348,7 @@
                     <p class="text-xs text-[#8A8480]">Panel Admin Pengirim Undangan</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
-                <span class="badge badge-gold"><i class="fas fa-circle text-[6px]"></i> Aktif</span>
-            </div>
+            <span class="badge badge-gold"><i class="fas fa-circle text-[6px]"></i> Aktif</span>
         </div>
     </header>
 
@@ -670,7 +382,6 @@
                 </div>
                 <h2 class="font-display text-xl font-bold">Pengaturan Event</h2>
             </div>
-
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <label class="label">Nama Sekolah / Angkatan</label>
@@ -697,7 +408,6 @@
 
         <!-- Template Pesan & Preview -->
         <div class="grid lg:grid-cols-2 gap-6">
-            <!-- Template pesan -->
             <section class="card p-6 md:p-8 fade-up delay-2">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-8 h-8 rounded-lg bg-[rgba(212,168,83,0.15)] flex items-center justify-center">
@@ -722,7 +432,6 @@ Kehadiran kamu bakal bikin acara ini jadi jauh lebih seru dan bernilai karena bi
 Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
             </section>
 
-            <!-- Preview -->
             <section class="card p-6 md:p-8 fade-up delay-3">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-8 h-8 rounded-lg bg-[rgba(212,168,83,0.15)] flex items-center justify-center">
@@ -730,8 +439,8 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     </div>
                     <h2 class="font-display text-xl font-bold">Preview Pesan</h2>
                 </div>
-                <div class="flex items-center gap-2 mb-4">
-                    <label class="label mb-0" style="margin-bottom:0">Preview untuk:</label>
+                <div class="flex items-center gap-2 mb-4 flex-wrap">
+                    <label class="label" style="margin-bottom:0">Preview untuk:</label>
                     <select class="input-field" style="width:auto; padding:8px 14px; font-size:13px;" id="previewGuestSelect" onchange="updatePreview()">
                         <option value="__manual__">Ketik manual...</option>
                     </select>
@@ -777,7 +486,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     </button>
                     <p class="text-xs text-[#8A8480] mt-2 leading-relaxed" style="max-width:400px;">
                         <i class="fas fa-info-circle mr-1"></i>
-                        Gambar akan otomatis terbuka di WhatsApp. Pengguna tinggal Forward atau kirim gambar tersebut ke kontak yang diinginkan.
+                        Gambar akan otomatis terbuka di tab baru. Save gambar tersebut lalu kirim via WhatsApp ke kontak yang diinginkan.
                     </p>
                 </div>
             </div>
@@ -813,7 +522,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 </div>
             </div>
 
-            <!-- Pencarian -->
             <div class="px-6 md:px-8 py-4 border-b border-[#2A2A2A]">
                 <div class="relative">
                     <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-[#8A8480] text-sm"></i>
@@ -821,7 +529,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 </div>
             </div>
 
-            <!-- Tabel tamu -->
             <div class="overflow-x-auto">
                 <table class="guest-table" id="guestTable">
                     <thead>
@@ -830,40 +537,30 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                             <th style="width:50px"></th>
                             <th>Nama Tamu</th>
                             <th>Nomor WhatsApp</th>
-                            <th style="width:120px">Status</th>
-                            <th style="width:180px">Aksi</th>
+                            <th style="width:100px">Status</th>
+                            <th style="width:200px">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody id="guestTableBody">
-                    </tbody>
+                    <tbody id="guestTableBody"></tbody>
                 </table>
             </div>
 
-            <!-- Kosong -->
             <div class="empty-state" id="emptyState" style="display:none">
                 <i class="fas fa-user-group block"></i>
                 <p class="font-medium text-base mb-1">Belum ada tamu</p>
                 <p class="text-sm">Klik "Tambah Tamu" untuk mulai menambahkan daftar undangan</p>
             </div>
 
-            <!-- Aksi bawah -->
             <div class="p-6 md:p-8 border-t border-[#2A2A2A] bg-[rgba(255,255,255,0.01)] rounded-b-2xl">
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    <div>
-                        <p class="text-sm text-[#8A8480]">
-                            <span id="selectedCountText">0 tamu dipilih</span>
-                        </p>
-                    </div>
+                    <p class="text-sm text-[#8A8480]" id="selectedCountText">0 tamu dipilih</p>
                     <div class="flex items-center gap-3 flex-wrap">
-                        <!-- Kirim WA langsung (tanpa nomor) -->
                         <button class="btn btn-wa" onclick="sendToWhatsAppNoNumber()" id="btnSendNoNumber">
                             <i class="fab fa-whatsapp text-lg"></i> Kirim ke WhatsApp
                         </button>
-                        <!-- Kirim WA dengan nomor -->
                         <button class="btn btn-wa" onclick="sendToWhatsAppWithNumber()" id="btnSendWithNumber" style="display:none; background: linear-gradient(135deg, #128C7E, #075E54);">
                             <i class="fab fa-whatsapp text-lg"></i> Kirim dengan Nomor
                         </button>
-                        <!-- Kirim thumbnail -->
                         <button class="btn btn-secondary" onclick="sendThumbnailOnly()" id="btnSendThumb" style="display:none">
                             <i class="fas fa-image"></i> Buka Thumbnail
                         </button>
@@ -892,7 +589,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-[#2A2A2A] mt-12">
         <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between text-xs text-[#8A8480]">
             <span>Event Invitation Admin Panel</span>
@@ -909,7 +605,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     let editingGuestId = null;
     let thumbnailData = null;
 
-    // Muat data dari localStorage
     function loadData() {
         try {
             const saved = localStorage.getItem('eventInvitationData');
@@ -933,7 +628,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         }
     }
 
-    // Simpan data ke localStorage
     function saveData() {
         try {
             const data = {
@@ -954,19 +648,19 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     }
 
     // ==========================================
-    // TOAST NOTIFIKASI
+    // TOAST
     // ==========================================
     function showToast(message, type = 'success') {
         const container = document.getElementById('toastContainer');
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
-        toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+        toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
         container.appendChild(toast);
         setTimeout(() => {
             toast.classList.add('toast-exit');
             setTimeout(() => toast.remove(), 300);
-        }, 3000);
+        }, 3500);
     }
 
     // ==========================================
@@ -1008,32 +702,16 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     function saveGuestEdit() {
         const name = document.getElementById('modalGuestName').value.trim();
         const phone = document.getElementById('modalGuestPhone').value.trim().replace(/\D/g, '');
-
-        if (!name) {
-            showToast('Nama tamu tidak boleh kosong', 'error');
-            return;
-        }
+        if (!name) { showToast('Nama tamu tidak boleh kosong', 'error'); return; }
 
         if (editingGuestId) {
-            // Edit
             const guest = guests.find(g => g.id === editingGuestId);
-            if (guest) {
-                guest.name = name;
-                guest.phone = phone || '';
-                showToast(`Tamu "${name}" berhasil diperbarui`);
-            }
+            if (guest) { guest.name = name; guest.phone = phone || ''; }
+            showToast(`Tamu "${name}" berhasil diperbarui`);
         } else {
-            // Tambah baru
-            guests.push({
-                id: generateId(),
-                name,
-                phone: phone || '',
-                selected: false,
-                sent: false
-            });
+            guests.push({ id: generateId(), name, phone: phone || '', selected: false, sent: false });
             showToast(`Tamu "${name}" berhasil ditambahkan`);
         }
-
         closeModal();
         saveData();
         renderGuestTable();
@@ -1054,40 +732,25 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
     function toggleGuestSelect(id) {
         const guest = guests.find(g => g.id === id);
-        if (guest) {
-            guest.selected = !guest.selected;
-            saveData();
-            renderGuestTable();
-            updateStats();
-        }
+        if (guest) { guest.selected = !guest.selected; saveData(); renderGuestTable(); updateStats(); }
     }
 
     function selectAllGuests() {
         const search = document.getElementById('searchGuest').value.toLowerCase();
-        guests.forEach(g => {
-            if (g.name.toLowerCase().includes(search)) g.selected = true;
-        });
-        saveData();
-        renderGuestTable();
-        updateStats();
+        guests.forEach(g => { if (g.name.toLowerCase().includes(search)) g.selected = true; });
+        saveData(); renderGuestTable(); updateStats();
     }
 
     function deselectAllGuests() {
         guests.forEach(g => g.selected = false);
-        saveData();
-        renderGuestTable();
-        updateStats();
+        saveData(); renderGuestTable(); updateStats();
     }
 
     function toggleCheckAll() {
         const checked = document.getElementById('checkAll').checked;
         const search = document.getElementById('searchGuest').value.toLowerCase();
-        guests.forEach(g => {
-            if (g.name.toLowerCase().includes(search)) g.selected = checked;
-        });
-        saveData();
-        renderGuestTable();
-        updateStats();
+        guests.forEach(g => { if (g.name.toLowerCase().includes(search)) g.selected = checked; });
+        saveData(); renderGuestTable(); updateStats();
     }
 
     function deleteSelectedGuests() {
@@ -1095,59 +758,56 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         if (count === 0) return;
         guests = guests.filter(g => !g.selected);
         showToast(`${count} tamu berhasil dihapus`, 'info');
-        saveData();
-        renderGuestTable();
-        updatePreviewGuestSelect();
-        updateStats();
+        saveData(); renderGuestTable(); updatePreviewGuestSelect(); updateStats();
     }
 
     function markAsSent(id) {
         const guest = guests.find(g => g.id === id);
-        if (guest) {
-            guest.sent = !guest.sent;
-            saveData();
-            renderGuestTable();
-            updateStats();
-        }
+        if (guest) { guest.sent = !guest.sent; saveData(); renderGuestTable(); updateStats(); }
     }
 
     function bulkImportGuests() {
         const text = document.getElementById('bulkImport').value.trim();
-        if (!text) {
-            showToast('Tidak ada data untuk diimport', 'error');
-            return;
-        }
-
+        if (!text) { showToast('Tidak ada data untuk diimport', 'error'); return; }
         const lines = text.split('\n').filter(l => l.trim());
         let added = 0;
-
         lines.forEach(line => {
             const parts = line.split(',').map(s => s.trim());
             const name = parts[0];
             const phone = parts[1] ? parts[1].replace(/\D/g, '') : '';
-
-            if (name) {
-                guests.push({
-                    id: generateId(),
-                    name,
-                    phone,
-                    selected: false,
-                    sent: false
-                });
-                added++;
-            }
+            if (name) { guests.push({ id: generateId(), name, phone, selected: false, sent: false }); added++; }
         });
-
         if (added > 0) {
             showToast(`${added} tamu berhasil diimport`);
             document.getElementById('bulkImport').value = '';
-            saveData();
-            renderGuestTable();
-            updatePreviewGuestSelect();
-            updateStats();
+            saveData(); renderGuestTable(); updatePreviewGuestSelect(); updateStats();
+        } else { showToast('Tidak ada data valid yang ditemukan', 'error'); }
+    }
+
+    // ==========================================
+    // SHARE KE WA PER TAMU (TOMBOL DI KOLOM AKSI)
+    // ==========================================
+    function shareToWhatsApp(id) {
+        const guest = guests.find(g => g.id === id);
+        if (!guest) return;
+
+        const message = generateMessage(guest.name);
+
+        if (guest.phone) {
+            // Jika ada nomor, langsung bukan wa.me
+            const url = `https://wa.me/${guest.phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            guest.sent = true;
+            showToast(`Membuka WhatsApp untuk "${guest.name}"`, 'success');
         } else {
-            showToast('Tidak ada data valid yang ditemukan', 'error');
+            // Jika tidak ada nomor, copy pesan dan buka WA Web
+            copyToClipboard(message);
+            window.open('https://web.whatsapp.com/', '_blank');
+            showToast(`Pesan untuk "${guest.name}" disalin ke clipboard!`, 'success');
         }
+        saveData();
+        renderGuestTable();
+        updateStats();
     }
 
     // ==========================================
@@ -1157,7 +817,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         const tbody = document.getElementById('guestTableBody');
         const emptyState = document.getElementById('emptyState');
         const search = document.getElementById('searchGuest').value.toLowerCase();
-
         const filtered = guests.filter(g => g.name.toLowerCase().includes(search));
 
         if (filtered.length === 0) {
@@ -1168,7 +827,13 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
             emptyState.style.display = 'none';
             document.getElementById('guestTable').querySelector('thead').style.display = '';
 
-            tbody.innerHTML = filtered.map(g => `
+            tbody.innerHTML = filtered.map(g => {
+                const hasPhone = !!g.phone;
+                const waTip = hasPhone
+                    ? `Kirim ke ${formatPhone(g.phone)}`
+                    : 'Salin pesan & buka WA Web';
+
+                return `
                 <tr class="${g.selected ? 'selected' : ''}">
                     <td>
                         <input type="checkbox" class="custom-check" ${g.selected ? 'checked' : ''} onchange="toggleGuestSelect('${g.id}')">
@@ -1180,7 +845,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                         <span class="font-medium">${escapeHtml(g.name)}</span>
                     </td>
                     <td>
-                        ${g.phone
+                        ${hasPhone
                             ? `<span class="text-[#8A8480] text-sm">${formatPhone(g.phone)}</span>`
                             : `<span class="text-[#8A8480] text-xs italic">Belum diisi</span>`
                         }
@@ -1193,6 +858,9 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     </td>
                     <td>
                         <div class="flex items-center gap-2">
+                            <button class="btn-wa-sm wa-tooltip" data-tip="${waTip}" title="Share ke WhatsApp" onclick="shareToWhatsApp('${g.id}')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
                             <button class="btn-icon btn-secondary" title="Edit" onclick="openEditModal('${g.id}')">
                                 <i class="fas fa-pen text-xs"></i>
                             </button>
@@ -1204,24 +872,19 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                             </button>
                         </div>
                     </td>
-                </tr>
-            `).join('');
+                </tr>`;
+            }).join('');
         }
 
-        // Update tombol hapus terpilih
+        // Update tombol
         const selectedCount = guests.filter(g => g.selected).length;
-        document.getElementById('deleteSelectedBtn').style.display = selectedCount > 0 ? '' : 'none';
-
-        // Update tombol kirim
         const selectedWithPhone = guests.filter(g => g.selected && g.phone);
+        document.getElementById('deleteSelectedBtn').style.display = selectedCount > 0 ? '' : 'none';
         document.getElementById('btnSendWithNumber').style.display = selectedWithPhone.length > 0 ? '' : 'none';
         document.getElementById('btnSendThumb').style.display = thumbnailData ? '' : 'none';
         document.getElementById('btnSendNoNumber').style.display = selectedCount > 0 ? '' : 'none';
-
-        // Update teks jumlah dipilih
         document.getElementById('selectedCountText').textContent = `${selectedCount} tamu dipilih`;
 
-        // Update check all
         if (filtered.length > 0) {
             document.getElementById('checkAll').checked = filtered.every(g => g.selected);
         } else {
@@ -1262,7 +925,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         const eventTime = document.getElementById('eventTime').value;
         const eventPlace = document.getElementById('eventPlace').value;
         const inviteLink = document.getElementById('inviteLink').value;
-
         const selectVal = document.getElementById('previewGuestSelect').value;
         const manualName = document.getElementById('previewManualName').value.trim();
 
@@ -1282,26 +944,18 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         message = message.replace(/\[Nama Tempat \/ Lokasi\]/g, eventPlace || '[Nama Tempat / Lokasi]');
         message = message.replace(/\[Masukkan Link Undangan di Sini\]/g, inviteLink || '[Masukkan Link Undangan di Sini]');
 
-        // Tampilkan di preview box
         const previewBox = document.getElementById('previewBox');
-
-        // Buat versi HTML dengan highlight
         let htmlMessage = escapeHtml(message);
-        // Highlight placeholder yang belum terisi
         htmlMessage = htmlMessage.replace(/\[([^\]]+)\]/g, '<span style="color: var(--danger); font-style: italic;">[$1]</span>');
-        // Highlight nama
         if (guestName && guestName !== '[Nama Teman]') {
             htmlMessage = htmlMessage.replace(escapeHtml(guestName), `<span class="highlight-name">${escapeHtml(guestName)}</span>`);
         }
-
         previewBox.innerHTML = htmlMessage;
-
-        // Simpan juga
         saveData();
     }
 
     // ==========================================
-    // GENERATE PESAN UNTUK KIRIM
+    // GENERATE PESAN
     // ==========================================
     function generateMessage(guestName) {
         const template = document.getElementById('messageTemplate').value;
@@ -1318,30 +972,22 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         message = message.replace(/\[Jam Mulai\]/g, eventTime || '[Jam Mulai]');
         message = message.replace(/\[Nama Tempat \/ Lokasi\]/g, eventPlace || '[Nama Tempat / Lokasi]');
         message = message.replace(/\[Masukkan Link Undangan di Sini\]/g, inviteLink || '[Masukkan Link Undangan di Sini]');
-
         return message;
     }
 
     // ==========================================
-    // KIRIM KE WHATSAPP
+    // KIRIM KE WHATSAPP (BAWAH)
     // ==========================================
-
-    // Kirim tanpa nomor (buka WA Web, pesan di clipboard)
     function sendToWhatsAppNoNumber() {
         const selected = guests.filter(g => g.selected);
-        if (selected.length === 0) {
-            showToast('Pilih minimal 1 tamu terlebih dahulu', 'error');
-            return;
-        }
+        if (selected.length === 0) { showToast('Pilih minimal 1 tamu terlebih dahulu', 'error'); return; }
 
         if (selected.length === 1) {
-            // Jika cuma 1, langsung copy pesan dan buka WA
             const message = generateMessage(selected[0].name);
             copyToClipboard(message);
             showToast(`Pesan untuk "${selected[0].name}" disalin ke clipboard!`, 'success');
             window.open('https://web.whatsapp.com/', '_blank');
         } else {
-            // Jika lebih dari 1, tampilkan pesan per tamu dan salin semua
             let allMessages = '';
             selected.forEach((g, i) => {
                 allMessages += `--- ${i + 1}. ${g.name} ---\n${generateMessage(g.name)}\n\n`;
@@ -1352,26 +998,18 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         }
     }
 
-    // Kirim dengan nomor WA (wa.me)
     function sendToWhatsAppWithNumber() {
         const selected = guests.filter(g => g.selected && g.phone);
-        if (selected.length === 0) {
-            showToast('Tidak ada tamu terpilih yang memiliki nomor WA', 'error');
-            return;
-        }
+        if (selected.length === 0) { showToast('Tidak ada tamu terpilih yang memiliki nomor WA', 'error'); return; }
 
         if (selected.length === 1) {
             const g = selected[0];
             const message = encodeURIComponent(generateMessage(g.name));
-            const url = `https://wa.me/${g.phone}?text=${message}`;
-            window.open(url, '_blank');
+            window.open(`https://wa.me/${g.phone}?text=${message}`, '_blank');
             showToast(`Membuka WhatsApp untuk "${g.name}"`, 'success');
             g.sent = true;
-            saveData();
-            renderGuestTable();
-            updateStats();
+            saveData(); renderGuestTable(); updateStats();
         } else {
-            // Kirim satu per satu dengan jeda
             let idx = 0;
             function sendNext() {
                 if (idx >= selected.length) {
@@ -1380,37 +1018,20 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 }
                 const g = selected[idx];
                 const message = encodeURIComponent(generateMessage(g.name));
-                const url = `https://wa.me/${g.phone}?text=${message}`;
-                window.open(url, '_blank');
+                window.open(`https://wa.me/${g.phone}?text=${message}`, '_blank');
                 g.sent = true;
                 idx++;
-                // Jeda agar browser tidak memblokir popup
                 setTimeout(sendNext, 1500);
             }
             sendNext();
-            saveData();
-            renderGuestTable();
-            updateStats();
+            saveData(); renderGuestTable(); updateStats();
         }
     }
 
-    // Buka thumbnail saja
     function sendThumbnailOnly() {
-        if (!thumbnailData) {
-            showToast('Upload thumbnail terlebih dahulu', 'error');
-            return;
-        }
-        // Buka gambar di tab baru agar bisa di-save & share
+        if (!thumbnailData) { showToast('Upload thumbnail terlebih dahulu', 'error'); return; }
         const win = window.open('');
-        win.document.write(`
-            <!DOCTYPE html>
-            <html>
-            <head><title>Thumbnail Undangan</title></head>
-            <body style="margin:0; display:flex; align-items:center; justify-content:center; min-height:100vh; background:#111;">
-                <img src="${thumbnailData}" style="max-width:100%; max-height:100vh; object-fit:contain;">
-            </body>
-            </html>
-        `);
+        win.document.write(`<!DOCTYPE html><html><head><title>Thumbnail Undangan</title></head><body style="margin:0; display:flex; align-items:center; justify-content:center; min-height:100vh; background:#111;"><img src="${thumbnailData}" style="max-width:100%; max-height:100vh; object-fit:contain;"></body></html>`);
         showToast('Thumbnail dibuka di tab baru. Save gambar lalu kirim via WhatsApp.', 'info');
     }
 
@@ -1420,23 +1041,13 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     function handleThumbUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
-
-        if (file.size > 5 * 1024 * 1024) {
-            showToast('Ukuran file maksimal 5MB', 'error');
-            return;
-        }
-
-        if (!file.type.startsWith('image/')) {
-            showToast('File harus berupa gambar', 'error');
-            return;
-        }
-
+        if (file.size > 5 * 1024 * 1024) { showToast('Ukuran file maksimal 5MB', 'error'); return; }
+        if (!file.type.startsWith('image/')) { showToast('File harus berupa gambar', 'error'); return; }
         const reader = new FileReader();
         reader.onload = function(e) {
             thumbnailData = e.target.result;
             showThumbnail(thumbnailData);
-            saveData();
-            renderGuestTable();
+            saveData(); renderGuestTable();
             showToast('Thumbnail berhasil diupload');
         };
         reader.readAsDataURL(file);
@@ -1455,8 +1066,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         document.getElementById('thumbPlaceholder').style.display = '';
         document.getElementById('removeThumbBtn').style.display = 'none';
         document.getElementById('thumbInput').value = '';
-        saveData();
-        renderGuestTable();
+        saveData(); renderGuestTable();
         showToast('Thumbnail dihapus', 'info');
     }
 
@@ -1471,9 +1081,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
     function formatPhone(phone) {
         if (!phone) return '';
-        if (phone.startsWith('62')) {
-            return '+' + phone;
-        }
+        if (phone.startsWith('62')) return '+' + phone;
         return phone;
     }
 
@@ -1481,7 +1089,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text);
         } else {
-            // Fallback
             const ta = document.createElement('textarea');
             ta.value = text;
             ta.style.position = 'fixed';
@@ -1494,22 +1101,15 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     }
 
     // ==========================================
-    // KEYBOARD SHORTCUT
+    // KEYBOARD & EVENTS
     // ==========================================
     document.addEventListener('keydown', function(e) {
-        // ESC untuk tutup modal
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-        // Enter di modal untuk simpan
+        if (e.key === 'Escape') closeModal();
         if (e.key === 'Enter' && document.getElementById('editModal').classList.contains('active')) {
-            if (e.target.tagName !== 'TEXTAREA') {
-                saveGuestEdit();
-            }
+            if (e.target.tagName !== 'TEXTAREA') saveGuestEdit();
         }
     });
 
-    // Klik di luar modal untuk tutup
     document.getElementById('editModal').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
     });
@@ -1523,7 +1123,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     updateStats();
     updatePreview();
 
-    // Simpan otomatis saat ada perubahan di input
     document.querySelectorAll('#schoolName, #eventDate, #eventTime, #eventPlace, #inviteLink, #messageTemplate, #thumbCaption').forEach(el => {
         el.addEventListener('change', saveData);
     });
