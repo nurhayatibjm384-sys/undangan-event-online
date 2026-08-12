@@ -113,11 +113,16 @@
         .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--fg-muted); }
         .btn-danger { background: var(--danger-dim); color: var(--danger); border: 1px solid rgba(224,82,82,0.2); }
         .btn-danger:hover { background: rgba(224,82,82,0.25); }
+
+        /* Tombol WA utama (besar) */
         .btn-wa {
             background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
             box-shadow: 0 4px 20px rgba(37,211,102,0.25);
         }
         .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.35); }
+        .btn-wa:active { transform: translateY(0); }
+
+        /* Tombol WA kecil per baris */
         .btn-wa-sm {
             background: rgba(37,211,102,0.12); color: #25D366;
             border: 1px solid rgba(37,211,102,0.25);
@@ -128,6 +133,21 @@
         }
         .btn-wa-sm:hover { background: rgba(37,211,102,0.25); transform: scale(1.08); box-shadow: 0 0 16px rgba(37,211,102,0.2); }
         .btn-wa-sm:active { transform: scale(0.95); }
+
+        /* Tombol Share WA (icon share, bukan chat langsung) */
+        .btn-wa-share {
+            background: rgba(37,211,102,0.08); color: #25D366;
+            border: 1px solid rgba(37,211,102,0.2);
+            height: 36px; padding: 0 10px; gap: 5px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.25s ease; flex-shrink: 0;
+            text-transform: uppercase; letter-spacing: 0.03em;
+        }
+        .btn-wa-share:hover { background: rgba(37,211,102,0.2); transform: scale(1.05); box-shadow: 0 0 14px rgba(37,211,102,0.15); }
+        .btn-wa-share:active { transform: scale(0.95); }
+
         .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 8px; }
         .btn-icon {
             width: 36px; height: 36px; padding: 0;
@@ -146,6 +166,7 @@
         .btn-copy:hover { background: rgba(212,168,83,0.25); transform: scale(1.04); }
         .btn-copy:active { transform: scale(0.96); }
         .btn-copy.copied { background: var(--success-dim); color: var(--success); border-color: rgba(74,222,128,0.3); }
+
         .badge {
             display: inline-flex; align-items: center; gap: 4px;
             padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
@@ -153,6 +174,7 @@
         .badge-gold { background: var(--accent-dim); color: var(--accent); }
         .badge-green { background: var(--success-dim); color: var(--success); }
         .badge-sent { background: rgba(37,211,102,0.12); color: #25D366; }
+
         .guest-table { width: 100%; border-collapse: separate; border-spacing: 0; }
         .guest-table thead th {
             background: rgba(255,255,255,0.03); padding: 12px 14px;
@@ -189,6 +211,7 @@
             opacity: 0; transition: opacity 0.3s ease;
         }
         .thumb-upload:hover .overlay { opacity: 1; }
+
         .toast-container { position: fixed; top: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
         .toast {
             padding: 14px 20px; border-radius: 12px; font-size: 14px; font-weight: 500;
@@ -202,6 +225,7 @@
         @keyframes toastIn { from { opacity: 0; transform: translateX(40px) scale(0.95); } to { opacity: 1; transform: translateX(0) scale(1); } }
         .toast-exit { animation: toastOut 0.3s ease forwards; }
         @keyframes toastOut { to { opacity: 0; transform: translateX(40px) scale(0.95); } }
+
         .modal-backdrop {
             position: fixed; inset: 0; background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px); z-index: 1000;
@@ -216,6 +240,7 @@
             transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
         }
         .modal-backdrop.active .modal { transform: scale(1) translateY(0); }
+
         .preview-box {
             background: rgba(255,255,255,0.03); border: 1px solid var(--border);
             border-radius: 12px; padding: 20px; font-size: 14px; line-height: 1.8;
@@ -224,11 +249,13 @@
         .preview-box::-webkit-scrollbar { width: 6px; }
         .preview-box::-webkit-scrollbar-track { background: transparent; }
         .preview-box::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
         .stat-card {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 14px; padding: 20px 24px; transition: all 0.3s ease;
         }
         .stat-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+
         .custom-check {
             appearance: none; width: 18px; height: 18px;
             border: 2px solid var(--border); border-radius: 5px;
@@ -240,20 +267,24 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 12px; font-weight: 700; color: #0F0F0F;
         }
+
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--fg-muted); }
+
         .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards; }
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
+
         .highlight-name { color: var(--accent); font-weight: 600; }
         .empty-state { text-align: center; padding: 60px 24px; color: var(--fg-muted); }
         .empty-state i { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
         .guest-table tbody tr.selected { background: var(--accent-dim); }
+
         .shimmer {
             background: linear-gradient(90deg, var(--accent) 0%, #F5E6C8 50%, var(--accent) 100%);
             background-size: 200% 100%;
@@ -261,6 +292,7 @@
             animation: shimmer 3s ease-in-out infinite;
         }
         @keyframes shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
         .wa-tooltip { position: relative; }
         .wa-tooltip::after {
             content: attr(data-tip);
@@ -273,12 +305,14 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.4);
         }
         .wa-tooltip:hover::after { opacity: 1; transform: translateX(-50%) scale(1); }
+
         @keyframes waPulse {
             0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
             70% { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
             100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
         }
-        .btn-wa-sm:hover { animation: waPulse 1.2s ease infinite; }
+        .btn-wa-sm:hover, .btn-wa-share:hover { animation: waPulse 1.2s ease infinite; }
+
         .meta-preview-card {
             background: rgba(255,255,255,0.03); border: 1px solid var(--border);
             border-radius: 12px; overflow: hidden; transition: all 0.3s ease;
@@ -294,6 +328,7 @@
         .meta-preview-domain { font-size: 11px; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.05em; }
         .meta-preview-title { font-size: 15px; font-weight: 600; color: var(--fg); margin-top: 2px; line-height: 1.3; }
         .meta-preview-desc { font-size: 13px; color: var(--fg-muted); margin-top: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
         .meta-tag-display {
             background: rgba(0,0,0,0.3); border: 1px solid var(--border);
             border-radius: 10px; padding: 16px; font-family: 'Courier New', monospace;
@@ -304,6 +339,7 @@
         .meta-tag-display .tag-name { color: var(--accent); }
         .meta-tag-display .tag-attr { color: #7dd3fc; }
         .meta-tag-display .tag-val { color: var(--success); }
+
         .info-callout {
             background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.15);
             border-radius: 12px; padding: 16px 20px; display: flex; gap: 14px;
@@ -313,7 +349,8 @@
             background: var(--accent-dim); color: var(--accent);
             display: flex; align-items: center; justify-content: center; font-size: 14px;
         }
-        .tab-group { display: flex; gap: 4px; background: rgba(255,255,255,0.04); border-radius: 10px; padding: 4px; }
+
+        .tab-group { display: flex; gap: 4px; background: rgba(255,255,255,0.04); border-radius: 10px; padding: 4px; flex-wrap: wrap; }
         .tab-btn {
             padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;
             border: none; cursor: pointer; transition: all 0.2s ease;
@@ -323,7 +360,7 @@
         .tab-btn:hover:not(.active) { color: var(--fg); }
         .tab-panel { display: none; }
         .tab-panel.active { display: block; }
-        /* Panel link yang disalin */
+
         .copied-link-bar {
             background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2);
             border-radius: 12px; padding: 14px 20px;
@@ -335,12 +372,81 @@
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
             font-family: 'Courier New', monospace;
         }
+
+        /* Share cepat card */
+        .share-quick-card {
+            background: linear-gradient(135deg, rgba(37,211,102,0.08) 0%, rgba(18,140,126,0.06) 100%);
+            border: 1px solid rgba(37,211,102,0.2);
+            border-radius: 16px; padding: 28px; position: relative; overflow: hidden;
+        }
+        .share-quick-card::before {
+            content: ''; position: absolute; top: -40px; right: -40px;
+            width: 120px; height: 120px; border-radius: 50%;
+            background: rgba(37,211,102,0.08); filter: blur(30px);
+        }
+        .share-quick-card::after {
+            content: ''; position: absolute; bottom: -30px; left: -30px;
+            width: 100px; height: 100px; border-radius: 50%;
+            background: rgba(212,168,83,0.06); filter: blur(25px);
+        }
+        .share-quick-card > * { position: relative; z-index: 1; }
+
+        /* Tombol share besar yang menonjol */
+        .btn-share-big {
+            background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
+            padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700;
+            border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 12px;
+            box-shadow: 0 6px 30px rgba(37,211,102,0.3);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            font-family: 'DM Sans', sans-serif;
+            position: relative; overflow: hidden;
+        }
+        .btn-share-big::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .btn-share-big:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(37,211,102,0.4);
+        }
+        .btn-share-big:hover::before { opacity: 1; }
+        .btn-share-big:active { transform: translateY(0) scale(0.98); }
+        .btn-share-big:disabled {
+            opacity: 0.4; cursor: not-allowed;
+            transform: none !important; box-shadow: none !important;
+        }
+
+        .btn-share-outline {
+            background: transparent; color: #25D366;
+            padding: 14px 24px; border-radius: 12px; font-size: 14px; font-weight: 600;
+            border: 2px solid rgba(37,211,102,0.3); cursor: pointer;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.25s ease; font-family: 'DM Sans', sans-serif;
+        }
+        .btn-share-outline:hover {
+            background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.5);
+            transform: translateY(-2px);
+        }
+        .btn-share-outline:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+        @keyframes shareBounce {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.06); }
+            60% { transform: scale(0.97); }
+            100% { transform: scale(1); }
+        }
+        .share-bounce { animation: shareBounce 0.5s ease; }
+
         @media (max-width: 768px) {
             .guest-table { font-size: 13px; }
             .guest-table thead th, .guest-table tbody td { padding: 10px 8px; }
             .guest-avatar { width: 30px; height: 30px; font-size: 12px; }
             .btn-icon, .btn-wa-sm { width: 32px; height: 32px; font-size: 12px; }
-            .action-cell { display: flex; gap: 4px; flex-wrap: nowrap; }
+            .btn-wa-share { height: 32px; padding: 0 8px; font-size: 10px; }
+            .btn-copy { height: 32px; padding: 0 10px; font-size: 11px; }
+            .btn-share-big { padding: 14px 24px; font-size: 14px; }
+            .share-quick-card { padding: 20px; }
         }
     </style>
 </head>
@@ -359,9 +465,7 @@
     <div class="modal">
         <div class="flex items-center justify-between mb-6">
             <h3 class="font-display text-xl font-bold" id="modalTitle">Edit Tamu</h3>
-            <button class="btn-icon btn-secondary" onclick="closeModal()">
-                <i class="fas fa-times"></i>
-            </button>
+            <button class="btn-icon btn-secondary" onclick="closeModal()"><i class="fas fa-times"></i></button>
         </div>
         <div class="space-y-4">
             <div>
@@ -371,14 +475,48 @@
             <div>
                 <label class="label">Nomor WhatsApp (opsional)</label>
                 <input type="text" class="input-field" id="modalGuestPhone" placeholder="Contoh: 6281234567890">
-                <p class="text-xs text-[#8A8480] mt-1">Format: kode negara tanpa + atau 0 di depan. Contoh: 6281234567890</p>
+                <p class="text-xs text-[#8A8480] mt-1">Format: kode negara tanpa + atau 0 di depan</p>
             </div>
         </div>
         <div class="flex gap-3 mt-8">
-            <button class="btn btn-primary flex-1" onclick="saveGuestEdit()">
-                <i class="fas fa-check"></i> Simpan
-            </button>
+            <button class="btn btn-primary flex-1" onclick="saveGuestEdit()"><i class="fas fa-check"></i> Simpan</button>
             <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Share (pilih tamu untuk di-share) -->
+<div class="modal-backdrop" id="shareModal">
+    <div class="modal" style="max-width:540px;">
+        <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center">
+                    <i class="fab fa-whatsapp text-white text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-display text-xl font-bold">Share ke WhatsApp</h3>
+                    <p class="text-xs text-[#8A8480]">Pilih tamu lalu langsung share</p>
+                </div>
+            </div>
+            <button class="btn-icon btn-secondary" onclick="closeShareModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mb-4">
+            <div class="relative">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-[#8A8480] text-sm"></i>
+                <input type="text" class="input-field" style="padding-left:40px" placeholder="Cari tamu..." id="shareSearchInput" oninput="renderShareList()">
+            </div>
+        </div>
+        <div id="shareListContainer" style="max-height:320px; overflow-y:auto; margin-bottom:20px;">
+            <div class="empty-state" style="padding:30px 20px;" id="shareEmptyState">
+                <i class="fas fa-user-group block" style="font-size:32px;"></i>
+                <p class="text-sm mt-2">Belum ada tamu</p>
+            </div>
+        </div>
+        <div class="flex gap-3">
+            <button class="btn btn-wa flex-1" onclick="shareSelectedFromModal()" id="btnShareModal">
+                <i class="fab fa-whatsapp text-lg"></i> Share Sekarang
+            </button>
+            <button class="btn btn-secondary" onclick="closeShareModal()">Tutup</button>
         </div>
     </div>
 </div>
@@ -422,6 +560,38 @@
             </div>
         </section>
 
+        <!-- SHARE CEPAT - Paling Menonjol -->
+        <section class="share-quick-card fade-up delay-1">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fab fa-whatsapp text-[#25D366] text-2xl"></i>
+                        <h2 class="font-display text-2xl font-bold">Share Langsung ke WhatsApp</h2>
+                    </div>
+                    <p class="text-sm text-[#8A8480] leading-relaxed" id="shareDescText">
+                        Pilih nama tamu, lalu klik tombol di bawah untuk langsung membuka WhatsApp dengan pesan undangan + link yang sudah siap kirim.
+                    </p>
+                    <!-- Pilih tamu untuk share cepat -->
+                    <div class="mt-4 flex items-center gap-3 flex-wrap">
+                        <label class="text-sm font-semibold text-[#F5F0EB]">Share untuk:</label>
+                        <select class="input-field" style="width:auto; max-width:280px; padding:10px 14px; font-size:14px;" id="quickShareSelect">
+                            <option value="">-- Pilih Tamu --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 flex-shrink-0">
+                    <button class="btn-share-big" id="btnQuickShare" onclick="quickShareWhatsApp()" disabled>
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>Share via WhatsApp</span>
+                    </button>
+                    <button class="btn-share-outline" id="btnQuickShareGeneric" onclick="quickShareGeneric()">
+                        <i class="fas fa-share-nodes"></i>
+                        <span>Share ke Kontak Lain</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Pengaturan Event -->
         <section class="card p-6 md:p-8 fade-up delay-1">
             <div class="flex items-center gap-3 mb-6">
@@ -450,7 +620,7 @@
                 <div class="md:col-span-2">
                     <label class="label">Link Undangan</label>
                     <input type="url" class="input-field" id="inviteLink" placeholder="https://undangan.example.com/reuni-2025" oninput="updatePreview(); updateMetaTags(); saveData();">
-                    <p class="text-xs text-[#8A8480] mt-1"><i class="fas fa-link mr-1"></i>Link ini akan otomatis muncul di pesan WA yang dikirim ke setiap tamu</p>
+                    <p class="text-xs text-[#8A8480] mt-1"><i class="fas fa-link mr-1"></i>Link ini otomatis masuk ke pesan WA yang dibagikan</p>
                 </div>
             </div>
         </section>
@@ -509,13 +679,13 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 </div>
                 <div>
                     <h2 class="font-display text-xl font-bold">Thumbnail & Meta Tags</h2>
-                    <p class="text-xs text-[#8A8480] mt-1">Gambar thumbnail yang muncul saat link undangan dibagikan di WhatsApp, Facebook, dll</p>
+                    <p class="text-xs text-[#8A8480] mt-1">Gambar thumbnail yang muncul saat link dibagikan di WhatsApp, Facebook, dll</p>
                 </div>
             </div>
             <div class="info-callout mt-4 mb-6">
                 <div class="info-callout-icon"><i class="fas fa-lightbulb"></i></div>
                 <div class="text-sm text-[#8A8480] leading-relaxed">
-                    <strong class="text-[#F5F0EB]">Cara kerja meta thumbnail:</strong> Saat seseorang membagikan link undangan, platform sosial media membaca <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code> dan menampilkan gambar sebagai preview. <strong class="text-[#F5F0EB]">Gambar harus berupa URL publik</strong> yang bisa diakses crawler.
+                    <strong class="text-[#F5F0EB]">Cara kerja:</strong> Saat link dibagikan, platform membaca <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code> dan menampilkan gambar sebagai preview. <strong class="text-[#F5F0EB]">Gambar harus URL publik.</strong>
                 </div>
             </div>
             <div class="tab-group mb-6">
@@ -525,40 +695,35 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 <button class="tab-btn" onclick="switchThumbTab('code')" id="tabCode"><i class="fas fa-code mr-1"></i> Kode Meta</button>
             </div>
 
-            <!-- Tab: URL Gambar -->
             <div class="tab-panel active" id="panelUrl">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-4">
                         <div>
                             <label class="label">URL Gambar Thumbnail</label>
-                            <input type="url" class="input-field" id="thumbUrl" placeholder="https://example.com/poster-reuni-2025.jpg" oninput="onThumbUrlChange(); saveData();">
-                            <p class="text-xs text-[#8A8480] mt-1">Rekomendasi: resolusi 1200x630 px, format JPG/PNG, ukuran file &lt; 5MB</p>
+                            <input type="url" class="input-field" id="thumbUrl" placeholder="https://example.com/poster.jpg" oninput="onThumbUrlChange(); saveData();">
                         </div>
                         <div>
                             <label class="label">Alt Text Gambar</label>
-                            <input type="text" class="input-field" id="thumbAlt" placeholder="Poster Reuni SMA Negeri 1 Jakarta 2025" oninput="updateMetaTags(); saveData();">
+                            <input type="text" class="input-field" id="thumbAlt" placeholder="Poster Reuni 2025" oninput="updateMetaTags(); saveData();">
                         </div>
                         <div>
                             <label class="label">Judul OG (opsional)</label>
-                            <input type="text" class="input-field" id="ogTitleInput" placeholder="Undangan Reuni Angkatan 2014" oninput="updateMetaTags(); saveData();">
+                            <input type="text" class="input-field" id="ogTitleInput" placeholder="Undangan Reuni" oninput="updateMetaTags(); saveData();">
                         </div>
                         <div>
                             <label class="label">Deskripsi OG (opsional)</label>
-                            <textarea class="input-field" id="ogDescInput" rows="3" placeholder="Anda diundang untuk hadir di acara reuni..." oninput="updateMetaTags(); saveData();" style="min-height:80px"></textarea>
+                            <textarea class="input-field" id="ogDescInput" rows="3" placeholder="Anda diundang..." oninput="updateMetaTags(); saveData();" style="min-height:80px"></textarea>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="w-2.5 h-2.5 rounded-full" id="metaStatusDot" style="background: var(--danger);"></span>
-                            <span class="text-xs" id="metaStatusText" style="color: var(--danger);">Belum ada gambar</span>
+                            <span class="w-2.5 h-2.5 rounded-full" id="metaStatusDot" style="background:var(--danger);"></span>
+                            <span class="text-xs" id="metaStatusText" style="color:var(--danger);">Belum ada gambar</span>
                         </div>
                     </div>
                     <div>
                         <label class="label">Preview Thumbnail</label>
-                        <div class="meta-preview-card" id="thumbUrlPreviewCard">
+                        <div class="meta-preview-card">
                             <div class="meta-preview-img" id="thumbUrlPreviewImg">
-                                <div class="flex flex-col items-center gap-2 text-[#8A8480]">
-                                    <i class="fas fa-image text-3xl opacity-30"></i>
-                                    <span class="text-xs">Masukkan URL gambar di samping</span>
-                                </div>
+                                <div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Masukkan URL gambar</span></div>
                             </div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-domain" id="metaPreviewDomain">UNDANGAN.EVENT</p>
@@ -570,46 +735,40 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 </div>
             </div>
 
-            <!-- Tab: Upload Lokal -->
             <div class="tab-panel" id="panelUpload">
                 <div class="flex flex-col md:flex-row items-start gap-6">
                     <div class="thumb-upload" id="thumbUpload" onclick="document.getElementById('thumbInput').click()">
                         <input type="file" id="thumbInput" accept="image/*" style="display:none" onchange="handleThumbUpload(event)">
                         <div id="thumbPlaceholder" class="flex flex-col items-center gap-2 text-[#8A8480]">
                             <i class="fas fa-cloud-arrow-up text-2xl"></i>
-                            <span class="text-sm font-medium">Klik untuk upload gambar</span>
+                            <span class="text-sm font-medium">Klik untuk upload</span>
                             <span class="text-xs">PNG, JPG, max 5MB</span>
                         </div>
                         <img id="thumbPreview" style="display:none" alt="Thumbnail">
-                        <div class="overlay"><span class="text-white text-sm font-medium"><i class="fas fa-pen mr-2"></i>Ganti Gambar</span></div>
+                        <div class="overlay"><span class="text-white text-sm font-medium"><i class="fas fa-pen mr-2"></i>Ganti</span></div>
                     </div>
                     <div class="flex-1 space-y-3">
                         <div>
-                            <label class="label">Caption Gambar (opsional)</label>
-                            <input type="text" class="input-field" id="thumbCaption" placeholder="Contoh: Poster Reuni 2025" style="max-width:400px;" oninput="saveData();">
+                            <label class="label">Caption (opsional)</label>
+                            <input type="text" class="input-field" id="thumbCaption" placeholder="Poster Reuni 2025" style="max-width:400px;" oninput="saveData();">
                         </div>
-                        <button class="btn btn-danger btn-sm" id="removeThumbBtn" style="display:none" onclick="removeThumbnail()">
-                            <i class="fas fa-trash"></i> Hapus Gambar
-                        </button>
+                        <button class="btn btn-danger btn-sm" id="removeThumbBtn" style="display:none" onclick="removeThumbnail()"><i class="fas fa-trash"></i> Hapus</button>
                         <div class="info-callout" style="margin-top:16px;">
                             <div class="info-callout-icon" style="background:var(--danger-dim); color:var(--danger);"><i class="fas fa-exclamation-triangle"></i></div>
                             <div class="text-sm text-[#8A8480] leading-relaxed">
-                                <strong class="text-[#F5F0EB]">Perhatian:</strong> Upload lokal hanya untuk referensi visual. Untuk meta tag <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code>, masukkan URL publik di tab <strong class="text-[#D4A853]">URL Gambar</strong>.
+                                Upload lokal hanya referensi visual. Untuk <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code>, masukkan URL publik di tab <strong class="text-[#D4A853]">URL Gambar</strong>.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab: Preview OG -->
             <div class="tab-panel" id="panelPreview">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="label">Tampilan di Facebook / LinkedIn</label>
+                        <label class="label">Tampilan Facebook / LinkedIn</label>
                         <div class="meta-preview-card">
-                            <div class="meta-preview-img" id="ogPreviewImg">
-                                <div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Belum ada gambar</span></div>
-                            </div>
+                            <div class="meta-preview-img" id="ogPreviewImg"><div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i></div></div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-domain" id="ogPreviewDomain">UNDANGAN.EVENT</p>
                                 <p class="meta-preview-title" id="ogPreviewTitle2">Undangan Event</p>
@@ -618,36 +777,24 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                         </div>
                     </div>
                     <div>
-                        <label class="label">Tampilan di Twitter / X</label>
+                        <label class="label">Tampilan Twitter / X</label>
                         <div class="meta-preview-card">
-                            <div class="meta-preview-img" id="twPreviewImg" style="aspect-ratio:2/1;">
-                                <div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Belum ada gambar</span></div>
-                            </div>
+                            <div class="meta-preview-img" id="twPreviewImg" style="aspect-ratio:2/1;"><div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i></div></div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-title" id="twPreviewTitle" style="font-size:14px;">Undangan Event</p>
                                 <p class="meta-preview-desc" id="twPreviewDesc">Anda diundang untuk menghadiri acara spesial kami.</p>
-                            </div>
-                        </div>
-                        <div class="info-callout" style="margin-top:16px;">
-                            <div class="info-callout-icon"><i class="fas fa-rotate"></i></div>
-                            <div class="text-sm text-[#8A8480] leading-relaxed">
-                                Platform <strong class="text-[#F5F0EB]">meng-cache</strong> thumbnail. Gunakan <a href="https://developers.facebook.com/tools/debug/" target="_blank" class="text-[#D4A853] underline">Facebook Sharing Debugger</a> atau <a href="https://cards-dev.twitter.com/validator" target="_blank" class="text-[#D4A853] underline">Twitter Card Validator</a> untuk refresh cache.
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab: Kode Meta -->
             <div class="tab-panel" id="panelCode">
                 <div class="flex items-center justify-between mb-4">
-                    <label class="label" style="margin-bottom:0">Tag Meta yang Dihasilkan</label>
-                    <button class="btn btn-primary btn-sm" onclick="copyMetaTags()"><i class="fas fa-copy"></i> Salin Semua</button>
+                    <label class="label" style="margin-bottom:0">Tag Meta</label>
+                    <button class="btn btn-primary btn-sm" onclick="copyMetaTags()"><i class="fas fa-copy"></i> Salin</button>
                 </div>
                 <div class="meta-tag-display" id="metaTagDisplay"></div>
-                <p class="text-xs text-[#8A8480] mt-3 leading-relaxed">
-                    <i class="fas fa-paste mr-1"></i>Tempelkan di bagian <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">&lt;head&gt;</code> halaman undangan Anda.
-                </p>
             </div>
         </section>
 
@@ -661,14 +808,14 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                         </div>
                         <div>
                             <h2 class="font-display text-xl font-bold">Daftar Tamu</h2>
-                            <p class="text-xs text-[#8A8480] mt-0.5">Klik tombol WA untuk kirim langsung, atau Salin untuk copy pesan + link</p>
+                            <p class="text-xs text-[#8A8480] mt-0.5">Klik tombol WA untuk kirim langsung, Share untuk pilih kontak</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3 flex-wrap">
                         <button class="btn btn-secondary btn-sm" onclick="selectAllGuests()"><i class="fas fa-check-double"></i> Pilih Semua</button>
                         <button class="btn btn-secondary btn-sm" onclick="deselectAllGuests()"><i class="fas fa-times"></i> Batal Pilih</button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteSelectedGuests()" id="deleteSelectedBtn" style="display:none"><i class="fas fa-trash"></i> Hapus Terpilih</button>
-                        <button class="btn btn-primary btn-sm" onclick="openAddModal()"><i class="fas fa-plus"></i> Tambah Tamu</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteSelectedGuests()" id="deleteSelectedBtn" style="display:none"><i class="fas fa-trash"></i> Hapus</button>
+                        <button class="btn btn-primary btn-sm" onclick="openAddModal()"><i class="fas fa-plus"></i> Tambah</button>
                     </div>
                 </div>
             </div>
@@ -687,7 +834,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                             <th>Nama Tamu</th>
                             <th>Nomor WhatsApp</th>
                             <th style="width:90px">Status</th>
-                            <th style="width:220px">Aksi</th>
+                            <th style="width:260px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="guestTableBody"></tbody>
@@ -696,23 +843,24 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
             <div class="empty-state" id="emptyState" style="display:none">
                 <i class="fas fa-user-group block"></i>
                 <p class="font-medium text-base mb-1">Belum ada tamu</p>
-                <p class="text-sm">Klik "Tambah Tamu" untuk mulai menambahkan daftar undangan</p>
+                <p class="text-sm">Klik "Tambah" untuk mulai</p>
             </div>
 
-            <!-- Footer tabel: aksi massal -->
             <div class="p-6 md:p-8 border-t border-[#2A2A2A] bg-[rgba(255,255,255,0.01)] rounded-b-2xl">
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <p class="text-sm text-[#8A8480]" id="selectedCountText">0 tamu dipilih</p>
                     <div class="flex items-center gap-3 flex-wrap">
-                        <button class="btn btn-wa" onclick="sendSelectedToWhatsApp()" id="btnSendSelected">
-                            <i class="fab fa-whatsapp text-lg"></i> Kirim WA ke Terpilih
+                        <button class="btn btn-wa" onclick="sendSelectedToWhatsApp()" id="btnSendSelected" style="display:none">
+                            <i class="fab fa-whatsapp text-lg"></i> Kirim WA Terpilih
                         </button>
-                        <button class="btn btn-secondary" onclick="copySelectedMessages()" id="btnCopySelected">
-                            <i class="fas fa-copy"></i> Salin Pesan Terpilih
+                        <button class="btn btn-wa" onclick="shareSelectedFromTable()" id="btnShareSelected" style="display:none; background: linear-gradient(135deg, #075E54, #054d44);">
+                            <i class="fas fa-share-nodes"></i> Share WA Terpilih
+                        </button>
+                        <button class="btn btn-secondary" onclick="copySelectedMessages()" id="btnCopySelected" style="display:none">
+                            <i class="fas fa-copy"></i> Salin Pesan
                         </button>
                     </div>
                 </div>
-                <!-- Notifikasi link yang disalin -->
                 <div id="copiedLinkBar" style="display:none; margin-top:12px;"></div>
             </div>
         </section>
@@ -728,11 +876,9 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     <p class="text-xs text-[#8A8480] mt-0.5">Tambah banyak tamu sekaligus</p>
                 </div>
             </div>
-            <p class="text-xs text-[#8A8480] mb-4">Satu baris per tamu. Format: <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">Nama, NomorWA</code> (nomor opsional, pisah dengan koma)</p>
-            <textarea class="input-field" id="bulkImport" rows="6" placeholder="Budi Santoso, 6281234567890&#10;Ani Rahayu&#10;Citra Dewi, 6289876543210&#10;Dedi Kurniawan"></textarea>
-            <button class="btn btn-primary btn-sm mt-4" onclick="bulkImportGuests()">
-                <i class="fas fa-file-import"></i> Import
-            </button>
+            <p class="text-xs text-[#8A8480] mb-4">Format: <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">Nama, NomorWA</code> (nomor opsional)</p>
+            <textarea class="input-field" id="bulkImport" rows="6" placeholder="Budi Santoso, 6281234567890&#10;Ani Rahayu&#10;Citra Dewi, 6289876543210"></textarea>
+            <button class="btn btn-primary btn-sm mt-4" onclick="bulkImportGuests()"><i class="fas fa-file-import"></i> Import</button>
         </section>
     </main>
 
@@ -746,18 +892,21 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
 <script>
     // ==========================================
-    // STATE & DATA
+    // STATE
     // ==========================================
-    let guests = [];
-    let editingGuestId = null;
-    let thumbnailData = null;
+    var guests = [];
+    var editingGuestId = null;
+    var thumbnailData = null;
+    var shareModalSelected = [];
 
-    // Muat data dari localStorage
+    // ==========================================
+    // LOAD / SAVE
+    // ==========================================
     function loadData() {
         try {
-            const saved = localStorage.getItem('eventInvitationData');
+            var saved = localStorage.getItem('eventInvitationData');
             if (saved) {
-                const data = JSON.parse(saved);
+                var data = JSON.parse(saved);
                 guests = data.guests || [];
                 document.getElementById('schoolName').value = data.schoolName || '';
                 document.getElementById('eventDate').value = data.eventDate || '';
@@ -770,25 +919,16 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 document.getElementById('thumbAlt').value = data.thumbAlt || '';
                 document.getElementById('ogTitleInput').value = data.ogTitleInput || '';
                 document.getElementById('ogDescInput').value = data.ogDescInput || '';
-                if (data.thumbnailData) {
-                    thumbnailData = data.thumbnailData;
-                    showThumbnail(data.thumbnailData);
-                }
-                // Muat URL thumbnail jika ada
-                if (data.thumbUrl) {
-                    onThumbUrlChange();
-                }
+                if (data.thumbnailData) { thumbnailData = data.thumbnailData; showThumbnail(data.thumbnailData); }
+                if (data.thumbUrl) onThumbUrlChange();
             }
-        } catch (e) {
-            console.error('Gagal memuat data:', e);
-        }
+        } catch (e) { console.error('Gagal memuat:', e); }
     }
 
-    // Simpan data ke localStorage
     function saveData() {
         try {
-            const data = {
-                guests,
+            localStorage.setItem('eventInvitationData', JSON.stringify({
+                guests: guests,
                 schoolName: document.getElementById('schoolName').value,
                 eventDate: document.getElementById('eventDate').value,
                 eventTime: document.getElementById('eventTime').value,
@@ -801,115 +941,308 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 thumbAlt: document.getElementById('thumbAlt').value,
                 ogTitleInput: document.getElementById('ogTitleInput').value,
                 ogDescInput: document.getElementById('ogDescInput').value
-            };
-            localStorage.setItem('eventInvitationData', JSON.stringify(data));
-        } catch (e) {
-            console.error('Gagal menyimpan data:', e);
-        }
+            }));
+        } catch (e) { console.error('Gagal simpan:', e); }
     }
 
-    // ==========================================
-    // GENERATE ID
-    // ==========================================
-    function generateId() {
-        return 'g_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
-    }
+    function generateId() { return 'g_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6); }
 
     // ==========================================
-    // TOAST NOTIFICATION
+    // TOAST
     // ==========================================
     function showToast(message, type) {
         type = type || 'info';
-        const container = document.getElementById('toastContainer');
-        const toast = document.createElement('div');
-        toast.className = 'toast toast-' + type;
-        const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle' };
-        toast.innerHTML = '<i class="fas ' + (icons[type] || icons.info) + '"></i> ' + message;
-        container.appendChild(toast);
-        setTimeout(function() {
-            toast.classList.add('toast-exit');
-            setTimeout(function() { toast.remove(); }, 300);
-        }, 3000);
+        var c = document.getElementById('toastContainer');
+        var t = document.createElement('div');
+        t.className = 'toast toast-' + type;
+        var icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle' };
+        t.innerHTML = '<i class="fas ' + (icons[type] || icons.info) + '"></i> ' + message;
+        c.appendChild(t);
+        setTimeout(function() { t.classList.add('toast-exit'); setTimeout(function() { t.remove(); }, 300); }, 3500);
+    }
+
+    // ==========================================
+    // VALIDASI LINK
+    // ==========================================
+    function ensureLink() {
+        var link = document.getElementById('inviteLink').value.trim();
+        if (!link) {
+            showToast('Isi Link Undangan dulu di Pengaturan Event', 'error');
+            document.getElementById('inviteLink').focus();
+            document.getElementById('inviteLink').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+        return true;
+    }
+
+    // ==========================================
+    // GENERATE PESAN
+    // ==========================================
+    function generateMessage(guestName) {
+        var t = document.getElementById('messageTemplate').value;
+        var msg = t;
+        msg = msg.replace(/\[Nama Teman\]/g, guestName || '[Nama Teman]');
+        msg = msg.replace(/\[Nama Sekolah\/Angkatan\]/g, document.getElementById('schoolName').value || '[Nama Sekolah/Angkatan]');
+        msg = msg.replace(/\[Hari, Tanggal Acara\]/g, document.getElementById('eventDate').value || '[Hari, Tanggal Acara]');
+        msg = msg.replace(/\[Jam Mulai\]/g, document.getElementById('eventTime').value || '[Jam Mulai]');
+        msg = msg.replace(/\[Nama Tempat \/ Lokasi\]/g, document.getElementById('eventPlace').value || '[Nama Tempat / Lokasi]');
+        msg = msg.replace(/\[Masukkan Link Undangan di Sini\]/g, document.getElementById('inviteLink').value || '[Link Belum Diisi]');
+        return msg;
+    }
+
+    // ==========================================
+    // BUKA WA KE NOMOR SPESIFIK (wa.me)
+    // ==========================================
+    function openWaToNumber(phone, message) {
+        var p = phone.replace(/[^0-9]/g, '');
+        if (p.startsWith('0')) p = '62' + p.substring(1);
+        if (p.startsWith('+')) p = p.substring(1);
+        window.open('https://wa.me/' + p + '?text=' + encodeURIComponent(message), '_blank');
+    }
+
+    // ==========================================
+    // BUKA WA SHARE (pilih kontak, tanpa nomor)
+    // ==========================================
+    function openWaShare(message) {
+        window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(message), '_blank');
+    }
+
+    // ==========================================
+    // SHARE CEPAT (bagian atas)
+    // ==========================================
+    function updateQuickShareSelect() {
+        var sel = document.getElementById('quickShareSelect');
+        var val = sel.value;
+        var html = '<option value="">-- Pilih Tamu --</option>';
+        guests.forEach(function(g) {
+            html += '<option value="' + g.id + '"' + (g.id === val ? ' selected' : '') + '>' + escapeHtml(g.name) + (g.phone ? ' (' + g.phone + ')' : '') + '</option>';
+        });
+        sel.innerHTML = html;
+        document.getElementById('btnQuickShare').disabled = !val;
+    }
+
+    // Share via WA ke nomor tamu yang dipilih
+    function quickShareWhatsApp() {
+        var id = document.getElementById('quickShareSelect').value;
+        if (!id) return;
+        if (!ensureLink()) return;
+        var guest = guests.find(function(g) { return g.id === id; });
+        if (!guest) return;
+
+        var msg = generateMessage(guest.name);
+
+        if (guest.phone) {
+            // Punya nomor: langsung buka chat
+            openWaToNumber(guest.phone, msg);
+            guest.sent = true;
+            saveData();
+            renderGuestTable();
+            showToast('WhatsApp dibuka untuk ' + guest.name, 'success');
+        } else {
+            // Tanpa nomor: buka share dialog
+            openWaShare(msg);
+            showToast('Share dialog dibuka untuk ' + guest.name + ' (pilih kontak manual)', 'success');
+        }
+
+        // Animasi bounce
+        var btn = document.getElementById('btnQuickShare');
+        btn.classList.add('share-bounce');
+        setTimeout(function() { btn.classList.remove('share-bounce'); }, 600);
+    }
+
+    // Share ke kontak lain (tanpa nama spesifik, pesan generik)
+    function quickShareGeneric() {
+        if (!ensureLink()) return;
+        var msg = generateMessage('[Nama Teman]');
+        openWaShare(msg);
+        showToast('Dialog share WhatsApp dibuka — pilih kontak tujuan', 'success');
+    }
+
+    // ==========================================
+    // SHARE MODAL (pilih banyak tamu)
+    // ==========================================
+    function openShareModal() {
+        if (guests.length === 0) {
+            showToast('Tambahkan tamu terlebih dahulu', 'error');
+            return;
+        }
+        shareModalSelected = [];
+        document.getElementById('shareSearchInput').value = '';
+        document.getElementById('shareModal').classList.add('active');
+        renderShareList();
+    }
+
+    function closeShareModal() {
+        document.getElementById('shareModal').classList.remove('active');
+        shareModalSelected = [];
+    }
+
+    function renderShareList() {
+        var search = document.getElementById('shareSearchInput').value.toLowerCase().trim();
+        var container = document.getElementById('shareListContainer');
+        var empty = document.getElementById('shareEmptyState');
+        var filtered = guests.filter(function(g) {
+            return !search || g.name.toLowerCase().indexOf(search) !== -1;
+        });
+
+        if (filtered.length === 0) {
+            container.innerHTML = '';
+            container.appendChild(empty);
+            empty.style.display = 'block';
+            return;
+        }
+
+        var html = '';
+        filtered.forEach(function(g) {
+            var checked = shareModalSelected.indexOf(g.id) !== -1;
+            html += '<div class="flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all" style="background:' + (checked ? 'var(--accent-dim)' : 'transparent') + '; border:1px solid ' + (checked ? 'var(--border-accent)' : 'transparent') + ';" onclick="toggleShareModalItem(\'' + g.id + '\')">';
+            html += '<input type="checkbox" class="custom-check" ' + (checked ? 'checked' : '') + ' onclick="event.stopPropagation(); toggleShareModalItem(\'' + g.id + '\')">';
+            html += '<div class="guest-avatar" style="width:34px; height:34px; font-size:13px;">' + g.name.charAt(0).toUpperCase() + '</div>';
+            html += '<div style="flex:1; min-width:0;">';
+            html += '<p class="font-semibold text-sm truncate">' + escapeHtml(g.name) + '</p>';
+            html += '<p class="text-xs text-[#8A8480]">' + (g.phone || 'Tanpa nomor') + '</p>';
+            html += '</div>';
+            if (g.sent) html += '<span class="badge badge-sent" style="font-size:10px;"><i class="fas fa-check" style="font-size:7px;"></i> Terkirim</span>';
+            html += '</div>';
+        });
+        container.innerHTML = html;
+        updateShareModalBtn();
+    }
+
+    function toggleShareModalItem(id) {
+        var idx = shareModalSelected.indexOf(id);
+        if (idx === -1) shareModalSelected.push(id);
+        else shareModalSelected.splice(idx, 1);
+        renderShareList();
+    }
+
+    function updateShareModalBtn() {
+        var btn = document.getElementById('btnShareModal');
+        var count = shareModalSelected.length;
+        btn.innerHTML = '<i class="fab fa-whatsapp text-lg"></i> Share ' + (count > 0 ? count + ' Tamu' : 'Sekarang');
+        btn.disabled = count === 0;
+        btn.style.opacity = count > 0 ? '1' : '0.5';
+    }
+
+    function shareSelectedFromModal() {
+        if (shareModalSelected.length === 0) return;
+        if (!ensureLink()) return;
+
+        // Jika cuma 1, langsung share
+        if (shareModalSelected.length === 1) {
+            var g = guests.find(function(x) { return x.id === shareModalSelected[0]; });
+            if (!g) return;
+            var msg = generateMessage(g.name);
+            if (g.phone) {
+                openWaToNumber(g.phone, msg);
+                g.sent = true;
+                saveData();
+            } else {
+                openWaShare(msg);
+            }
+            showToast('WhatsApp dibuka untuk ' + g.name, 'success');
+        } else {
+            // Banyak: share satu per satu dengan delay
+            var withPhone = guests.filter(function(g) { return shareModalSelected.indexOf(g.id) !== -1 && g.phone; });
+            var withoutPhone = guests.filter(function(g) { return shareModalSelected.indexOf(g.id) !== -1 && !g.phone; });
+
+            if (withPhone.length > 0) {
+                // Buka WA untuk yang pertama punya nomor
+                var first = withPhone[0];
+                var msg = generateMessage(first.name);
+                openWaToNumber(first.phone, msg);
+                first.sent = true;
+                saveData();
+                showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu — klik Share di tabel masing-masing.', 'info');
+            } else if (withoutPhone.length > 0) {
+                // Semua tanpa nomor: buka share dialog
+                var g0 = withoutPhone[0];
+                var msg0 = generateMessage(g0.name);
+                openWaShare(msg0);
+                showToast('Share dialog dibuka untuk ' + g0.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu.', 'info');
+            }
+        }
+
+        closeShareModal();
+        renderGuestTable();
     }
 
     // ==========================================
     // RENDER TABEL TAMU
     // ==========================================
     function renderGuestTable() {
-        var searchVal = document.getElementById('searchGuest').value.toLowerCase().trim();
+        var search = document.getElementById('searchGuest').value.toLowerCase().trim();
         var tbody = document.getElementById('guestTableBody');
-        var emptyState = document.getElementById('emptyState');
+        var empty = document.getElementById('emptyState');
         var table = document.getElementById('guestTable');
 
         var filtered = guests.filter(function(g) {
-            return g.name.toLowerCase().indexOf(searchVal) !== -1 ||
-                   (g.phone && g.phone.indexOf(searchVal) !== -1);
+            return g.name.toLowerCase().indexOf(search) !== -1 || (g.phone && g.phone.indexOf(search) !== -1);
         });
 
         if (filtered.length === 0) {
             table.style.display = 'none';
-            emptyState.style.display = 'block';
-            if (guests.length > 0 && searchVal) {
-                emptyState.querySelector('p:first-of-type').textContent = 'Tidak ditemukan';
-                emptyState.querySelector('p:last-of-type').textContent = 'Coba kata kunci lain';
+            empty.style.display = 'block';
+            if (guests.length > 0 && search) {
+                empty.querySelector('p:first-of-type').textContent = 'Tidak ditemukan';
+                empty.querySelector('p:last-of-type').textContent = 'Coba kata kunci lain';
             } else {
-                emptyState.querySelector('p:first-of-type').textContent = 'Belum ada tamu';
-                emptyState.querySelector('p:last-of-type').textContent = 'Klik "Tambah Tamu" untuk mulai menambahkan daftar undangan';
+                empty.querySelector('p:first-of-type').textContent = 'Belum ada tamu';
+                empty.querySelector('p:last-of-type').textContent = 'Klik "Tambah" untuk mulai';
             }
         } else {
             table.style.display = 'table';
-            emptyState.style.display = 'none';
+            empty.style.display = 'none';
         }
 
         var html = '';
-        filtered.forEach(function(guest) {
-            var initial = guest.name.charAt(0).toUpperCase();
-            var phoneDisplay = guest.phone || '<span style="color:var(--fg-muted); font-size:12px;">Belum diisi</span>';
+        filtered.forEach(function(g) {
+            var initial = g.name.charAt(0).toUpperCase();
+            var phoneDisplay = g.phone || '<span style="color:var(--fg-muted); font-size:12px;">-</span>';
             var statusBadge = '';
-            if (guest.sent) {
-                statusBadge = '<span class="badge badge-sent"><i class="fas fa-check text-[8px]"></i> Terkirim</span>';
-            } else if (guest.phone) {
-                statusBadge = '<span class="badge badge-green"><i class="fas fa-phone text-[8px]"></i> Siap</span>';
-            } else {
-                statusBadge = '<span class="badge badge-gold"><i class="fas fa-clock text-[8px]"></i> Pending</span>';
-            }
+            if (g.sent) statusBadge = '<span class="badge badge-sent"><i class="fas fa-check" style="font-size:8px;"></i> Terkirim</span>';
+            else if (g.phone) statusBadge = '<span class="badge badge-green"><i class="fas fa-phone" style="font-size:8px;"></i> Siap</span>';
+            else statusBadge = '<span class="badge badge-gold"><i class="fas fa-clock" style="font-size:8px;"></i> Pending</span>';
 
-            // Tombol aksi per baris
             var actions = '';
 
-            // Tombol Kirim WA langsung (hanya jika ada nomor)
-            if (guest.phone) {
-                actions += '<button class="btn-wa-sm wa-tooltip" data-tip="Kirim via WA" onclick="sendSingleWA(\'' + guest.id + '\')"><i class="fab fa-whatsapp"></i></button>';
+            // 1. Tombol Kirim WA langsung (hanya jika ada nomor)
+            if (g.phone) {
+                actions += '<button class="btn-wa-sm wa-tooltip" data-tip="Kirim WA langsung" onclick="sendSingleWA(\'' + g.id + '\')"><i class="fab fa-whatsapp"></i></button>';
             }
 
-            // Tombol Salin Pesan + Link
-            actions += '<button class="btn-copy wa-tooltip" data-tip="Salin pesan & link" onclick="copySingleMessage(\'' + guest.id + '\', this)"><i class="fas fa-copy"></i><span>Salin</span></button>';
+            // 2. Tombol SHARE WA (buka dialog share, pilih kontak sendiri)
+            actions += '<button class="btn-wa-share wa-tooltip" data-tip="Share ke kontak WA" onclick="shareSingleWA(\'' + g.id + '\')"><i class="fas fa-share-nodes"></i>Share</button>';
 
-            // Tombol Edit
-            actions += '<button class="btn-icon btn-secondary wa-tooltip" data-tip="Edit" onclick="openEditModal(\'' + guest.id + '\')"><i class="fas fa-pen text-xs"></i></button>';
+            // 3. Tombol Salin
+            actions += '<button class="btn-copy wa-tooltip" data-tip="Salin pesan + link" onclick="copySingleMessage(\'' + g.id + '\', this)"><i class="fas fa-copy"></i></button>';
 
-            // Tombol Hapus
-            actions += '<button class="btn-icon btn-danger wa-tooltip" data-tip="Hapus" onclick="deleteGuest(\'' + guest.id + '\')"><i class="fas fa-trash text-xs"></i></button>';
+            // 4. Edit
+            actions += '<button class="btn-icon btn-secondary wa-tooltip" data-tip="Edit" onclick="openEditModal(\'' + g.id + '\')"><i class="fas fa-pen" style="font-size:11px;"></i></button>';
 
-            html += '<tr id="row_' + guest.id + '" class="' + (guest.selected ? 'selected' : '') + '">';
-            html += '<td><input type="checkbox" class="custom-check" ' + (guest.selected ? 'checked' : '') + ' onchange="toggleGuestSelect(\'' + guest.id + '\')"></td>';
+            // 5. Hapus
+            actions += '<button class="btn-icon btn-danger wa-tooltip" data-tip="Hapus" onclick="deleteGuest(\'' + g.id + '\')"><i class="fas fa-trash" style="font-size:11px;"></i></button>';
+
+            html += '<tr id="row_' + g.id + '" class="' + (g.selected ? 'selected' : '') + '">';
+            html += '<td><input type="checkbox" class="custom-check" ' + (g.selected ? 'checked' : '') + ' onchange="toggleGuestSelect(\'' + g.id + '\')"></td>';
             html += '<td><div class="guest-avatar">' + initial + '</div></td>';
-            html += '<td><strong>' + escapeHtml(guest.name) + '</strong></td>';
+            html += '<td><strong>' + escapeHtml(g.name) + '</strong></td>';
             html += '<td style="font-size:13px; font-family:\'Courier New\',monospace;">' + phoneDisplay + '</td>';
             html += '<td>' + statusBadge + '</td>';
-            html += '<td><div class="action-cell" style="display:flex; gap:4px; align-items:center;">' + actions + '</div></td>';
+            html += '<td><div style="display:flex; gap:4px; align-items:center; flex-wrap:nowrap;">' + actions + '</div></td>';
             html += '</tr>';
         });
 
         tbody.innerHTML = html;
         updateStats();
         updatePreviewGuestSelect();
+        updateQuickShareSelect();
     }
 
     function escapeHtml(text) {
-        var div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+        var d = document.createElement('div');
+        d.textContent = text;
+        return d.innerHTML;
     }
 
     // ==========================================
@@ -926,241 +1259,152 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         document.getElementById('statWithPhone').textContent = withPhone;
         document.getElementById('statSent').textContent = sent;
         document.getElementById('selectedCountText').textContent = selected + ' tamu dipilih';
-
-        // Tampilkan/sembunyikan tombol hapus terpilih
         document.getElementById('deleteSelectedBtn').style.display = selected > 0 ? 'inline-flex' : 'none';
 
-        // Tampilkan/sembunyikan tombol kirim massal
-        var btnSend = document.getElementById('btnSendSelected');
-        var btnCopy = document.getElementById('btnCopySelected');
-        if (selected > 0) {
-            btnSend.style.display = 'inline-flex';
-            btnCopy.style.display = 'inline-flex';
-            // Cek apakah ada yang punya nomor
-            var selectedWithPhone = guests.filter(function(g) { return g.selected && g.phone; }).length;
-            if (selectedWithPhone === 0) {
-                btnSend.style.opacity = '0.5';
-                btnSend.title = 'Tidak ada tamu terpilih yang memiliki nomor WA';
-            } else {
-                btnSend.style.opacity = '1';
-                btnSend.title = '';
-            }
-        } else {
-            btnSend.style.display = 'none';
-            btnCopy.style.display = 'none';
+        var show = selected > 0;
+        document.getElementById('btnSendSelected').style.display = show ? 'inline-flex' : 'none';
+        document.getElementById('btnShareSelected').style.display = show ? 'inline-flex' : 'none';
+        document.getElementById('btnCopySelected').style.display = show ? 'inline-flex' : 'none';
+
+        if (show) {
+            var swp = guests.filter(function(g) { return g.selected && g.phone; }).length;
+            document.getElementById('btnSendSelected').style.opacity = swp > 0 ? '1' : '0.4';
         }
     }
 
     // ==========================================
-    // GENERATE PESAN UNTUK TAMU
+    // AKSI PER TAMU
     // ==========================================
-    function generateMessage(guestName) {
-        var template = document.getElementById('messageTemplate').value;
-        var school = document.getElementById('schoolName').value;
-        var date = document.getElementById('eventDate').value;
-        var time = document.getElementById('eventTime').value;
-        var place = document.getElementById('eventPlace').value;
-        var link = document.getElementById('inviteLink').value;
 
-        var msg = template;
-        msg = msg.replace(/\[Nama Teman\]/g, guestName || '[Nama Teman]');
-        msg = msg.replace(/\[Nama Sekolah\/Angkatan\]/g, school || '[Nama Sekolah/Angkatan]');
-        msg = msg.replace(/\[Hari, Tanggal Acara\]/g, date || '[Hari, Tanggal Acara]');
-        msg = msg.replace(/\[Jam Mulai\]/g, time || '[Jam Mulai]');
-        msg = msg.replace(/\[Nama Tempat \/ Lokasi\]/g, place || '[Nama Tempat / Lokasi]');
-        msg = msg.replace(/\[Masukkan Link Undangan di Sini\]/g, link || '[Link Undangan Belum Diisi]');
-
-        return msg;
-    }
-
-    // ==========================================
-    // KIRIM WA PER TAMU (buka wa.me dengan pesan)
-    // ==========================================
+    // Kirim WA langsung ke nomor tamu
     function sendSingleWA(guestId) {
-        var guest = guests.find(function(g) { return g.id === guestId; });
-        if (!guest || !guest.phone) {
-            showToast('Tamu tidak memiliki nomor WhatsApp', 'error');
-            return;
-        }
-
-        var link = document.getElementById('inviteLink').value;
-        if (!link) {
-            showToast('Isi Link Undangan terlebih dahulu di Pengaturan Event', 'error');
-            return;
-        }
-
-        var msg = generateMessage(guest.name);
-        var phone = guest.phone.replace(/[^0-9]/g, '');
-        // Pastikan dimulai dengan kode negara tanpa +
-        if (phone.startsWith('0')) phone = '62' + phone.substring(1);
-        if (phone.startsWith('+')) phone = phone.substring(1);
-
-        var waUrl = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
-        window.open(waUrl, '_blank');
-
-        // Tandai sebagai terkirim
-        guest.sent = true;
+        var g = guests.find(function(x) { return x.id === guestId; });
+        if (!g || !g.phone) { showToast('Tidak ada nomor WA', 'error'); return; }
+        if (!ensureLink()) return;
+        var msg = generateMessage(g.name);
+        openWaToNumber(g.phone, msg);
+        g.sent = true;
         saveData();
         renderGuestTable();
-        showToast('WhatsApp dibuka untuk ' + guest.name, 'success');
+        showToast('WhatsApp dibuka untuk ' + g.name, 'success');
     }
 
-    // ==========================================
-    // SALIN PESAN + LINK PER TAMU
-    // ==========================================
+    // Share WA (buka dialog share, pilih kontak sendiri)
+    function shareSingleWA(guestId) {
+        var g = guests.find(function(x) { return x.id === guestId; });
+        if (!g) return;
+        if (!ensureLink()) return;
+        var msg = generateMessage(g.name);
+        openWaShare(msg);
+        g.sent = true;
+        saveData();
+        renderGuestTable();
+        showToast('Dialog share WA dibuka untuk ' + g.name + ' — pilih kontak tujuan', 'success');
+    }
+
+    // Salin pesan per tamu
     function copySingleMessage(guestId, btnEl) {
-        var guest = guests.find(function(g) { return g.id === guestId; });
-        if (!guest) return;
-
-        var link = document.getElementById('inviteLink').value;
-        if (!link) {
-            showToast('Isi Link Undangan terlebih dahulu di Pengaturan Event', 'error');
-            return;
-        }
-
-        var msg = generateMessage(guest.name);
+        var g = guests.find(function(x) { return x.id === guestId; });
+        if (!g) return;
+        if (!ensureLink()) return;
+        var msg = generateMessage(g.name);
         copyToClipboard(msg, btnEl);
-        showCopiedBar(guest.name, link);
+        showCopiedBar(g.name, document.getElementById('inviteLink').value);
     }
 
     // ==========================================
-    // KIRIM WA MASSAL (tamu terpilih yang punya nomor)
+    // AKSI MASSAL DARI TABEL
     // ==========================================
+
+    // Kirim WA ke nomor terpilih
     function sendSelectedToWhatsApp() {
-        var selected = guests.filter(function(g) { return g.selected && g.phone; });
-        if (selected.length === 0) {
-            showToast('Pilih tamu yang memiliki nomor WA terlebih dahulu', 'error');
-            return;
-        }
-
-        var link = document.getElementById('inviteLink').value;
-        if (!link) {
-            showToast('Isi Link Undangan terlebih dahulu di Pengaturan Event', 'error');
-            return;
-        }
-
-        // Buka WA untuk tamu pertama
-        var first = selected[0];
-        var msg = generateMessage(first.name);
-        var phone = first.phone.replace(/[^0-9]/g, '');
-        if (phone.startsWith('0')) phone = '62' + phone.substring(1);
-        if (phone.startsWith('+')) phone = phone.substring(1);
-
-        var waUrl = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
-        window.open(waUrl, '_blank');
-
+        var sel = guests.filter(function(g) { return g.selected && g.phone; });
+        if (sel.length === 0) { showToast('Pilih tamu dengan nomor WA', 'error'); return; }
+        if (!ensureLink()) return;
+        var first = sel[0];
+        openWaToNumber(first.phone, generateMessage(first.name));
         first.sent = true;
         saveData();
-
-        // Jika lebih dari 1, kasih info
-        if (selected.length > 1) {
-            showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (selected.length - 1) + ' tamu lagi — klik tombol WA di masing-masing baris.', 'info');
-        } else {
-            showToast('WhatsApp dibuka untuk ' + first.name, 'success');
-        }
-
         renderGuestTable();
+        if (sel.length > 1) showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (sel.length - 1) + ' — klik tombol WA di baris masing-masing.', 'info');
+        else showToast('WhatsApp dibuka untuk ' + first.name, 'success');
     }
 
-    // ==========================================
-    // SALIN PESAN MASSAL (semua tamu terpilih)
-    // ==========================================
+    // Share WA terpilih (dialog share)
+    function shareSelectedFromTable() {
+        var sel = guests.filter(function(g) { return g.selected; });
+        if (sel.length === 0) { showToast('Pilih tamu terlebih dahulu', 'error'); return; }
+        if (!ensureLink()) return;
+
+        if (sel.length === 1) {
+            var g = sel[0];
+            openWaShare(generateMessage(g.name));
+            g.sent = true;
+            saveData();
+            renderGuestTable();
+            showToast('Dialog share WA dibuka untuk ' + g.name, 'success');
+        } else {
+            // Buka share dialog untuk tamu pertama
+            var g0 = sel[0];
+            openWaShare(generateMessage(g0.name));
+            g0.sent = true;
+            saveData();
+            renderGuestTable();
+            showToast('Share dibuka untuk ' + g0.name + '. Untuk ' + (sel.length - 1) + ' tamu lainnya, klik tombol "Share" di baris masing-masing.', 'info');
+        }
+    }
+
+    // Salin pesan terpilih
     function copySelectedMessages() {
-        var selected = guests.filter(function(g) { return g.selected; });
-        if (selected.length === 0) {
-            showToast('Pilih tamu terlebih dahulu', 'error');
-            return;
-        }
-
+        var sel = guests.filter(function(g) { return g.selected; });
+        if (sel.length === 0) { showToast('Pilih tamu dulu', 'error'); return; }
+        if (!ensureLink()) return;
+        var all = sel.map(function(g) { return generateMessage(g.name); }).join('\n\n═══════════════════════════\n\n');
+        copyToClipboard(all, null);
         var link = document.getElementById('inviteLink').value;
-        if (!link) {
-            showToast('Isi Link Undangan terlebih dahulu di Pengaturan Event', 'error');
-            return;
-        }
-
-        // Gabungkan semua pesan dengan separator
-        var allMessages = selected.map(function(g) {
-            return generateMessage(g.name);
-        }).join('\n\n═══════════════════════════\n\n');
-
-        copyToClipboard(allMessages, null);
-
         var bar = document.getElementById('copiedLinkBar');
         bar.style.display = 'block';
-        bar.innerHTML = '<div class="copied-link-bar">' +
-            '<i class="fas fa-check-circle text-[#4ADE80] text-lg"></i>' +
-            '<div style="flex:1;">' +
-                '<p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">' + selected.length + ' pesan berhasil disalin!</p>' +
-                '<p class="link-text">' + escapeHtml(link) + '</p>' +
-            '</div>' +
-            '<button class="btn btn-wa btn-sm" onclick="window.open(\'' + encodeURIComponent(link) + '\', \'_blank\')" style="font-size:12px; padding:6px 14px;">Buka Link</button>' +
-        '</div>';
-
-        showToast(selected.length + ' pesan undangan disalin ke clipboard', 'success');
+        bar.innerHTML = '<div class="copied-link-bar"><i class="fas fa-check-circle text-[#4ADE80] text-lg"></i><div style="flex:1;"><p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">' + sel.length + ' pesan disalin!</p><p class="link-text">' + escapeHtml(link) + '</p></div></div>';
+        showToast(sel.length + ' pesan disalin ke clipboard', 'success');
+        setTimeout(function() { bar.style.display = 'none'; }, 8000);
     }
 
     // ==========================================
-    // CLIPBOARD HELPER
+    // CLIPBOARD
     // ==========================================
     function copyToClipboard(text, btnEl) {
-        // Coba navigator.clipboard dulu
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function() {
-                onCopySuccess(btnEl);
-            }).catch(function() {
-                fallbackCopy(text, btnEl);
-            });
-        } else {
-            fallbackCopy(text, btnEl);
-        }
+            navigator.clipboard.writeText(text).then(function() { onCopySuccess(btnEl); }).catch(function() { fallbackCopy(text, btnEl); });
+        } else { fallbackCopy(text, btnEl); }
     }
 
     function fallbackCopy(text, btnEl) {
         var ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        ta.style.top = '-9999px';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        try {
-            document.execCommand('copy');
-            onCopySuccess(btnEl);
-        } catch (e) {
-            showToast('Gagal menyalin ke clipboard', 'error');
-        }
+        ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand('copy'); onCopySuccess(btnEl); }
+        catch (e) { showToast('Gagal menyalin', 'error'); }
         document.body.removeChild(ta);
     }
 
     function onCopySuccess(btnEl) {
         if (btnEl) {
-            var originalHtml = btnEl.innerHTML;
+            var orig = btnEl.innerHTML;
             btnEl.classList.add('copied');
             btnEl.innerHTML = '<i class="fas fa-check"></i><span>Tersalin</span>';
-            setTimeout(function() {
-                btnEl.classList.remove('copied');
-                btnEl.innerHTML = originalHtml;
-            }, 2000);
+            setTimeout(function() { btnEl.classList.remove('copied'); btnEl.innerHTML = orig; }, 2000);
         }
     }
 
-    function showCopiedBar(guestName, link) {
+    function showCopiedBar(name, link) {
         var bar = document.getElementById('copiedLinkBar');
         bar.style.display = 'block';
-        bar.innerHTML = '<div class="copied-link-bar">' +
-            '<i class="fas fa-check-circle text-[#4ADE80] text-lg"></i>' +
-            '<div style="flex:1;">' +
-                '<p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">Pesan untuk ' + escapeHtml(guestName) + ' tersalin!</p>' +
-                '<p class="link-text">' + escapeHtml(link) + '</p>' +
-            '</div>' +
-        '</div>';
-        // Hilangkan setelah 8 detik
+        bar.innerHTML = '<div class="copied-link-bar"><i class="fas fa-check-circle text-[#4ADE80] text-lg"></i><div style="flex:1;"><p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">Pesan untuk ' + escapeHtml(name) + ' tersalin!</p><p class="link-text">' + escapeHtml(link) + '</p></div></div>';
         setTimeout(function() { bar.style.display = 'none'; }, 8000);
     }
 
     // ==========================================
-    // MODAL TAMBAH/EDIT TAMU
+    // MODAL TAMU
     // ==========================================
     function openAddModal() {
         editingGuestId = null;
@@ -1172,262 +1416,161 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     }
 
     function openEditModal(guestId) {
-        var guest = guests.find(function(g) { return g.id === guestId; });
-        if (!guest) return;
+        var g = guests.find(function(x) { return x.id === guestId; });
+        if (!g) return;
         editingGuestId = guestId;
         document.getElementById('modalTitle').textContent = 'Edit Tamu';
-        document.getElementById('modalGuestName').value = guest.name;
-        document.getElementById('modalGuestPhone').value = guest.phone || '';
+        document.getElementById('modalGuestName').value = g.name;
+        document.getElementById('modalGuestPhone').value = g.phone || '';
         document.getElementById('editModal').classList.add('active');
         setTimeout(function() { document.getElementById('modalGuestName').focus(); }, 200);
     }
 
-    function closeModal() {
-        document.getElementById('editModal').classList.remove('active');
-        editingGuestId = null;
-    }
+    function closeModal() { document.getElementById('editModal').classList.remove('active'); editingGuestId = null; }
 
     function saveGuestEdit() {
         var name = document.getElementById('modalGuestName').value.trim();
         var phone = document.getElementById('modalGuestPhone').value.trim().replace(/[^0-9]/g, '');
-
-        if (!name) {
-            showToast('Nama tamu wajib diisi', 'error');
-            return;
-        }
-
+        if (!name) { showToast('Nama wajib diisi', 'error'); return; }
         if (editingGuestId) {
-            // Edit
-            var guest = guests.find(function(g) { return g.id === editingGuestId; });
-            if (guest) {
-                guest.name = name;
-                guest.phone = phone || null;
-                showToast('Data tamu diperbarui', 'success');
-            }
+            var g = guests.find(function(x) { return x.id === editingGuestId; });
+            if (g) { g.name = name; g.phone = phone || null; }
+            showToast('Data diperbarui', 'success');
         } else {
-            // Tambah baru
-            guests.push({
-                id: generateId(),
-                name: name,
-                phone: phone || null,
-                selected: false,
-                sent: false
-            });
-            showToast('Tamu berhasil ditambahkan', 'success');
+            guests.push({ id: generateId(), name: name, phone: phone || null, selected: false, sent: false });
+            showToast('Tamu ditambahkan', 'success');
         }
-
-        saveData();
-        renderGuestTable();
-        closeModal();
+        saveData(); renderGuestTable(); closeModal();
     }
 
     // ==========================================
-    // HAPUS TAMU
+    // HAPUS
     // ==========================================
     function deleteGuest(guestId) {
-        var guest = guests.find(function(g) { return g.id === guestId; });
-        if (!guest) return;
-        if (!confirm('Hapus tamu "' + guest.name + '"?')) return;
-        guests = guests.filter(function(g) { return g.id !== guestId; });
-        saveData();
-        renderGuestTable();
-        showToast('Tamu dihapus', 'info');
+        var g = guests.find(function(x) { return x.id === guestId; });
+        if (!g) return;
+        if (!confirm('Hapus "' + g.name + '"?')) return;
+        guests = guests.filter(function(x) { return x.id !== guestId; });
+        saveData(); renderGuestTable(); showToast('Tamu dihapus', 'info');
     }
 
     function deleteSelectedGuests() {
-        var selected = guests.filter(function(g) { return g.selected; });
-        if (selected.length === 0) return;
-        if (!confirm('Hapus ' + selected.length + ' tamu yang dipilih?')) return;
-        var selectedIds = selected.map(function(g) { return g.id; });
-        guests = guests.filter(function(g) { return selectedIds.indexOf(g.id) === -1; });
-        saveData();
-        renderGuestTable();
-        showToast(selected.length + ' tamu dihapus', 'info');
+        var sel = guests.filter(function(g) { return g.selected; });
+        if (sel.length === 0) return;
+        if (!confirm('Hapus ' + sel.length + ' tamu?')) return;
+        var ids = sel.map(function(g) { return g.id; });
+        guests = guests.filter(function(g) { return ids.indexOf(g.id) === -1; });
+        saveData(); renderGuestTable(); showToast(sel.length + ' tamu dihapus', 'info');
     }
 
     // ==========================================
-    // SELECT / DESELECT
+    // SELECT
     // ==========================================
-    function toggleGuestSelect(guestId) {
-        var guest = guests.find(function(g) { return g.id === guestId; });
-        if (guest) {
-            guest.selected = !guest.selected;
-            saveData();
-            renderGuestTable();
-        }
+    function toggleGuestSelect(id) {
+        var g = guests.find(function(x) { return x.id === id; });
+        if (g) { g.selected = !g.selected; saveData(); renderGuestTable(); }
     }
-
     function selectAllGuests() {
-        var searchVal = document.getElementById('searchGuest').value.toLowerCase().trim();
-        guests.forEach(function(g) {
-            if (!searchVal || g.name.toLowerCase().indexOf(searchVal) !== -1 || (g.phone && g.phone.indexOf(searchVal) !== -1)) {
-                g.selected = true;
-            }
-        });
-        saveData();
-        renderGuestTable();
+        var s = document.getElementById('searchGuest').value.toLowerCase().trim();
+        guests.forEach(function(g) { if (!s || g.name.toLowerCase().indexOf(s) !== -1) g.selected = true; });
+        saveData(); renderGuestTable();
     }
-
     function deselectAllGuests() {
         guests.forEach(function(g) { g.selected = false; });
-        saveData();
-        renderGuestTable();
+        saveData(); renderGuestTable();
     }
-
     function toggleCheckAll() {
-        var checked = document.getElementById('checkAll').checked;
-        var searchVal = document.getElementById('searchGuest').value.toLowerCase().trim();
-        guests.forEach(function(g) {
-            if (!searchVal || g.name.toLowerCase().indexOf(searchVal) !== -1 || (g.phone && g.phone.indexOf(searchVal) !== -1)) {
-                g.selected = checked;
-            }
-        });
-        saveData();
-        renderGuestTable();
+        var c = document.getElementById('checkAll').checked;
+        var s = document.getElementById('searchGuest').value.toLowerCase().trim();
+        guests.forEach(function(g) { if (!s || g.name.toLowerCase().indexOf(s) !== -1) g.selected = c; });
+        saveData(); renderGuestTable();
     }
 
     // ==========================================
-    // IMPORT MASSAL
+    // IMPORT
     // ==========================================
     function bulkImportGuests() {
         var text = document.getElementById('bulkImport').value.trim();
-        if (!text) {
-            showToast('Masukkan daftar tamu terlebih dahulu', 'error');
-            return;
-        }
-
+        if (!text) { showToast('Masukkan daftar tamu', 'error'); return; }
         var lines = text.split('\n').filter(function(l) { return l.trim(); });
         var count = 0;
-
         lines.forEach(function(line) {
             var parts = line.split(',');
             var name = (parts[0] || '').trim();
             var phone = (parts[1] || '').trim().replace(/[^0-9]/g, '') || null;
-
-            if (name) {
-                guests.push({
-                    id: generateId(),
-                    name: name,
-                    phone: phone,
-                    selected: false,
-                    sent: false
-                });
-                count++;
-            }
+            if (name) { guests.push({ id: generateId(), name: name, phone: phone, selected: false, sent: false }); count++; }
         });
-
-        if (count > 0) {
-            saveData();
-            renderGuestTable();
-            document.getElementById('bulkImport').value = '';
-            showToast(count + ' tamu berhasil diimport', 'success');
-        } else {
-            showToast('Tidak ada data yang valid untuk diimport', 'error');
-        }
+        if (count > 0) { saveData(); renderGuestTable(); document.getElementById('bulkImport').value = ''; showToast(count + ' tamu diimport', 'success'); }
+        else showToast('Tidak ada data valid', 'error');
     }
 
     // ==========================================
-    // PREVIEW PESAN
+    // PREVIEW
     // ==========================================
     function updatePreview() {
-        var selectVal = document.getElementById('previewGuestSelect').value;
-        var manualName = document.getElementById('previewManualName').value.trim();
-        var guestName = '';
-
-        if (selectVal === '__manual__') {
-            guestName = manualName || '[Nama Teman]';
-        } else {
-            var guest = guests.find(function(g) { return g.id === selectVal; });
-            guestName = guest ? guest.name : '[Nama Teman]';
-        }
-
-        var msg = generateMessage(guestName);
+        var sel = document.getElementById('previewGuestSelect').value;
+        var manual = document.getElementById('previewManualName').value.trim();
+        var name = sel === '__manual__' ? (manual || '[Nama Teman]') : ((guests.find(function(g) { return g.id === sel; }) || {}).name || '[Nama Teman]');
+        var msg = generateMessage(name);
         var box = document.getElementById('previewBox');
-
-        // Highlight nama tamu di preview
-        var highlighted = msg.replace(new RegExp(escapeRegex(guestName), 'g'), '<span class="highlight-name">' + escapeHtml(guestName) + '</span>');
-        // Highlight link
+        var h = msg.replace(new RegExp(escapeRegex(name), 'g'), '<span class="highlight-name">' + escapeHtml(name) + '</span>');
         var link = document.getElementById('inviteLink').value;
-        if (link) {
-            highlighted = highlighted.replace(new RegExp(escapeRegex(link), 'g'), '<span style="color:#25D366; text-decoration:underline;">' + escapeHtml(link) + '</span>');
-        }
-
-        box.innerHTML = highlighted || '<span class="text-[#8A8480]">Isi pengaturan event dan template pesan...</span>';
+        if (link) h = h.replace(new RegExp(escapeRegex(link), 'g'), '<span style="color:#25D366; text-decoration:underline;">' + escapeHtml(link) + '</span>');
+        box.innerHTML = h || '<span class="text-[#8A8480]">Isi pengaturan dan template...</span>';
     }
 
-    function escapeRegex(str) {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
+    function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
     function updatePreviewGuestSelect() {
-        var select = document.getElementById('previewGuestSelect');
-        var currentVal = select.value;
+        var sel = document.getElementById('previewGuestSelect');
+        var val = sel.value;
         var html = '<option value="__manual__">Ketik manual...</option>';
-
-        guests.forEach(function(g) {
-            html += '<option value="' + g.id + '"' + (g.id === currentVal ? ' selected' : '') + '>' + escapeHtml(g.name) + '</option>';
-        });
-
-        select.innerHTML = html;
+        guests.forEach(function(g) { html += '<option value="' + g.id + '"' + (g.id === val ? ' selected' : '') + '>' + escapeHtml(g.name) + '</option>'; });
+        sel.innerHTML = html;
     }
 
     // ==========================================
-    // THUMBNAIL & META TAGS
+    // THUMBNAIL & META
     // ==========================================
-    function switchThumbTab(tabName) {
-        var tabs = ['url', 'upload', 'preview', 'code'];
-        tabs.forEach(function(t) {
-            document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.remove('active');
-            document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.remove('active');
+    function switchThumbTab(t) {
+        ['url','upload','preview','code'].forEach(function(x) {
+            document.getElementById('panel' + x.charAt(0).toUpperCase() + x.slice(1)).classList.remove('active');
+            document.getElementById('tab' + x.charAt(0).toUpperCase() + x.slice(1)).classList.remove('active');
         });
-        document.getElementById('panel' + tabName.charAt(0).toUpperCase() + tabName.slice(1)).classList.add('active');
-        document.getElementById('tab' + tabName.charAt(0).toUpperCase() + tabName.slice(1)).classList.add('active');
+        document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('active');
+        document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('active');
     }
 
     function onThumbUrlChange() {
         var url = document.getElementById('thumbUrl').value.trim();
-        var imgContainer = document.getElementById('thumbUrlPreviewImg');
-
+        var el = document.getElementById('thumbUrlPreviewImg');
         if (url) {
-            imgContainer.innerHTML = '<img src="' + escapeHtml(url) + '" alt="Thumbnail" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i><span class=\\\'text-xs\\\'>Gagal memuat gambar</span></div>\'">';
+            el.innerHTML = '<img src="' + escapeHtml(url) + '" alt="Thumb" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i><span class=\\\'text-xs\\\'>Gagal memuat</span></div>\'">';
             document.getElementById('metaStatusDot').style.background = 'var(--success)';
             document.getElementById('metaStatusText').style.color = 'var(--success)';
             document.getElementById('metaStatusText').textContent = 'Gambar terdeteksi';
         } else {
-            imgContainer.innerHTML = '<div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Masukkan URL gambar di samping</span></div>';
+            el.innerHTML = '<div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Masukkan URL</span></div>';
             document.getElementById('metaStatusDot').style.background = 'var(--danger)';
             document.getElementById('metaStatusText').style.color = 'var(--danger)';
             document.getElementById('metaStatusText').textContent = 'Belum ada gambar';
         }
-
         updateMetaTags();
     }
 
-    function handleThumbUpload(event) {
-        var file = event.target.files[0];
-        if (!file) return;
-        if (file.size > 5 * 1024 * 1024) {
-            showToast('Ukuran file maksimal 5MB', 'error');
-            return;
-        }
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            thumbnailData = e.target.result;
-            showThumbnail(thumbnailData);
-            saveData();
-            showToast('Gambar thumbnail berhasil diupload', 'success');
-        };
-        reader.readAsDataURL(file);
+    function handleThumbUpload(e) {
+        var f = e.target.files[0]; if (!f) return;
+        if (f.size > 5*1024*1024) { showToast('Max 5MB', 'error'); return; }
+        var r = new FileReader();
+        r.onload = function(ev) { thumbnailData = ev.target.result; showThumbnail(thumbnailData); saveData(); showToast('Thumbnail diupload', 'success'); };
+        r.readAsDataURL(f);
     }
 
     function showThumbnail(data) {
-        var preview = document.getElementById('thumbPreview');
-        var placeholder = document.getElementById('thumbPlaceholder');
-        var removeBtn = document.getElementById('removeThumbBtn');
-        preview.src = data;
-        preview.style.display = 'block';
-        placeholder.style.display = 'none';
-        removeBtn.style.display = 'inline-flex';
+        document.getElementById('thumbPreview').src = data;
+        document.getElementById('thumbPreview').style.display = 'block';
+        document.getElementById('thumbPlaceholder').style.display = 'none';
+        document.getElementById('removeThumbBtn').style.display = 'inline-flex';
     }
 
     function removeThumbnail() {
@@ -1436,110 +1579,77 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         document.getElementById('thumbPlaceholder').style.display = 'flex';
         document.getElementById('removeThumbBtn').style.display = 'none';
         document.getElementById('thumbInput').value = '';
-        saveData();
-        showToast('Gambar thumbnail dihapus', 'info');
+        saveData(); showToast('Thumbnail dihapus', 'info');
     }
 
     function updateMetaTags() {
         var url = document.getElementById('thumbUrl').value.trim();
         var alt = document.getElementById('thumbAlt').value.trim() || 'Thumbnail Undangan Event';
-        var ogTitle = document.getElementById('ogTitleInput').value.trim() || 'Undangan Event';
-        var ogDesc = document.getElementById('ogDescInput').value.trim() || 'Anda diundang untuk menghadiri acara spesial kami.';
-        var inviteLink = document.getElementById('inviteLink').value.trim();
-        var school = document.getElementById('schoolName').value.trim();
-
-        // Jika tidak ada ogTitle khusus, gunakan nama sekolah
-        if (!document.getElementById('ogTitleInput').value.trim() && school) {
-            ogTitle = 'Undangan ' + school;
-        }
+        var ogT = document.getElementById('ogTitleInput').value.trim() || (document.getElementById('schoolName').value ? 'Undangan ' + document.getElementById('schoolName').value : 'Undangan Event');
+        var ogD = document.getElementById('ogDescInput').value.trim();
         if (!document.getElementById('ogDescInput').value.trim()) {
-            var date = document.getElementById('eventDate').value.trim();
-            var place = document.getElementById('eventPlace').value.trim();
-            ogDesc = 'Anda diundang untuk menghadiri acara spesial kami.';
-            if (school) ogDesc = 'Undangan ' + school + '.';
-            if (date) ogDesc += ' Tanggal: ' + date + '.';
-            if (place) ogDesc += ' Tempat: ' + place + '.';
+            ogD = 'Anda diundang untuk menghadiri acara spesial kami.';
+            var d = document.getElementById('eventDate').value.trim();
+            var p = document.getElementById('eventPlace').value.trim();
+            if (d) ogD += ' Tanggal: ' + d + '.';
+            if (p) ogD += ' Tempat: ' + p + '.';
         }
+        var invLink = document.getElementById('inviteLink').value.trim();
+        var domain = invLink ? new URL(invLink).hostname.toUpperCase() : 'UNDANGAN.EVENT';
 
-        // Update meta tags di head
-        document.getElementById('ogTitle').setAttribute('content', ogTitle);
-        document.getElementById('ogDescription').setAttribute('content', ogDesc);
+        document.getElementById('ogTitle').setAttribute('content', ogT);
+        document.getElementById('ogDescription').setAttribute('content', ogD);
         document.getElementById('ogImage').setAttribute('content', url || '');
         document.getElementById('ogImageAlt').setAttribute('content', alt);
-        document.getElementById('ogUrl').setAttribute('content', inviteLink || '');
-        document.getElementById('twitterTitle').setAttribute('content', ogTitle);
-        document.getElementById('twitterDescription').setAttribute('content', ogDesc);
+        document.getElementById('ogUrl').setAttribute('content', invLink || '');
+        document.getElementById('twitterTitle').setAttribute('content', ogT);
+        document.getElementById('twitterDescription').setAttribute('content', ogD);
         document.getElementById('twitterImage').setAttribute('content', url || '');
 
-        // Update preview cards
-        var domain = inviteLink ? new URL(inviteLink).hostname.toUpperCase() : 'UNDANGAN.EVENT';
-
-        // URL tab preview
         document.getElementById('metaPreviewDomain').textContent = domain;
-        document.getElementById('metaPreviewTitle').textContent = ogTitle;
-        document.getElementById('metaPreviewDesc').textContent = ogDesc;
-
-        // OG preview tab
-        var ogImgEl = document.getElementById('ogPreviewImg');
-        if (url) {
-            ogImgEl.innerHTML = '<img src="' + escapeHtml(url) + '" alt="OG Preview" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i><span class=\\\'text-xs\\\'>Gagal memuat</span></div>\'">';
-        }
+        document.getElementById('metaPreviewTitle').textContent = ogT;
+        document.getElementById('metaPreviewDesc').textContent = ogD;
         document.getElementById('ogPreviewDomain').textContent = domain;
-        document.getElementById('ogPreviewTitle2').textContent = ogTitle;
-        document.getElementById('ogPreviewDesc2').textContent = ogDesc;
+        document.getElementById('ogPreviewTitle2').textContent = ogT;
+        document.getElementById('ogPreviewDesc2').textContent = ogD;
+        document.getElementById('twPreviewTitle').textContent = ogT;
+        document.getElementById('twPreviewDesc').textContent = ogD;
 
-        // Twitter preview tab
-        var twImgEl = document.getElementById('twPreviewImg');
         if (url) {
-            twImgEl.innerHTML = '<img src="' + escapeHtml(url) + '" alt="TW Preview" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i><span class=\\\'text-xs\\\'>Gagal memuat</span></div>\'">';
-        }
-        document.getElementById('twPreviewTitle').textContent = ogTitle;
-        document.getElementById('twPreviewDesc').textContent = ogDesc;
-
-        // Generate meta tag code
-        var codeHtml = '';
-        codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:type"</span> <span class="tag-attr">content</span>=<span class="tag-val">"website"</span> <span class="tag-name">/&gt;</span>\n';
-        codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogTitle) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogDesc) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        if (url) {
-            codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>\n';
-            codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:width"</span> <span class="tag-attr">content</span>=<span class="tag-val">"1200"</span> <span class="tag-name">/&gt;</span>\n';
-            codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:height"</span> <span class="tag-attr">content</span>=<span class="tag-val">"630"</span> <span class="tag-name">/&gt;</span>\n';
-            codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:alt"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(alt) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        }
-        if (inviteLink) {
-            codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:url"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(inviteLink) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        }
-        codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:card"</span> <span class="tag-attr">content</span>=<span class="tag-val">"summary_large_image"</span> <span class="tag-name">/&gt;</span>\n';
-        codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogTitle) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogDesc) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        if (url) {
-            codeHtml += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>';
+            var imgTag = '<img src="' + escapeHtml(url) + '" alt="OG" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i></div>\'">';
+            document.getElementById('ogPreviewImg').innerHTML = imgTag;
+            document.getElementById('twPreviewImg').innerHTML = imgTag;
         }
 
-        document.getElementById('metaTagDisplay').innerHTML = codeHtml;
+        var code = '';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:type"</span> <span class="tag-attr">content</span>=<span class="tag-val">"website"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        if (url) {
+            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>\n';
+            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:width"</span> <span class="tag-attr">content</span>=<span class="tag-val">"1200"</span> <span class="tag-name">/&gt;</span>\n';
+            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:height"</span> <span class="tag-attr">content</span>=<span class="tag-val">"630"</span> <span class="tag-name">/&gt;</span>\n';
+            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:alt"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(alt) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        }
+        if (invLink) code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:url"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(invLink) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:card"</span> <span class="tag-attr">content</span>=<span class="tag-val">"summary_large_image"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        if (url) code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>';
+        document.getElementById('metaTagDisplay').innerHTML = code;
     }
 
     function copyMetaTags() {
-        var el = document.getElementById('metaTagDisplay');
-        var text = el.textContent || el.innerText;
-        copyToClipboard(text, null);
-        showToast('Kode meta tag disalin ke clipboard', 'success');
+        copyToClipboard(document.getElementById('metaTagDisplay').textContent || '', null);
+        showToast('Kode meta tag disalin', 'success');
     }
 
     // ==========================================
-    // KEYBOARD SHORTCUT (Escape tutup modal)
+    // KEYBOARD & CLICK OUTSIDE
     // ==========================================
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-    // Klik di luar modal untuk menutup
-    document.getElementById('editModal').addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-    });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); closeShareModal(); } });
+    document.getElementById('editModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    document.getElementById('shareModal').addEventListener('click', function(e) { if (e.target === this) closeShareModal(); });
 
     // ==========================================
     // INIT
@@ -1549,6 +1659,5 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     updatePreview();
     updateMetaTags();
 </script>
-
 </body>
 </html>
