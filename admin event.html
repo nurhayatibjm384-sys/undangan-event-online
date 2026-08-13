@@ -7,16 +7,16 @@
     <meta property="og:type" content="website">
     <meta property="og:title" id="ogTitle" content="Undangan Event">
     <meta property="og:description" id="ogDescription" content="Anda diundang untuk menghadiri acara spesial kami.">
-    <meta property="og:image" id="ogImage" content="https://github.com/nurhayatibjm384-sys/undangan-event-online/foto (2).jpg">
+    <meta property="og:image" id="ogImage" content="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640">
     <meta property="og:image:width" id="ogImageWidth" content="1200">
     <meta property="og:image:height" id="ogImageHeight" content="630">
-    <meta property="og:image:alt" id="ogImageAlt" content="Thumbnail Undangan Event">
+    <meta property="og:image:alt" id="ogImageAlt" content="Foto Bersama Siswa - Undangan Event">
     <meta property="og:url" id="ogUrl" content="https://nurhayatibjm384-sys.github.io/undangan-event-online/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" id="twitterTitle" content="Undangan Event">
     <meta name="twitter:description" id="twitterDescription" content="Anda diundang untuk menghadiri acara spesial kami.">
-    <meta name="twitter:image" id="twitterImage" content="https://github.com/nurhayatibjm384-sys/undangan-event-online/foto (2).jpg">
+    <meta name="twitter:image" id="twitterImage" content="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640">
 
     <title>Admin Undangan Event</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -370,10 +370,7 @@
             background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
             opacity: 0; transition: opacity 0.3s ease;
         }
-        .btn-share-big:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 40px rgba(37,211,102,0.4);
-        }
+        .btn-share-big:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 40px rgba(37,211,102,0.4); }
         .btn-share-big:hover::before { opacity: 1; }
         .btn-share-big:active { transform: translateY(0) scale(0.98); }
         .btn-share-big:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
@@ -645,11 +642,11 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     <div class="space-y-4">
                         <div>
                             <label class="label">URL Gambar Thumbnail</label>
-                            <input type="url" class="input-field" id="thumbUrl" placeholder="https://example.com/poster.jpg" oninput="onThumbUrlChange(); saveData();">
+                            <input type="url" class="input-field" id="thumbUrl" value="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" placeholder="https://example.com/poster.jpg" oninput="onThumbUrlChange(); saveData();">
                         </div>
                         <div>
                             <label class="label">Alt Text Gambar</label>
-                            <input type="text" class="input-field" id="thumbAlt" placeholder="Poster Reuni 2025" oninput="updateMetaTags(); saveData();">
+                            <input type="text" class="input-field" id="thumbAlt" value="Foto Bersama Siswa - Undangan Event" placeholder="Poster Reuni 2025" oninput="updateMetaTags(); saveData();">
                         </div>
                         <div>
                             <label class="label">Judul OG (opsional)</label>
@@ -660,15 +657,15 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                             <textarea class="input-field" id="ogDescInput" rows="3" placeholder="Anda diundang..." oninput="updateMetaTags(); saveData();" style="min-height:80px"></textarea>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="w-2.5 h-2.5 rounded-full" id="metaStatusDot" style="background:var(--danger);"></span>
-                            <span class="text-xs" id="metaStatusText" style="color:var(--danger);">Belum ada gambar</span>
+                            <span class="w-2.5 h-2.5 rounded-full" id="metaStatusDot" style="background:var(--success);"></span>
+                            <span class="text-xs" id="metaStatusText" style="color:var(--success);">Gambar terdeteksi</span>
                         </div>
                     </div>
                     <div>
                         <label class="label">Preview Thumbnail</label>
                         <div class="meta-preview-card">
                             <div class="meta-preview-img" id="thumbUrlPreviewImg">
-                                <div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Masukkan URL gambar</span></div>
+                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="Thumbnail">
                             </div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-domain" id="metaPreviewDomain">GITHUB.IO</p>
@@ -713,7 +710,9 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     <div>
                         <label class="label">Tampilan Facebook / LinkedIn</label>
                         <div class="meta-preview-card">
-                            <div class="meta-preview-img" id="ogPreviewImg"><div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i></div></div>
+                            <div class="meta-preview-img" id="ogPreviewImg">
+                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="OG Preview">
+                            </div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-domain" id="ogPreviewDomain">GITHUB.IO</p>
                                 <p class="meta-preview-title" id="ogPreviewTitle2">Undangan Event</p>
@@ -724,7 +723,9 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     <div>
                         <label class="label">Tampilan Twitter / X</label>
                         <div class="meta-preview-card">
-                            <div class="meta-preview-img" id="twPreviewImg" style="aspect-ratio:2/1;"><div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i></div></div>
+                            <div class="meta-preview-img" id="twPreviewImg" style="aspect-ratio:2/1;">
+                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="TW Preview">
+                            </div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-title" id="twPreviewTitle" style="font-size:14px;">Undangan Event</p>
                                 <p class="meta-preview-desc" id="twPreviewDesc">Anda diundang untuk menghadiri acara spesial kami.</p>
@@ -840,6 +841,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     var thumbnailData = null;
     var shareModalSelected = [];
     var DEFAULT_LINK = 'https://nurhayatibjm384-sys.github.io/undangan-event-online/';
+    var DEFAULT_THUMB = 'https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640';
 
     function loadData() {
         try {
@@ -854,14 +856,15 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 document.getElementById('inviteLink').value = data.inviteLink || DEFAULT_LINK;
                 document.getElementById('messageTemplate').value = data.messageTemplate || document.getElementById('messageTemplate').value;
                 document.getElementById('thumbCaption').value = data.thumbCaption || '';
-                document.getElementById('thumbUrl').value = data.thumbUrl || '';
-                document.getElementById('thumbAlt').value = data.thumbAlt || '';
+                document.getElementById('thumbUrl').value = data.thumbUrl || DEFAULT_THUMB;
+                document.getElementById('thumbAlt').value = data.thumbAlt || 'Foto Bersama Siswa - Undangan Event';
                 document.getElementById('ogTitleInput').value = data.ogTitleInput || '';
                 document.getElementById('ogDescInput').value = data.ogDescInput || '';
                 if (data.thumbnailData) { thumbnailData = data.thumbnailData; showThumbnail(data.thumbnailData); }
-                if (data.thumbUrl) onThumbUrlChange();
             } else {
                 document.getElementById('inviteLink').value = DEFAULT_LINK;
+                document.getElementById('thumbUrl').value = DEFAULT_THUMB;
+                document.getElementById('thumbAlt').value = 'Foto Bersama Siswa - Undangan Event';
             }
         } catch (e) { console.error('Gagal memuat:', e); }
     }
@@ -901,10 +904,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
     function ensureLink() {
         var link = document.getElementById('inviteLink').value.trim();
-        if (!link) {
-            document.getElementById('inviteLink').value = DEFAULT_LINK;
-            return true;
-        }
+        if (!link) { document.getElementById('inviteLink').value = DEFAULT_LINK; }
         return true;
     }
 
@@ -964,8 +964,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
     function quickShareGeneric() {
         if (!ensureLink()) return;
-        var msg = generateMessage('[Nama Teman]');
-        openWaShare(msg);
+        openWaShare(generateMessage('[Nama Teman]'));
         showToast('Dialog share WhatsApp dibuka — pilih kontak tujuan', 'success');
     }
 
@@ -1021,15 +1020,14 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         if (shareModalSelected.length === 1) {
             var g = guests.find(function(x) { return x.id === shareModalSelected[0]; });
             if (!g) return;
-            var msg = generateMessage(g.name);
-            if (g.phone) { openWaToNumber(g.phone, msg); g.sent = true; saveData(); } else { openWaShare(msg); }
+            if (g.phone) { openWaToNumber(g.phone, generateMessage(g.name)); g.sent = true; saveData(); } else { openWaShare(generateMessage(g.name)); }
             showToast('WhatsApp dibuka untuk ' + g.name, 'success');
         } else {
             var withPhone = guests.filter(function(g) { return shareModalSelected.indexOf(g.id) !== -1 && g.phone; });
             var withoutPhone = guests.filter(function(g) { return shareModalSelected.indexOf(g.id) !== -1 && !g.phone; });
             if (withPhone.length > 0) {
                 var first = withPhone[0]; openWaToNumber(first.phone, generateMessage(first.name)); first.sent = true; saveData();
-                showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu — klik Share di baris masing-masing.', 'info');
+                showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu.', 'info');
             } else if (withoutPhone.length > 0) {
                 var g0 = withoutPhone[0]; openWaShare(generateMessage(g0.name));
                 showToast('Share dibuka untuk ' + g0.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu.', 'info');
@@ -1356,8 +1354,8 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     }
 
     function updateMetaTags() {
-        var url = document.getElementById('thumbUrl').value.trim();
-        var alt = document.getElementById('thumbAlt').value.trim() || 'Thumbnail Undangan Event';
+        var url = document.getElementById('thumbUrl').value.trim() || DEFAULT_THUMB;
+        var alt = document.getElementById('thumbAlt').value.trim() || 'Foto Bersama Siswa - Undangan Event';
         var ogT = document.getElementById('ogTitleInput').value.trim() || (document.getElementById('schoolName').value ? 'Undangan ' + document.getElementById('schoolName').value : 'Undangan Event');
         var ogD = document.getElementById('ogDescInput').value.trim();
         if (!document.getElementById('ogDescInput').value.trim()) {
@@ -1367,18 +1365,18 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
             if (d) ogD += ' Tanggal: ' + d + '.';
             if (p) ogD += ' Tempat: ' + p + '.';
         }
-        var invLink = document.getElementById('inviteLink').value.trim();
+        var invLink = document.getElementById('inviteLink').value.trim() || DEFAULT_LINK;
         var domain = 'GITHUB.IO';
         try { if (invLink) domain = new URL(invLink).hostname.toUpperCase(); } catch(e) {}
 
         document.getElementById('ogTitle').setAttribute('content', ogT);
         document.getElementById('ogDescription').setAttribute('content', ogD);
-        document.getElementById('ogImage').setAttribute('content', url || '');
+        document.getElementById('ogImage').setAttribute('content', url);
         document.getElementById('ogImageAlt').setAttribute('content', alt);
-        document.getElementById('ogUrl').setAttribute('content', invLink || DEFAULT_LINK);
+        document.getElementById('ogUrl').setAttribute('content', invLink);
         document.getElementById('twitterTitle').setAttribute('content', ogT);
         document.getElementById('twitterDescription').setAttribute('content', ogD);
-        document.getElementById('twitterImage').setAttribute('content', url || '');
+        document.getElementById('twitterImage').setAttribute('content', url);
 
         document.getElementById('metaPreviewDomain').textContent = domain;
         document.getElementById('metaPreviewTitle').textContent = ogT;
@@ -1399,17 +1397,15 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:type"</span> <span class="tag-attr">content</span>=<span class="tag-val">"website"</span> <span class="tag-name">/&gt;</span>\n';
         code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
         code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        if (url) {
-            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>\n';
-            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:width"</span> <span class="tag-attr">content</span>=<span class="tag-val">"1200"</span> <span class="tag-name">/&gt;</span>\n';
-            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:height"</span> <span class="tag-attr">content</span>=<span class="tag-val">"630"</span> <span class="tag-name">/&gt;</span>\n';
-            code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:alt"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(alt) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        }
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tab-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:width"</span> <span class="tag-attr">content</span>=<span class="tag-val">"1200"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:height"</span> <span class="tag-attr">content</span>=<span class="tag-val">"630"</span> <span class="tag-name">/&gt;</span>\n';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:alt"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(alt) + '"</span> <span class="tag-name">/&gt;</span>\n';
         if (invLink) code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:url"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(invLink) + '"</span> <span class="tag-name">/&gt;</span>\n';
         code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:card"</span> <span class="tag-attr">content</span>=<span class="tag-val">"summary_large_image"</span> <span class="tag-name">/&gt;</span>\n';
         code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
         code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        if (url) code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>';
+        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>';
         document.getElementById('metaTagDisplay').innerHTML = code;
     }
 
