@@ -26,20 +26,16 @@
         :root {
             --bg: #0F0F0F;
             --bg-card: #1A1A1A;
-            --bg-card-hover: #222222;
             --fg: #F5F0EB;
             --fg-muted: #8A8480;
             --accent: #D4A853;
             --accent-dim: rgba(212, 168, 83, 0.15);
-            --accent-glow: rgba(212, 168, 83, 0.3);
             --danger: #E05252;
             --danger-dim: rgba(224, 82, 82, 0.15);
             --success: #4ADE80;
             --success-dim: rgba(74, 222, 128, 0.15);
             --border: #2A2A2A;
             --border-accent: rgba(212, 168, 83, 0.3);
-            --wa-green: #25D366;
-            --wa-dark: #128C7E;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -51,8 +47,7 @@
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
             background:
                 radial-gradient(ellipse 80% 60% at 20% 10%, rgba(212,168,83,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 50% at 80% 90%, rgba(212,168,83,0.04) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(212,168,83,0.02) 0%, transparent 60%);
+                radial-gradient(ellipse 60% 50% at 80% 90%, rgba(212,168,83,0.04) 0%, transparent 60%);
         }
         .bg-grid {
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -68,27 +63,24 @@
         }
         .orb-1 { width: 300px; height: 300px; background: rgba(212,168,83,0.07); top: -100px; left: -50px; }
         .orb-2 { width: 250px; height: 250px; background: rgba(212,168,83,0.05); bottom: -80px; right: -60px; animation-delay: -7s; }
-        .orb-3 { width: 200px; height: 200px; background: rgba(212,168,83,0.04); top: 40%; right: 10%; animation-delay: -14s; }
         @keyframes floatOrb {
             0%, 100% { transform: translate(0,0) scale(1); }
-            25% { transform: translate(30px,-20px) scale(1.1); }
             50% { transform: translate(-20px,30px) scale(0.95); }
-            75% { transform: translate(15px,15px) scale(1.05); }
         }
         .content-wrapper { position: relative; z-index: 1; }
         .font-display { font-family: 'Playfair Display', serif; }
         .card {
             background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            border-radius: 16px; transition: all 0.3s ease;
         }
-        .card:hover { border-color: var(--border-accent); box-shadow: 0 0 40px rgba(212,168,83,0.05); }
+        .card:hover { border-color: var(--border-accent); }
         .input-field {
             background: rgba(255,255,255,0.04); border: 1px solid var(--border);
             border-radius: 10px; padding: 12px 16px; color: var(--fg);
             font-family: 'DM Sans', sans-serif; font-size: 14px; width: 100%;
             transition: all 0.25s ease; outline: none;
         }
-        .input-field:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); background: rgba(255,255,255,0.06); }
+        .input-field:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
         .input-field::placeholder { color: var(--fg-muted); }
         textarea.input-field { resize: vertical; min-height: 160px; line-height: 1.7; }
         .label {
@@ -100,15 +92,13 @@
             padding: 12px 24px; border-radius: 10px;
             font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
             border: none; cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
-            text-decoration: none; white-space: nowrap;
+            transition: all 0.25s ease; text-decoration: none; white-space: nowrap;
         }
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), #C49A3E); color: #0F0F0F;
             box-shadow: 0 4px 20px rgba(212,168,83,0.25);
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,83,0.35); }
-        .btn-primary:active { transform: translateY(0); }
         .btn-secondary { background: rgba(255,255,255,0.06); color: var(--fg); border: 1px solid var(--border); }
         .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--fg-muted); }
         .btn-danger { background: var(--danger-dim); color: var(--danger); border: 1px solid rgba(224,82,82,0.2); }
@@ -118,7 +108,6 @@
             box-shadow: 0 4px 20px rgba(37,211,102,0.25);
         }
         .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.35); }
-        .btn-wa:active { transform: translateY(0); }
         .btn-wa-sm {
             background: rgba(37,211,102,0.12); color: #25D366;
             border: 1px solid rgba(37,211,102,0.25);
@@ -127,8 +116,7 @@
             border-radius: 8px; cursor: pointer; font-size: 14px;
             transition: all 0.25s ease; flex-shrink: 0;
         }
-        .btn-wa-sm:hover { background: rgba(37,211,102,0.25); transform: scale(1.08); box-shadow: 0 0 16px rgba(37,211,102,0.2); }
-        .btn-wa-sm:active { transform: scale(0.95); }
+        .btn-wa-sm:hover { background: rgba(37,211,102,0.25); transform: scale(1.08); }
         .btn-wa-share {
             background: rgba(37,211,102,0.08); color: #25D366;
             border: 1px solid rgba(37,211,102,0.2);
@@ -139,8 +127,7 @@
             transition: all 0.25s ease; flex-shrink: 0;
             text-transform: uppercase; letter-spacing: 0.03em;
         }
-        .btn-wa-share:hover { background: rgba(37,211,102,0.2); transform: scale(1.05); box-shadow: 0 0 14px rgba(37,211,102,0.15); }
-        .btn-wa-share:active { transform: scale(0.95); }
+        .btn-wa-share:hover { background: rgba(37,211,102,0.2); transform: scale(1.05); }
         .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 8px; }
         .btn-icon {
             width: 36px; height: 36px; padding: 0;
@@ -153,11 +140,9 @@
             padding: 0 14px; height: 36px; border-radius: 8px;
             display: inline-flex; align-items: center; gap: 6px;
             cursor: pointer; font-size: 12px; font-weight: 600;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.25s ease; flex-shrink: 0;
+            font-family: 'DM Sans', sans-serif; transition: all 0.25s ease; flex-shrink: 0;
         }
         .btn-copy:hover { background: rgba(212,168,83,0.25); transform: scale(1.04); }
-        .btn-copy:active { transform: scale(0.96); }
         .btn-copy.copied { background: var(--success-dim); color: var(--success); border-color: rgba(74,222,128,0.3); }
         .badge {
             display: inline-flex; align-items: center; gap: 4px;
@@ -187,34 +172,19 @@
             display: flex; align-items: center; justify-content: center;
             font-weight: 700; font-size: 14px; flex-shrink: 0;
         }
-        .thumb-upload {
-            width: 100%; max-width: 320px; aspect-ratio: 16/9;
-            border: 2px dashed var(--border); border-radius: 12px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            cursor: pointer; transition: all 0.3s ease; overflow: hidden;
-            position: relative; background: rgba(255,255,255,0.02);
-        }
-        .thumb-upload:hover { border-color: var(--accent); background: var(--accent-dim); }
-        .thumb-upload img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-        .thumb-upload .overlay {
-            position: absolute; inset: 0; background: rgba(0,0,0,0.6);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s ease;
-        }
-        .thumb-upload:hover .overlay { opacity: 1; }
         .toast-container { position: fixed; top: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
         .toast {
             padding: 14px 20px; border-radius: 12px; font-size: 14px; font-weight: 500;
             display: flex; align-items: center; gap: 10px;
-            animation: toastIn 0.4s cubic-bezier(0.4,0,0.2,1);
+            animation: toastIn 0.4s ease;
             box-shadow: 0 10px 40px rgba(0,0,0,0.4); max-width: 420px;
         }
         .toast-success { background: #1a2e1a; border: 1px solid rgba(74,222,128,0.3); color: var(--success); }
         .toast-error { background: #2e1a1a; border: 1px solid rgba(224,82,82,0.3); color: var(--danger); }
         .toast-info { background: #1a1a2e; border: 1px solid rgba(212,168,83,0.3); color: var(--accent); }
-        @keyframes toastIn { from { opacity: 0; transform: translateX(40px) scale(0.95); } to { opacity: 1; transform: translateX(0) scale(1); } }
+        @keyframes toastIn { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
         .toast-exit { animation: toastOut 0.3s ease forwards; }
-        @keyframes toastOut { to { opacity: 0; transform: translateX(40px) scale(0.95); } }
+        @keyframes toastOut { to { opacity: 0; transform: translateX(40px); } }
         .modal-backdrop {
             position: fixed; inset: 0; background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px); z-index: 1000;
@@ -225,8 +195,7 @@
         .modal {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 20px; padding: 32px; width: 100%; max-width: 480px;
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+            transform: scale(0.9) translateY(20px); transition: transform 0.3s ease;
         }
         .modal-backdrop.active .modal { transform: scale(1) translateY(0); }
         .preview-box {
@@ -235,7 +204,6 @@
             white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;
         }
         .preview-box::-webkit-scrollbar { width: 6px; }
-        .preview-box::-webkit-scrollbar-track { background: transparent; }
         .preview-box::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
         .stat-card {
             background: var(--bg-card); border: 1px solid var(--border);
@@ -256,8 +224,7 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--fg-muted); }
-        .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards; }
+        .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
@@ -287,13 +254,11 @@
         .btn-wa-sm:hover, .btn-wa-share:hover { animation: waPulse 1.2s ease infinite; }
         .meta-preview-card {
             background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; transition: all 0.3s ease;
+            border-radius: 12px; overflow: hidden;
         }
-        .meta-preview-card:hover { border-color: var(--border-accent); }
         .meta-preview-img {
-            width: 100%; aspect-ratio: 1.91/1; object-fit: cover;
-            background: rgba(255,255,255,0.04); display: flex;
-            align-items: center; justify-content: center;
+            width: 100%; aspect-ratio: 1.91/1; background: rgba(255,255,255,0.04);
+            display: flex; align-items: center; justify-content: center;
         }
         .meta-preview-img img { width: 100%; height: 100%; object-fit: cover; }
         .meta-preview-body { padding: 14px 16px; }
@@ -350,29 +315,16 @@
             width: 120px; height: 120px; border-radius: 50%;
             background: rgba(37,211,102,0.08); filter: blur(30px);
         }
-        .share-quick-card::after {
-            content: ''; position: absolute; bottom: -30px; left: -30px;
-            width: 100px; height: 100px; border-radius: 50%;
-            background: rgba(212,168,83,0.06); filter: blur(25px);
-        }
         .share-quick-card > * { position: relative; z-index: 1; }
         .btn-share-big {
             background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;
             padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700;
             border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 12px;
             box-shadow: 0 6px 30px rgba(37,211,102,0.3);
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s ease; font-family: 'DM Sans', sans-serif;
             position: relative; overflow: hidden;
         }
-        .btn-share-big::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
-            opacity: 0; transition: opacity 0.3s ease;
-        }
         .btn-share-big:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 40px rgba(37,211,102,0.4); }
-        .btn-share-big:hover::before { opacity: 1; }
-        .btn-share-big:active { transform: translateY(0) scale(0.98); }
         .btn-share-big:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
         .btn-share-outline {
             background: transparent; color: #25D366;
@@ -382,12 +334,21 @@
             transition: all 0.25s ease; font-family: 'DM Sans', sans-serif;
         }
         .btn-share-outline:hover { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.5); transform: translateY(-2px); }
-        .btn-share-outline:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
-        @keyframes shareBounce {
-            0% { transform: scale(1); } 30% { transform: scale(1.06); }
-            60% { transform: scale(0.97); } 100% { transform: scale(1); }
-        }
+        @keyframes shareBounce { 0%{transform:scale(1)}30%{transform:scale(1.06)}60%{transform:scale(0.97)}100%{transform:scale(1)} }
         .share-bounce { animation: shareBounce 0.5s ease; }
+
+        /* Info box penting */
+        .share-info-box {
+            background: rgba(37,211,102,0.06); border: 1px solid rgba(37,211,102,0.15);
+            border-radius: 12px; padding: 16px 20px;
+            display: flex; gap: 14px; margin-top: 16px;
+        }
+        .share-info-box .si-icon {
+            width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+            background: rgba(37,211,102,0.15); color: #25D366;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+
         @media (max-width: 768px) {
             .guest-table { font-size: 13px; }
             .guest-table thead th, .guest-table tbody td { padding: 10px 8px; }
@@ -406,7 +367,6 @@
 <div class="bg-grid"></div>
 <div class="floating-orb orb-1"></div>
 <div class="floating-orb orb-2"></div>
-<div class="floating-orb orb-3"></div>
 
 <div class="toast-container" id="toastContainer"></div>
 
@@ -435,39 +395,7 @@
     </div>
 </div>
 
-<!-- Modal Share -->
-<div class="modal-backdrop" id="shareModal">
-    <div class="modal" style="max-width:540px;">
-        <div class="flex items-center justify-between mb-5">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center">
-                    <i class="fab fa-whatsapp text-white text-lg"></i>
-                </div>
-                <div>
-                    <h3 class="font-display text-xl font-bold">Share ke WhatsApp</h3>
-                    <p class="text-xs text-[#8A8480]">Pilih tamu lalu langsung share</p>
-                </div>
-            </div>
-            <button class="btn-icon btn-secondary" onclick="closeShareModal()"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="mb-4">
-            <div class="relative">
-                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-[#8A8480] text-sm"></i>
-                <input type="text" class="input-field" style="padding-left:40px" placeholder="Cari tamu..." id="shareSearchInput" oninput="renderShareList()">
-            </div>
-        </div>
-        <div id="shareListContainer" style="max-height:320px; overflow-y:auto; margin-bottom:20px;"></div>
-        <div class="flex gap-3">
-            <button class="btn btn-wa flex-1" onclick="shareSelectedFromModal()" id="btnShareModal" disabled>
-                <i class="fab fa-whatsapp text-lg"></i> Share Sekarang
-            </button>
-            <button class="btn btn-secondary" onclick="closeShareModal()">Tutup</button>
-        </div>
-    </div>
-</div>
-
 <div class="content-wrapper">
-    <!-- Header -->
     <header class="border-b border-[#2A2A2A] backdrop-blur-md bg-[#0F0F0F]/80 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-4">
@@ -520,13 +448,21 @@
                             <option value="">-- Pilih Tamu --</option>
                         </select>
                     </div>
+                    <div class="share-info-box">
+                        <div class="si-icon"><i class="fas fa-info"></i></div>
+                        <div class="text-sm text-[#8A8480] leading-relaxed">
+                            <strong class="text-[#F5F0EB]">Tombol hijau</strong> = kirim langsung ke nomor WA tamu.
+                            <strong class="text-[#25D366]"> "Share ke Kontak Lain"</strong> = buka dialog WA, kamu pilih sendiri ke siapa (cocok untuk tamu tanpa nomor atau kirim ke grup).
+                            Link undangan akan otomatis muncul di pesan.
+                        </div>
+                    </div>
                 </div>
                 <div class="flex flex-col gap-3 flex-shrink-0">
                     <button class="btn-share-big" id="btnQuickShare" onclick="quickShareWhatsApp()" disabled>
                         <i class="fab fa-whatsapp text-2xl"></i>
                         <span>Share via WhatsApp</span>
                     </button>
-                    <button class="btn-share-outline" id="btnQuickShareGeneric" onclick="quickShareGeneric()">
+                    <button class="btn-share-outline" onclick="quickShareGeneric()">
                         <i class="fas fa-share-nodes"></i>
                         <span>Share ke Kontak Lain</span>
                     </button>
@@ -561,13 +497,13 @@
                 </div>
                 <div class="md:col-span-2">
                     <label class="label">Link Undangan</label>
-                    <input type="url" class="input-field" id="inviteLink" value="https://nurhayatibjm384-sys.github.io/undangan-event-online/" placeholder="https://undangan.example.com/reuni-2025" oninput="updatePreview(); updateMetaTags(); saveData();">
-                    <p class="text-xs text-[#8A8480] mt-1"><i class="fas fa-link mr-1"></i>Link ini otomatis masuk ke pesan WA yang dibagikan</p>
+                    <input type="url" class="input-field" id="inviteLink" value="https://nurhayatibjm384-sys.github.io/undangan-event-online/" oninput="updatePreview(); updateMetaTags(); saveData();">
+                    <p class="text-xs text-[#8A8480] mt-1"><i class="fas fa-link mr-1"></i>Link ini otomatis masuk ke setiap pesan WA yang dibagikan</p>
                 </div>
             </div>
         </section>
 
-        <!-- Template Pesan & Preview -->
+        <!-- Template & Preview -->
         <div class="grid lg:grid-cols-2 gap-6">
             <section class="card p-6 md:p-8 fade-up delay-2">
                 <div class="flex items-center gap-3 mb-6">
@@ -576,19 +512,17 @@
                     </div>
                     <h2 class="font-display text-xl font-bold">Template Pesan</h2>
                 </div>
-                <p class="text-xs text-[#8A8480] mb-4">Gunakan <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Nama Teman]</code>, <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Nama Sekolah/Angkatan]</code>, <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Hari, Tanggal Acara]</code>, <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Jam Mulai]</code>, <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Nama Tempat / Lokasi]</code>, <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Masukkan Link Undangan di Sini]</code> sebagai placeholder.</p>
+                <p class="text-xs text-[#8A8480] mb-4">Placeholder: <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Nama Teman]</code> <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Nama Sekolah/Angkatan]</code> <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Hari, Tanggal Acara]</code> <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Jam Mulai]</code> <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Nama Tempat / Lokasi]</code> <code class="bg-[rgba(255,255,255,0.08)] px-2 py-0.5 rounded text-[#D4A853]">[Masukkan Link Undangan di Sini]</code></p>
                 <textarea class="input-field" id="messageTemplate" oninput="updatePreview(); saveData();">Halo [Nama Teman], apa kabar? Semoga sehat selalu ya!
 
-Dalam rangka menyambung kembali silaturahmi, kami dari panitia bermaksud mengundang kamu untuk hadir di acara Reuni [Nama Sekolah/Angkatan] yang akan seru-seruan bareng lagi.
+Dalam rangka menyambung kembali silaturahmi, kami dari panitia bermaksud mengundang kamu untuk hadir di acara Reuni [Nama Sekolah/Angkatan].
 
 Tanggal: [Hari, Tanggal Acara]
 Waktu: [Jam Mulai]
 Tempat: [Nama Tempat / Lokasi]
 
-Kamu bisa cek detail acara, rundown, serta melakukan konfirmasi kehadiran (RSVP) melalui tautan berikut:
+Kamu bisa cek detail acara dan konfirmasi kehadiran (RSVP) melalui tautan berikut:
 [Masukkan Link Undangan di Sini]
-
-Kehadiran kamu bakal bikin acara ini jadi jauh lebih seru dan bernilai karena bisa bernostalgia bersama teman-teman lama.
 
 Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
             </section>
@@ -621,18 +555,17 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 </div>
                 <div>
                     <h2 class="font-display text-xl font-bold">Thumbnail & Meta Tags</h2>
-                    <p class="text-xs text-[#8A8480] mt-1">Gambar thumbnail yang muncul saat link dibagikan di WhatsApp, Facebook, dll</p>
+                    <p class="text-xs text-[#8A8480] mt-1">Gambar thumbnail yang muncul saat link dibagikan di WhatsApp</p>
                 </div>
             </div>
             <div class="info-callout mt-4 mb-6">
                 <div class="info-callout-icon"><i class="fas fa-lightbulb"></i></div>
                 <div class="text-sm text-[#8A8480] leading-relaxed">
-                    <strong class="text-[#F5F0EB]">Cara kerja:</strong> Saat link dibagikan, platform membaca <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code> dan menampilkan gambar sebagai preview. <strong class="text-[#F5F0EB]">Gambar harus URL publik.</strong>
+                    <strong class="text-[#F5F0EB]">Cara kerja:</strong> Saat link dibagikan, WhatsApp membaca <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code> dari halaman tersebut dan menampilkan gambar sebagai preview. Gambar harus <strong class="text-[#F5F0EB]">URL publik</strong>.
                 </div>
             </div>
             <div class="tab-group mb-6">
                 <button class="tab-btn active" onclick="switchThumbTab('url')" id="tabUrl"><i class="fas fa-link mr-1"></i> URL Gambar</button>
-                <button class="tab-btn" onclick="switchThumbTab('upload')" id="tabUpload"><i class="fas fa-cloud-arrow-up mr-1"></i> Upload Lokal</button>
                 <button class="tab-btn" onclick="switchThumbTab('preview')" id="tabPreview"><i class="fas fa-eye mr-1"></i> Preview OG</button>
                 <button class="tab-btn" onclick="switchThumbTab('code')" id="tabCode"><i class="fas fa-code mr-1"></i> Kode Meta</button>
             </div>
@@ -642,11 +575,11 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                     <div class="space-y-4">
                         <div>
                             <label class="label">URL Gambar Thumbnail</label>
-                            <input type="url" class="input-field" id="thumbUrl" value="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" placeholder="https://example.com/poster.jpg" oninput="onThumbUrlChange(); saveData();">
+                            <input type="url" class="input-field" id="thumbUrl" value="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" oninput="onThumbUrlChange(); saveData();">
                         </div>
                         <div>
                             <label class="label">Alt Text Gambar</label>
-                            <input type="text" class="input-field" id="thumbAlt" value="Foto Bersama Siswa - Undangan Event" placeholder="Poster Reuni 2025" oninput="updateMetaTags(); saveData();">
+                            <input type="text" class="input-field" id="thumbAlt" value="Foto Bersama Siswa - Undangan Event" oninput="updateMetaTags(); saveData();">
                         </div>
                         <div>
                             <label class="label">Judul OG (opsional)</label>
@@ -677,41 +610,13 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 </div>
             </div>
 
-            <div class="tab-panel" id="panelUpload">
-                <div class="flex flex-col md:flex-row items-start gap-6">
-                    <div class="thumb-upload" id="thumbUpload" onclick="document.getElementById('thumbInput').click()">
-                        <input type="file" id="thumbInput" accept="image/*" style="display:none" onchange="handleThumbUpload(event)">
-                        <div id="thumbPlaceholder" class="flex flex-col items-center gap-2 text-[#8A8480]">
-                            <i class="fas fa-cloud-arrow-up text-2xl"></i>
-                            <span class="text-sm font-medium">Klik untuk upload</span>
-                            <span class="text-xs">PNG, JPG, max 5MB</span>
-                        </div>
-                        <img id="thumbPreview" style="display:none" alt="Thumbnail">
-                        <div class="overlay"><span class="text-white text-sm font-medium"><i class="fas fa-pen mr-2"></i>Ganti</span></div>
-                    </div>
-                    <div class="flex-1 space-y-3">
-                        <div>
-                            <label class="label">Caption (opsional)</label>
-                            <input type="text" class="input-field" id="thumbCaption" placeholder="Poster Reuni 2025" style="max-width:400px;" oninput="saveData();">
-                        </div>
-                        <button class="btn btn-danger btn-sm" id="removeThumbBtn" style="display:none" onclick="removeThumbnail()"><i class="fas fa-trash"></i> Hapus</button>
-                        <div class="info-callout" style="margin-top:16px;">
-                            <div class="info-callout-icon" style="background:var(--danger-dim); color:var(--danger);"><i class="fas fa-exclamation-triangle"></i></div>
-                            <div class="text-sm text-[#8A8480] leading-relaxed">
-                                Upload lokal hanya referensi visual. Untuk <code class="bg-[rgba(255,255,255,0.08)] px-1.5 py-0.5 rounded text-[#D4A853] text-xs">og:image</code>, masukkan URL publik di tab <strong class="text-[#D4A853]">URL Gambar</strong>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="tab-panel" id="panelPreview">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="label">Tampilan Facebook / LinkedIn</label>
+                        <label class="label">Tampilan WhatsApp / Facebook</label>
                         <div class="meta-preview-card">
                             <div class="meta-preview-img" id="ogPreviewImg">
-                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="OG Preview">
+                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="OG">
                             </div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-domain" id="ogPreviewDomain">GITHUB.IO</p>
@@ -724,7 +629,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                         <label class="label">Tampilan Twitter / X</label>
                         <div class="meta-preview-card">
                             <div class="meta-preview-img" id="twPreviewImg" style="aspect-ratio:2/1;">
-                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="TW Preview">
+                                <img src="https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640" alt="TW">
                             </div>
                             <div class="meta-preview-body">
                                 <p class="meta-preview-title" id="twPreviewTitle" style="font-size:14px;">Undangan Event</p>
@@ -754,12 +659,12 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                         </div>
                         <div>
                             <h2 class="font-display text-xl font-bold">Daftar Tamu</h2>
-                            <p class="text-xs text-[#8A8480] mt-0.5">Klik WA untuk kirim langsung, Share untuk pilih kontak</p>
+                            <p class="text-xs text-[#8A8480] mt-0.5">WA = kirim langsung ke nomor | Share = pilih kontak sendiri | Salin = copy pesan</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3 flex-wrap">
                         <button class="btn btn-secondary btn-sm" onclick="selectAllGuests()"><i class="fas fa-check-double"></i> Pilih Semua</button>
-                        <button class="btn btn-secondary btn-sm" onclick="deselectAllGuests()"><i class="fas fa-times"></i> Batal Pilih</button>
+                        <button class="btn btn-secondary btn-sm" onclick="deselectAllGuests()"><i class="fas fa-times"></i> Batal</button>
                         <button class="btn btn-danger btn-sm" onclick="deleteSelectedGuests()" id="deleteSelectedBtn" style="display:none"><i class="fas fa-trash"></i> Hapus</button>
                         <button class="btn btn-primary btn-sm" onclick="openAddModal()"><i class="fas fa-plus"></i> Tambah</button>
                     </div>
@@ -838,29 +743,28 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 <script>
     var guests = [];
     var editingGuestId = null;
-    var thumbnailData = null;
-    var shareModalSelected = [];
     var DEFAULT_LINK = 'https://nurhayatibjm384-sys.github.io/undangan-event-online/';
     var DEFAULT_THUMB = 'https://z-cdn-media.chatglm.cn/files/56a1633d-8562-4aa3-82ec-f777f7ccc234.jpg?auth_key=1886581507-57ade4e193a141658993bec14025f67f-0-e52ecf976ce070be16b7db8b3946c640';
 
+    /* ========================================
+       LOAD / SAVE DATA
+    ======================================== */
     function loadData() {
         try {
             var saved = localStorage.getItem('eventInvitationData');
             if (saved) {
-                var data = JSON.parse(saved);
-                guests = data.guests || [];
-                document.getElementById('schoolName').value = data.schoolName || '';
-                document.getElementById('eventDate').value = data.eventDate || '';
-                document.getElementById('eventTime').value = data.eventTime || '';
-                document.getElementById('eventPlace').value = data.eventPlace || '';
-                document.getElementById('inviteLink').value = data.inviteLink || DEFAULT_LINK;
-                document.getElementById('messageTemplate').value = data.messageTemplate || document.getElementById('messageTemplate').value;
-                document.getElementById('thumbCaption').value = data.thumbCaption || '';
-                document.getElementById('thumbUrl').value = data.thumbUrl || DEFAULT_THUMB;
-                document.getElementById('thumbAlt').value = data.thumbAlt || 'Foto Bersama Siswa - Undangan Event';
-                document.getElementById('ogTitleInput').value = data.ogTitleInput || '';
-                document.getElementById('ogDescInput').value = data.ogDescInput || '';
-                if (data.thumbnailData) { thumbnailData = data.thumbnailData; showThumbnail(data.thumbnailData); }
+                var d = JSON.parse(saved);
+                guests = d.guests || [];
+                document.getElementById('schoolName').value = d.schoolName || '';
+                document.getElementById('eventDate').value = d.eventDate || '';
+                document.getElementById('eventTime').value = d.eventTime || '';
+                document.getElementById('eventPlace').value = d.eventPlace || '';
+                document.getElementById('inviteLink').value = d.inviteLink || DEFAULT_LINK;
+                document.getElementById('messageTemplate').value = d.messageTemplate || document.getElementById('messageTemplate').value;
+                document.getElementById('thumbUrl').value = d.thumbUrl || DEFAULT_THUMB;
+                document.getElementById('thumbAlt').value = d.thumbAlt || 'Foto Bersama Siswa - Undangan Event';
+                document.getElementById('ogTitleInput').value = d.ogTitleInput || '';
+                document.getElementById('ogDescInput').value = d.ogDescInput || '';
             } else {
                 document.getElementById('inviteLink').value = DEFAULT_LINK;
                 document.getElementById('thumbUrl').value = DEFAULT_THUMB;
@@ -879,8 +783,6 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
                 eventPlace: document.getElementById('eventPlace').value,
                 inviteLink: document.getElementById('inviteLink').value,
                 messageTemplate: document.getElementById('messageTemplate').value,
-                thumbCaption: document.getElementById('thumbCaption').value,
-                thumbnailData: thumbnailData,
                 thumbUrl: document.getElementById('thumbUrl').value,
                 thumbAlt: document.getElementById('thumbAlt').value,
                 ogTitleInput: document.getElementById('ogTitleInput').value,
@@ -891,23 +793,31 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
 
     function generateId() { return 'g_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6); }
 
-    function showToast(message, type) {
+    /* ========================================
+       TOAST
+    ======================================== */
+    function showToast(msg, type) {
         type = type || 'info';
         var c = document.getElementById('toastContainer');
         var t = document.createElement('div');
         t.className = 'toast toast-' + type;
-        var icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle' };
-        t.innerHTML = '<i class="fas ' + (icons[type] || icons.info) + '"></i> ' + message;
+        var ic = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle' };
+        t.innerHTML = '<i class="fas ' + (ic[type] || ic.info) + '"></i> ' + msg;
         c.appendChild(t);
         setTimeout(function() { t.classList.add('toast-exit'); setTimeout(function() { t.remove(); }, 300); }, 3500);
     }
 
-    function ensureLink() {
+    /* ========================================
+       PASTIKAN LINK SELALU ADA
+    ======================================== */
+    function getLink() {
         var link = document.getElementById('inviteLink').value.trim();
-        if (!link) { document.getElementById('inviteLink').value = DEFAULT_LINK; }
-        return true;
+        return link || DEFAULT_LINK;
     }
 
+    /* ========================================
+       GENERATE PESAN (dengan link)
+    ======================================== */
     function generateMessage(guestName) {
         var t = document.getElementById('messageTemplate').value;
         var msg = t;
@@ -916,27 +826,47 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         msg = msg.replace(/\[Hari, Tanggal Acara\]/g, document.getElementById('eventDate').value || '[Hari, Tanggal Acara]');
         msg = msg.replace(/\[Jam Mulai\]/g, document.getElementById('eventTime').value || '[Jam Mulai]');
         msg = msg.replace(/\[Nama Tempat \/ Lokasi\]/g, document.getElementById('eventPlace').value || '[Nama Tempat / Lokasi]');
-        msg = msg.replace(/\[Masukkan Link Undangan di Sini\]/g, document.getElementById('inviteLink').value || DEFAULT_LINK);
+        // GANTI PLACEHOLDER LINK DENGAN LINK ASLI
+        msg = msg.replace(/\[Masukkan Link Undangan di Sini\]/g, getLink());
         return msg;
     }
 
+    /* ========================================
+       BUKA WA KE NOMOR SPESIFIK
+       Gunakan wa.me agar langsung buka chat
+    ======================================== */
     function openWaToNumber(phone, message) {
         var p = phone.replace(/[^0-9]/g, '');
         if (p.startsWith('0')) p = '62' + p.substring(1);
         if (p.startsWith('+')) p = p.substring(1);
-        window.open('https://wa.me/' + p + '?text=' + encodeURIComponent(message), '_blank');
+        // wa.me langsung buka chat ke nomor tersebut
+        var url = 'https://wa.me/' + p + '?text=' + encodeURIComponent(message);
+        window.open(url, '_blank');
     }
 
+    /* ========================================
+       BUKA WA SHARE (PILIH KONTAK SENDIRI)
+       Gunakan api.whatsapp.com/send agar
+       muncul dialog pilih kontak/grup
+    ======================================== */
     function openWaShare(message) {
-        window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(message), '_blank');
+        // api.whatsapp.com/send = buka dialog share WA
+        // PENTING: WhatsApp akan otomatis mendeteksi URL
+        // di dalam pesan dan menampilkan thumbnail link tersebut
+        var url = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(message);
+        window.open(url, '_blank');
     }
 
+    /* ========================================
+       SHARE CEPAT (BAGIAN ATAS)
+    ======================================== */
     function updateQuickShareSelect() {
         var sel = document.getElementById('quickShareSelect');
         var val = sel.value;
         var html = '<option value="">-- Pilih Tamu --</option>';
         guests.forEach(function(g) {
-            html += '<option value="' + g.id + '"' + (g.id === val ? ' selected' : '') + '>' + escapeHtml(g.name) + (g.phone ? ' (' + g.phone + ')' : '') + '</option>';
+            html += '<option value="' + g.id + '"' + (g.id === val ? ' selected' : '') + '>' +
+                escapeHtml(g.name) + (g.phone ? ' (' + g.phone + ')' : ' [tanpa nomor]') + '</option>';
         });
         sel.innerHTML = html;
         document.getElementById('btnQuickShare').disabled = !val;
@@ -945,108 +875,53 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
     function quickShareWhatsApp() {
         var id = document.getElementById('quickShareSelect').value;
         if (!id) return;
-        if (!ensureLink()) return;
         var guest = guests.find(function(g) { return g.id === id; });
         if (!guest) return;
+
         var msg = generateMessage(guest.name);
+
         if (guest.phone) {
+            // Punya nomor -> langsung kirim via wa.me
             openWaToNumber(guest.phone, msg);
-            guest.sent = true; saveData(); renderGuestTable();
-            showToast('WhatsApp dibuka untuk ' + guest.name, 'success');
+            showToast('WhatsApp dibuka untuk ' + guest.name + ' — pesan + link sudah terisi', 'success');
         } else {
+            // Tanpa nomor -> buka dialog share
             openWaShare(msg);
-            showToast('Share dialog dibuka untuk ' + guest.name, 'success');
+            showToast('Dialog share WA dibuka untuk ' + guest.name + ' — pilih kontak tujuan', 'success');
         }
+
+        guest.sent = true;
+        saveData();
+        renderGuestTable();
+
         var btn = document.getElementById('btnQuickShare');
         btn.classList.add('share-bounce');
         setTimeout(function() { btn.classList.remove('share-bounce'); }, 600);
     }
 
     function quickShareGeneric() {
-        if (!ensureLink()) return;
-        openWaShare(generateMessage('[Nama Teman]'));
-        showToast('Dialog share WhatsApp dibuka — pilih kontak tujuan', 'success');
+        // Share ke kontak lain tanpa nama spesifik
+        var msg = generateMessage('[Nama Teman]');
+        openWaShare(msg);
+        showToast('Dialog share WA dibuka — pilih kontak atau grup tujuan', 'success');
     }
 
-    function openShareModal() {
-        if (guests.length === 0) { showToast('Tambahkan tamu terlebih dahulu', 'error'); return; }
-        shareModalSelected = [];
-        document.getElementById('shareSearchInput').value = '';
-        document.getElementById('shareModal').classList.add('active');
-        renderShareList();
-    }
-
-    function closeShareModal() { document.getElementById('shareModal').classList.remove('active'); shareModalSelected = []; }
-
-    function renderShareList() {
-        var search = document.getElementById('shareSearchInput').value.toLowerCase().trim();
-        var container = document.getElementById('shareListContainer');
-        var filtered = guests.filter(function(g) { return !search || g.name.toLowerCase().indexOf(search) !== -1; });
-        if (filtered.length === 0) {
-            container.innerHTML = '<div class="empty-state" style="padding:30px 20px;"><i class="fas fa-user-group block" style="font-size:32px;"></i><p class="text-sm mt-2">Tidak ditemukan</p></div>';
-            return;
-        }
-        var html = '';
-        filtered.forEach(function(g) {
-            var checked = shareModalSelected.indexOf(g.id) !== -1;
-            html += '<div class="flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all" style="background:' + (checked ? 'var(--accent-dim)' : 'transparent') + '; border:1px solid ' + (checked ? 'var(--border-accent)' : 'transparent') + ';" onclick="toggleShareModalItem(\'' + g.id + '\')">';
-            html += '<input type="checkbox" class="custom-check" ' + (checked ? 'checked' : '') + ' onclick="event.stopPropagation(); toggleShareModalItem(\'' + g.id + '\')">';
-            html += '<div class="guest-avatar" style="width:34px; height:34px; font-size:13px;">' + g.name.charAt(0).toUpperCase() + '</div>';
-            html += '<div style="flex:1; min-width:0;"><p class="font-semibold text-sm truncate">' + escapeHtml(g.name) + '</p><p class="text-xs text-[#8A8480]">' + (g.phone || 'Tanpa nomor') + '</p></div>';
-            if (g.sent) html += '<span class="badge badge-sent" style="font-size:10px;"><i class="fas fa-check" style="font-size:7px;"></i> Terkirim</span>';
-            html += '</div>';
-        });
-        container.innerHTML = html;
-        updateShareModalBtn();
-    }
-
-    function toggleShareModalItem(id) {
-        var idx = shareModalSelected.indexOf(id);
-        if (idx === -1) shareModalSelected.push(id); else shareModalSelected.splice(idx, 1);
-        renderShareList();
-    }
-
-    function updateShareModalBtn() {
-        var btn = document.getElementById('btnShareModal');
-        var count = shareModalSelected.length;
-        btn.innerHTML = '<i class="fab fa-whatsapp text-lg"></i> Share ' + (count > 0 ? count + ' Tamu' : 'Sekarang');
-        btn.disabled = count === 0;
-        btn.style.opacity = count > 0 ? '1' : '0.5';
-    }
-
-    function shareSelectedFromModal() {
-        if (shareModalSelected.length === 0) return;
-        if (!ensureLink()) return;
-        if (shareModalSelected.length === 1) {
-            var g = guests.find(function(x) { return x.id === shareModalSelected[0]; });
-            if (!g) return;
-            if (g.phone) { openWaToNumber(g.phone, generateMessage(g.name)); g.sent = true; saveData(); } else { openWaShare(generateMessage(g.name)); }
-            showToast('WhatsApp dibuka untuk ' + g.name, 'success');
-        } else {
-            var withPhone = guests.filter(function(g) { return shareModalSelected.indexOf(g.id) !== -1 && g.phone; });
-            var withoutPhone = guests.filter(function(g) { return shareModalSelected.indexOf(g.id) !== -1 && !g.phone; });
-            if (withPhone.length > 0) {
-                var first = withPhone[0]; openWaToNumber(first.phone, generateMessage(first.name)); first.sent = true; saveData();
-                showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu.', 'info');
-            } else if (withoutPhone.length > 0) {
-                var g0 = withoutPhone[0]; openWaShare(generateMessage(g0.name));
-                showToast('Share dibuka untuk ' + g0.name + '. Sisa ' + (shareModalSelected.length - 1) + ' tamu.', 'info');
-            }
-        }
-        closeShareModal(); renderGuestTable();
-    }
-
+    /* ========================================
+       RENDER TABEL TAMU
+    ======================================== */
     function renderGuestTable() {
         var search = document.getElementById('searchGuest').value.toLowerCase().trim();
         var tbody = document.getElementById('guestTableBody');
         var empty = document.getElementById('emptyState');
         var table = document.getElementById('guestTable');
-        var filtered = guests.filter(function(g) { return g.name.toLowerCase().indexOf(search) !== -1 || (g.phone && g.phone.indexOf(search) !== -1); });
+        var filtered = guests.filter(function(g) {
+            return g.name.toLowerCase().indexOf(search) !== -1 || (g.phone && g.phone.indexOf(search) !== -1);
+        });
 
         if (filtered.length === 0) {
             table.style.display = 'none'; empty.style.display = 'block';
-            if (guests.length > 0 && search) { empty.querySelector('p:first-of-type').textContent = 'Tidak ditemukan'; empty.querySelector('p:last-of-type').textContent = 'Coba kata kunci lain'; }
-            else { empty.querySelector('p:first-of-type').textContent = 'Belum ada tamu'; empty.querySelector('p:last-of-type').textContent = 'Klik "Tambah" untuk mulai'; }
+            empty.querySelector('p:first-of-type').textContent = guests.length > 0 && search ? 'Tidak ditemukan' : 'Belum ada tamu';
+            empty.querySelector('p:last-of-type').textContent = guests.length > 0 && search ? 'Coba kata kunci lain' : 'Klik "Tambah" untuk mulai';
         } else { table.style.display = 'table'; empty.style.display = 'none'; }
 
         var html = '';
@@ -1056,27 +931,41 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
             if (g.sent) statusBadge = '<span class="badge badge-sent"><i class="fas fa-check" style="font-size:8px;"></i> Terkirim</span>';
             else if (g.phone) statusBadge = '<span class="badge badge-green"><i class="fas fa-phone" style="font-size:8px;"></i> Siap</span>';
             else statusBadge = '<span class="badge badge-gold"><i class="fas fa-clock" style="font-size:8px;"></i> Pending</span>';
+
             var actions = '';
-            if (g.phone) actions += '<button class="btn-wa-sm wa-tooltip" data-tip="Kirim WA langsung" onclick="sendSingleWA(\'' + g.id + '\')"><i class="fab fa-whatsapp"></i></button>';
+            // Tombol 1: WA langsung (hanya jika ada nomor)
+            if (g.phone) {
+                actions += '<button class="btn-wa-sm wa-tooltip" data-tip="Kirim WA langsung" onclick="sendSingleWA(\'' + g.id + '\')"><i class="fab fa-whatsapp"></i></button>';
+            }
+            // Tombol 2: SHARE WA (pilih kontak sendiri — selalu tampil)
             actions += '<button class="btn-wa-share wa-tooltip" data-tip="Share ke kontak WA" onclick="shareSingleWA(\'' + g.id + '\')"><i class="fas fa-share-nodes"></i>Share</button>';
+            // Tombol 3: Salin pesan
             actions += '<button class="btn-copy wa-tooltip" data-tip="Salin pesan + link" onclick="copySingleMessage(\'' + g.id + '\', this)"><i class="fas fa-copy"></i></button>';
+            // Tombol 4: Edit
             actions += '<button class="btn-icon btn-secondary wa-tooltip" data-tip="Edit" onclick="openEditModal(\'' + g.id + '\')"><i class="fas fa-pen" style="font-size:11px;"></i></button>';
+            // Tombol 5: Hapus
             actions += '<button class="btn-icon btn-danger wa-tooltip" data-tip="Hapus" onclick="deleteGuest(\'' + g.id + '\')"><i class="fas fa-trash" style="font-size:11px;"></i></button>';
-            html += '<tr id="row_' + g.id + '" class="' + (g.selected ? 'selected' : '') + '">';
+
+            html += '<tr class="' + (g.selected ? 'selected' : '') + '">';
             html += '<td><input type="checkbox" class="custom-check" ' + (g.selected ? 'checked' : '') + ' onchange="toggleGuestSelect(\'' + g.id + '\')"></td>';
             html += '<td><div class="guest-avatar">' + g.name.charAt(0).toUpperCase() + '</div></td>';
             html += '<td><strong>' + escapeHtml(g.name) + '</strong></td>';
             html += '<td style="font-size:13px; font-family:\'Courier New\',monospace;">' + phoneDisplay + '</td>';
             html += '<td>' + statusBadge + '</td>';
-            html += '<td><div style="display:flex; gap:4px; align-items:center; flex-wrap:nowrap;">' + actions + '</div></td>';
+            html += '<td><div style="display:flex; gap:4px; align-items:center;">' + actions + '</div></td>';
             html += '</tr>';
         });
         tbody.innerHTML = html;
-        updateStats(); updatePreviewGuestSelect(); updateQuickShareSelect();
+        updateStats();
+        updatePreviewGuestSelect();
+        updateQuickShareSelect();
     }
 
-    function escapeHtml(text) { var d = document.createElement('div'); d.textContent = text; return d.innerHTML; }
+    function escapeHtml(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
 
+    /* ========================================
+       STATISTIK
+    ======================================== */
     function updateStats() {
         var total = guests.length;
         var selected = guests.filter(function(g) { return g.selected; }).length;
@@ -1093,105 +982,108 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         document.getElementById('btnShareSelected').style.display = show ? 'inline-flex' : 'none';
         document.getElementById('btnCopySelected').style.display = show ? 'inline-flex' : 'none';
         if (show) {
-            var swp = guests.filter(function(g) { return g.selected && g.phone; }).length;
-            document.getElementById('btnSendSelected').style.opacity = swp > 0 ? '1' : '0.4';
+            document.getElementById('btnSendSelected').style.opacity = guests.filter(function(g) { return g.selected && g.phone; }).length > 0 ? '1' : '0.4';
         }
     }
 
-    function sendSingleWA(guestId) {
-        var g = guests.find(function(x) { return x.id === guestId; });
+    /* ========================================
+       AKSI PER TAMU
+    ======================================== */
+
+    // Kirim WA langsung ke nomor
+    function sendSingleWA(id) {
+        var g = guests.find(function(x) { return x.id === id; });
         if (!g || !g.phone) { showToast('Tidak ada nomor WA', 'error'); return; }
-        if (!ensureLink()) return;
-        openWaToNumber(g.phone, generateMessage(g.name));
+        var msg = generateMessage(g.name);
+        openWaToNumber(g.phone, msg);
         g.sent = true; saveData(); renderGuestTable();
-        showToast('WhatsApp dibuka untuk ' + g.name, 'success');
+        showToast('WhatsApp dibuka untuk ' + g.name + ' — pesan + link sudah terisi otomatis', 'success');
     }
 
-    function shareSingleWA(guestId) {
-        var g = guests.find(function(x) { return x.id === guestId; });
+    // Share WA — buka dialog pilih kontak
+    function shareSingleWA(id) {
+        var g = guests.find(function(x) { return x.id === id; });
         if (!g) return;
-        if (!ensureLink()) return;
-        openWaShare(generateMessage(g.name));
+        var msg = generateMessage(g.name);
+        openWaShare(msg);
         g.sent = true; saveData(); renderGuestTable();
-        showToast('Dialog share WA dibuka untuk ' + g.name, 'success');
+        showToast('Dialog share WA dibuka untuk ' + g.name + ' — link sudah ada di pesan, pilih kontak tujuan', 'success');
     }
 
-    function copySingleMessage(guestId, btnEl) {
-        var g = guests.find(function(x) { return x.id === guestId; });
+    // Salin pesan
+    function copySingleMessage(id, btnEl) {
+        var g = guests.find(function(x) { return x.id === id; });
         if (!g) return;
-        if (!ensureLink()) return;
         copyToClipboard(generateMessage(g.name), btnEl);
-        showCopiedBar(g.name, document.getElementById('inviteLink').value);
+        showCopiedBar(g.name, getLink());
     }
 
+    /* ========================================
+       AKSI MASSAL
+    ======================================== */
     function sendSelectedToWhatsApp() {
         var sel = guests.filter(function(g) { return g.selected && g.phone; });
         if (sel.length === 0) { showToast('Pilih tamu dengan nomor WA', 'error'); return; }
-        if (!ensureLink()) return;
         var first = sel[0];
         openWaToNumber(first.phone, generateMessage(first.name));
         first.sent = true; saveData(); renderGuestTable();
-        if (sel.length > 1) showToast('WA dibuka untuk ' + first.name + '. Sisa ' + (sel.length - 1) + ' — klik tombol WA di baris masing-masing.', 'info');
-        else showToast('WhatsApp dibuka untuk ' + first.name, 'success');
+        showToast(sel.length > 1 ? 'WA dibuka untuk ' + first.name + '. Sisa ' + (sel.length-1) + ' klik WA di baris masing-masing.' : 'WhatsApp dibuka untuk ' + first.name, 'success');
     }
 
     function shareSelectedFromTable() {
         var sel = guests.filter(function(g) { return g.selected; });
-        if (sel.length === 0) { showToast('Pilih tamu terlebih dahulu', 'error'); return; }
-        if (!ensureLink()) return;
-        if (sel.length === 1) {
-            var g = sel[0]; openWaShare(generateMessage(g.name)); g.sent = true; saveData(); renderGuestTable();
-            showToast('Dialog share WA dibuka untuk ' + g.name, 'success');
-        } else {
-            var g0 = sel[0]; openWaShare(generateMessage(g0.name)); g0.sent = true; saveData(); renderGuestTable();
-            showToast('Share dibuka untuk ' + g0.name + '. Untuk ' + (sel.length - 1) + ' tamu lainnya, klik "Share" di baris masing-masing.', 'info');
-        }
+        if (sel.length === 0) { showToast('Pilih tamu dulu', 'error'); return; }
+        var g0 = sel[0];
+        openWaShare(generateMessage(g0.name));
+        g0.sent = true; saveData(); renderGuestTable();
+        showToast(sel.length > 1 ? 'Share dibuka untuk ' + g0.name + '. Sisa ' + (sel.length-1) + ' klik Share di baris masing-masing.' : 'Dialog share WA dibuka untuk ' + g0.name, 'success');
     }
 
     function copySelectedMessages() {
         var sel = guests.filter(function(g) { return g.selected; });
         if (sel.length === 0) { showToast('Pilih tamu dulu', 'error'); return; }
-        if (!ensureLink()) return;
         var all = sel.map(function(g) { return generateMessage(g.name); }).join('\n\n═══════════════════════════\n\n');
         copyToClipboard(all, null);
-        var link = document.getElementById('inviteLink').value;
         var bar = document.getElementById('copiedLinkBar');
         bar.style.display = 'block';
-        bar.innerHTML = '<div class="copied-link-bar"><i class="fas fa-check-circle text-[#4ADE80] text-lg"></i><div style="flex:1;"><p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">' + sel.length + ' pesan disalin!</p><p class="link-text">' + escapeHtml(link) + '</p></div></div>';
-        showToast(sel.length + ' pesan disalin ke clipboard', 'success');
+        bar.innerHTML = '<div class="copied-link-bar"><i class="fas fa-check-circle text-[#4ADE80] text-lg"></i><div style="flex:1;"><p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">' + sel.length + ' pesan disalin (termasuk link)!</p><p class="link-text">' + escapeHtml(getLink()) + '</p></div></div>';
+        showToast(sel.length + ' pesan + link disalin ke clipboard', 'success');
         setTimeout(function() { bar.style.display = 'none'; }, 8000);
     }
 
+    /* ========================================
+       CLIPBOARD
+    ======================================== */
     function copyToClipboard(text, btnEl) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function() { onCopySuccess(btnEl); }).catch(function() { fallbackCopy(text, btnEl); });
-        } else { fallbackCopy(text, btnEl); }
+            navigator.clipboard.writeText(text).then(function() { onCopyOk(btnEl); }).catch(function() { fbCopy(text, btnEl); });
+        } else { fbCopy(text, btnEl); }
     }
-
-    function fallbackCopy(text, btnEl) {
+    function fbCopy(text, btnEl) {
         var ta = document.createElement('textarea');
         ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
         document.body.appendChild(ta); ta.focus(); ta.select();
-        try { document.execCommand('copy'); onCopySuccess(btnEl); } catch (e) { showToast('Gagal menyalin', 'error'); }
+        try { document.execCommand('copy'); onCopyOk(btnEl); } catch(e) { showToast('Gagal menyalin', 'error'); }
         document.body.removeChild(ta);
     }
-
-    function onCopySuccess(btnEl) {
-        if (btnEl) {
-            var orig = btnEl.innerHTML;
-            btnEl.classList.add('copied');
-            btnEl.innerHTML = '<i class="fas fa-check"></i><span>Tersalin</span>';
-            setTimeout(function() { btnEl.classList.remove('copied'); btnEl.innerHTML = orig; }, 2000);
-        }
+    function onCopyOk(btnEl) {
+        if (!btnEl) return;
+        var orig = btnEl.innerHTML;
+        btnEl.classList.add('copied');
+        btnEl.innerHTML = '<i class="fas fa-check"></i><span>Tersalin</span>';
+        setTimeout(function() { btnEl.classList.remove('copied'); btnEl.innerHTML = orig; }, 2000);
     }
 
     function showCopiedBar(name, link) {
         var bar = document.getElementById('copiedLinkBar');
         bar.style.display = 'block';
-        bar.innerHTML = '<div class="copied-link-bar"><i class="fas fa-check-circle text-[#4ADE80] text-lg"></i><div style="flex:1;"><p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">Pesan untuk ' + escapeHtml(name) + ' tersalin!</p><p class="link-text">' + escapeHtml(link) + '</p></div></div>';
+        bar.innerHTML = '<div class="copied-link-bar"><i class="fas fa-check-circle text-[#4ADE80] text-lg"></i><div style="flex:1;"><p style="font-size:14px; font-weight:600; color:var(--success); margin-bottom:2px;">Pesan untuk ' + escapeHtml(name) + ' tersalin (link sudah termasuk)!</p><p class="link-text">' + escapeHtml(link) + '</p></div></div>';
         setTimeout(function() { bar.style.display = 'none'; }, 8000);
     }
 
+    /* ========================================
+       MODAL TAMU
+    ======================================== */
     function openAddModal() {
         editingGuestId = null;
         document.getElementById('modalTitle').textContent = 'Tambah Tamu';
@@ -1201,15 +1093,14 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         setTimeout(function() { document.getElementById('modalGuestName').focus(); }, 200);
     }
 
-    function openEditModal(guestId) {
-        var g = guests.find(function(x) { return x.id === guestId; });
+    function openEditModal(id) {
+        var g = guests.find(function(x) { return x.id === id; });
         if (!g) return;
-        editingGuestId = guestId;
+        editingGuestId = id;
         document.getElementById('modalTitle').textContent = 'Edit Tamu';
         document.getElementById('modalGuestName').value = g.name;
         document.getElementById('modalGuestPhone').value = g.phone || '';
         document.getElementById('editModal').classList.add('active');
-        setTimeout(function() { document.getElementById('modalGuestName').focus(); }, 200);
     }
 
     function closeModal() { document.getElementById('editModal').classList.remove('active'); editingGuestId = null; }
@@ -1229,18 +1120,19 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         saveData(); renderGuestTable(); closeModal();
     }
 
-    function deleteGuest(guestId) {
-        var g = guests.find(function(x) { return x.id === guestId; });
-        if (!g) return;
-        if (!confirm('Hapus "' + g.name + '"?')) return;
-        guests = guests.filter(function(x) { return x.id !== guestId; });
+    /* ========================================
+       HAPUS & SELECT
+    ======================================== */
+    function deleteGuest(id) {
+        var g = guests.find(function(x) { return x.id === id; });
+        if (!g || !confirm('Hapus "' + g.name + '"?')) return;
+        guests = guests.filter(function(x) { return x.id !== id; });
         saveData(); renderGuestTable(); showToast('Tamu dihapus', 'info');
     }
 
     function deleteSelectedGuests() {
         var sel = guests.filter(function(g) { return g.selected; });
-        if (sel.length === 0) return;
-        if (!confirm('Hapus ' + sel.length + ' tamu?')) return;
+        if (!sel.length || !confirm('Hapus ' + sel.length + ' tamu?')) return;
         var ids = sel.map(function(g) { return g.id; });
         guests = guests.filter(function(g) { return ids.indexOf(g.id) === -1; });
         saveData(); renderGuestTable(); showToast(sel.length + ' tamu dihapus', 'info');
@@ -1266,21 +1158,26 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         saveData(); renderGuestTable();
     }
 
+    /* ========================================
+       IMPORT MASSAL
+    ======================================== */
     function bulkImportGuests() {
         var text = document.getElementById('bulkImport').value.trim();
         if (!text) { showToast('Masukkan daftar tamu', 'error'); return; }
-        var lines = text.split('\n').filter(function(l) { return l.trim(); });
         var count = 0;
-        lines.forEach(function(line) {
-            var parts = line.split(',');
-            var name = (parts[0] || '').trim();
-            var phone = (parts[1] || '').trim().replace(/[^0-9]/g, '') || null;
+        text.split('\n').filter(function(l) { return l.trim(); }).forEach(function(line) {
+            var p = line.split(',');
+            var name = (p[0] || '').trim();
+            var phone = (p[1] || '').trim().replace(/[^0-9]/g, '') || null;
             if (name) { guests.push({ id: generateId(), name: name, phone: phone, selected: false, sent: false }); count++; }
         });
         if (count > 0) { saveData(); renderGuestTable(); document.getElementById('bulkImport').value = ''; showToast(count + ' tamu diimport', 'success'); }
         else showToast('Tidak ada data valid', 'error');
     }
 
+    /* ========================================
+       PREVIEW
+    ======================================== */
     function updatePreview() {
         var sel = document.getElementById('previewGuestSelect').value;
         var manual = document.getElementById('previewManualName').value.trim();
@@ -1288,7 +1185,7 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         var msg = generateMessage(name);
         var box = document.getElementById('previewBox');
         var h = msg.replace(new RegExp(escapeRegex(name), 'g'), '<span class="highlight-name">' + escapeHtml(name) + '</span>');
-        var link = document.getElementById('inviteLink').value;
+        var link = getLink();
         if (link) h = h.replace(new RegExp(escapeRegex(link), 'g'), '<span style="color:#25D366; text-decoration:underline;">' + escapeHtml(link) + '</span>');
         box.innerHTML = h || '<span class="text-[#8A8480]">Isi pengaturan dan template...</span>';
     }
@@ -1303,8 +1200,11 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         sel.innerHTML = html;
     }
 
+    /* ========================================
+       THUMBNAIL & META TAGS
+    ======================================== */
     function switchThumbTab(t) {
-        ['url','upload','preview','code'].forEach(function(x) {
+        ['url','preview','code'].forEach(function(x) {
             document.getElementById('panel' + x.charAt(0).toUpperCase() + x.slice(1)).classList.remove('active');
             document.getElementById('tab' + x.charAt(0).toUpperCase() + x.slice(1)).classList.remove('active');
         });
@@ -1316,12 +1216,12 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         var url = document.getElementById('thumbUrl').value.trim();
         var el = document.getElementById('thumbUrlPreviewImg');
         if (url) {
-            el.innerHTML = '<img src="' + escapeHtml(url) + '" alt="Thumb" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i><span class=\\\'text-xs\\\'>Gagal memuat</span></div>\'">';
+            el.innerHTML = '<img src="' + escapeHtml(url) + '" alt="Thumb" onerror="this.parentElement.innerHTML=\'<div style=\\\'color:#E05252; text-align:center; padding:20px;\\\'><i class=\\\'fas fa-exclamation-triangle\\\' style=\\\'font-size:24px\\\'></i><p style=\\\'font-size:12px; margin-top:8px;\\\'>Gagal memuat gambar</p></div>\'">';
             document.getElementById('metaStatusDot').style.background = 'var(--success)';
             document.getElementById('metaStatusText').style.color = 'var(--success)';
             document.getElementById('metaStatusText').textContent = 'Gambar terdeteksi';
         } else {
-            el.innerHTML = '<div class="flex flex-col items-center gap-2 text-[#8A8480]"><i class="fas fa-image text-3xl opacity-30"></i><span class="text-xs">Masukkan URL</span></div>';
+            el.innerHTML = '<div style="color:var(--fg-muted); text-align:center;"><i class="fas fa-image" style="font-size:30px; opacity:0.3;"></i><p style="font-size:12px; margin-top:8px;">Masukkan URL</p></div>';
             document.getElementById('metaStatusDot').style.background = 'var(--danger)';
             document.getElementById('metaStatusText').style.color = 'var(--danger)';
             document.getElementById('metaStatusText').textContent = 'Belum ada gambar';
@@ -1329,46 +1229,23 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         updateMetaTags();
     }
 
-    function handleThumbUpload(e) {
-        var f = e.target.files[0]; if (!f) return;
-        if (f.size > 5*1024*1024) { showToast('Max 5MB', 'error'); return; }
-        var r = new FileReader();
-        r.onload = function(ev) { thumbnailData = ev.target.result; showThumbnail(thumbnailData); saveData(); showToast('Thumbnail diupload', 'success'); };
-        r.readAsDataURL(f);
-    }
-
-    function showThumbnail(data) {
-        document.getElementById('thumbPreview').src = data;
-        document.getElementById('thumbPreview').style.display = 'block';
-        document.getElementById('thumbPlaceholder').style.display = 'none';
-        document.getElementById('removeThumbBtn').style.display = 'inline-flex';
-    }
-
-    function removeThumbnail() {
-        thumbnailData = null;
-        document.getElementById('thumbPreview').style.display = 'none';
-        document.getElementById('thumbPlaceholder').style.display = 'flex';
-        document.getElementById('removeThumbBtn').style.display = 'none';
-        document.getElementById('thumbInput').value = '';
-        saveData(); showToast('Thumbnail dihapus', 'info');
-    }
-
     function updateMetaTags() {
         var url = document.getElementById('thumbUrl').value.trim() || DEFAULT_THUMB;
         var alt = document.getElementById('thumbAlt').value.trim() || 'Foto Bersama Siswa - Undangan Event';
         var ogT = document.getElementById('ogTitleInput').value.trim() || (document.getElementById('schoolName').value ? 'Undangan ' + document.getElementById('schoolName').value : 'Undangan Event');
         var ogD = document.getElementById('ogDescInput').value.trim();
-        if (!document.getElementById('ogDescInput').value.trim()) {
+        if (!ogD) {
             ogD = 'Anda diundang untuk menghadiri acara spesial kami.';
             var d = document.getElementById('eventDate').value.trim();
             var p = document.getElementById('eventPlace').value.trim();
             if (d) ogD += ' Tanggal: ' + d + '.';
             if (p) ogD += ' Tempat: ' + p + '.';
         }
-        var invLink = document.getElementById('inviteLink').value.trim() || DEFAULT_LINK;
+        var invLink = getLink();
         var domain = 'GITHUB.IO';
-        try { if (invLink) domain = new URL(invLink).hostname.toUpperCase(); } catch(e) {}
+        try { domain = new URL(invLink).hostname.toUpperCase(); } catch(e) {}
 
+        // Update meta tags di <head>
         document.getElementById('ogTitle').setAttribute('content', ogT);
         document.getElementById('ogDescription').setAttribute('content', ogD);
         document.getElementById('ogImage').setAttribute('content', url);
@@ -1378,35 +1255,33 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         document.getElementById('twitterDescription').setAttribute('content', ogD);
         document.getElementById('twitterImage').setAttribute('content', url);
 
-        document.getElementById('metaPreviewDomain').textContent = domain;
-        document.getElementById('metaPreviewTitle').textContent = ogT;
-        document.getElementById('metaPreviewDesc').textContent = ogD;
-        document.getElementById('ogPreviewDomain').textContent = domain;
-        document.getElementById('ogPreviewTitle2').textContent = ogT;
-        document.getElementById('ogPreviewDesc2').textContent = ogD;
-        document.getElementById('twPreviewTitle').textContent = ogT;
-        document.getElementById('twPreviewDesc').textContent = ogD;
+        // Update preview cards
+        var domains = ['metaPreviewDomain', 'ogPreviewDomain'];
+        var titles = ['metaPreviewTitle', 'ogPreviewTitle2', 'twPreviewTitle'];
+        var descs = ['metaPreviewDesc', 'ogPreviewDesc2', 'twPreviewDesc'];
+        domains.forEach(function(id) { document.getElementById(id).textContent = domain; });
+        titles.forEach(function(id) { document.getElementById(id).textContent = ogT; });
+        descs.forEach(function(id) { document.getElementById(id).textContent = ogD; });
 
+        // Update preview images
         if (url) {
-            var imgTag = '<img src="' + escapeHtml(url) + '" alt="OG" onerror="this.parentElement.innerHTML=\'<div class=\\\'flex flex-col items-center gap-2 text-[#E05252]\\\'><i class=\\\'fas fa-exclamation-triangle text-2xl\\\'></i></div>\'">';
-            document.getElementById('ogPreviewImg').innerHTML = imgTag;
-            document.getElementById('twPreviewImg').innerHTML = imgTag;
+            var imgHtml = '<img src="' + escapeHtml(url) + '" alt="OG" onerror="this.parentElement.innerHTML=\'<div style=\\\'color:#E05252; text-align:center;\\\'><i class=\\\'fas fa-exclamation-triangle\\\'></i></div>\'">';
+            document.getElementById('ogPreviewImg').innerHTML = imgHtml;
+            document.getElementById('twPreviewImg').innerHTML = imgHtml;
         }
 
-        var code = '';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:type"</span> <span class="tag-attr">content</span>=<span class="tag-val">"website"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tab-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:width"</span> <span class="tag-attr">content</span>=<span class="tag-val">"1200"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:height"</span> <span class="tag-attr">content</span>=<span class="tag-val">"630"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:alt"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(alt) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        if (invLink) code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:url"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(invLink) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:card"</span> <span class="tag-attr">content</span>=<span class="tag-val">"summary_large_image"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
-        code += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>';
-        document.getElementById('metaTagDisplay').innerHTML = code;
+        // Generate kode meta tag
+        var c = '';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:type"</span> <span class="tag-attr">content</span>=<span class="tag-val">"website"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:title"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogT) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:description"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(ogD) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:width"</span> <span class="tag-attr">content</span>=<span class="tag-val">"1200"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:image:height"</span> <span class="tag-attr">content</span>=<span class="tag-val">"630"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">property</span>=<span class="tag-val">"og:url"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(invLink) + '"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tab-attr">name</span>=<span class="tag-val">"twitter:card"</span> <span class="tag-attr">content</span>=<span class="tag-val">"summary_large_image"</span> <span class="tag-name">/&gt;</span>\n';
+        c += '<span class="tag-name">&lt;meta</span> <span class="tag-attr">name</span>=<span class="tag-val">"twitter:image"</span> <span class="tag-attr">content</span>=<span class="tag-val">"' + escapeHtml(url) + '"</span> <span class="tag-name">/&gt;</span>';
+        document.getElementById('metaTagDisplay').innerHTML = c;
     }
 
     function copyMetaTags() {
@@ -1414,9 +1289,11 @@ Ditunggu konfirmasi dan kedatangannya ya! Terima kasih.</textarea>
         showToast('Kode meta tag disalin', 'success');
     }
 
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); closeShareModal(); } });
+    /* ========================================
+       KEYBOARD & INIT
+    ======================================== */
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
     document.getElementById('editModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-    document.getElementById('shareModal').addEventListener('click', function(e) { if (e.target === this) closeShareModal(); });
 
     loadData();
     renderGuestTable();
